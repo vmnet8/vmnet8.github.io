@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-21T05:26:58.596Z</updated>
+  <updated>2017-12-21T06:06:50.922Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2017/12/20/The-fourth-post/"/>
     <id>http://yoursite.com/2017/12/20/The-fourth-post/</id>
     <published>2017-12-20T22:27:44.000Z</published>
-    <updated>2017-12-21T05:26:58.596Z</updated>
+    <updated>2017-12-21T06:06:50.922Z</updated>
     
     <summary type="html">
     
@@ -35,10 +35,12 @@
     
     </summary>
     
-      <category term="-life" scheme="http://yoursite.com/categories/life/"/>
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
     
     
-      <category term="-hexo -image" scheme="http://yoursite.com/tags/hexo-image/"/>
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="image" scheme="http://yoursite.com/tags/image/"/>
     
   </entry>
   
@@ -47,7 +49,7 @@
     <link href="http://yoursite.com/2017/12/20/The-third-blog/"/>
     <id>http://yoursite.com/2017/12/20/The-third-blog/</id>
     <published>2017-12-20T20:06:37.000Z</published>
-    <updated>2017-12-20T20:07:42.598Z</updated>
+    <updated>2017-12-21T06:13:02.545Z</updated>
     
     <summary type="html">
     
@@ -70,8 +72,8 @@
     <title>The second blog</title>
     <link href="http://yoursite.com/2017/12/20/The-second-blog/"/>
     <id>http://yoursite.com/2017/12/20/The-second-blog/</id>
-    <published>2017-12-20T20:03:07.090Z</published>
-    <updated>2017-12-20T20:03:07.062Z</updated>
+    <published>2017-12-20T19:58:11.000Z</published>
+    <updated>2017-12-21T06:12:56.073Z</updated>
     
     <summary type="html">
     
@@ -80,8 +82,7 @@
         
         
           &lt;p&gt;The second day for testing blog&lt;/p&gt;
-&lt;p&gt;date: 2017-12-20 11:58:11&lt;/p&gt;
-&lt;h2 id=&quot;tags&quot;&gt;&lt;a href=&quot;#tags&quot; class=&quot;headerlink&quot;
+&lt;h2 id=&quot;larger-font&quot;&gt;&lt;a href=&quot;#larger-font&quot; class=&quot;headerlink&quot; title=&quot;larger font&quot;&gt;&lt;/a&gt;larger
         
       
     
@@ -95,7 +96,7 @@
     <link href="http://yoursite.com/2017/12/19/My-first-blog/"/>
     <id>http://yoursite.com/2017/12/19/My-first-blog/</id>
     <published>2017-12-20T04:02:16.000Z</published>
-    <updated>2017-12-21T05:13:49.446Z</updated>
+    <updated>2017-12-21T06:07:13.682Z</updated>
     
     <summary type="html">
     
@@ -110,10 +111,12 @@
     
     </summary>
     
-      <category term="-life" scheme="http://yoursite.com/categories/life/"/>
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
     
     
-      <category term="-hexo -blog" scheme="http://yoursite.com/tags/hexo-blog/"/>
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
     
   </entry>
   

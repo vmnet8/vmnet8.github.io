@@ -5,10 +5,11 @@
     <url>%2F2017%2F12%2F20%2FThe-fourth-post%2F</url>
     <content type="text"><![CDATA[]]></content>
       <categories>
-        <category>-life</category>
+        <category>life</category>
       </categories>
       <tags>
-        <tag>-hexo -image</tag>
+        <tag>hexo</tag>
+        <tag>image</tag>
       </tags>
   </entry>
   <entry>
@@ -19,17 +20,18 @@
   <entry>
     <title><![CDATA[The second blog]]></title>
     <url>%2F2017%2F12%2F20%2FThe-second-blog%2F</url>
-    <content type="text"><![CDATA[The second day for testing blog date: 2017-12-20 11:58:11 tags:larger fontsmall largest fontsmall]]></content>
+    <content type="text"><![CDATA[The second day for testing blog larger fontsmall largest fontsmall]]></content>
   </entry>
   <entry>
     <title><![CDATA[My first blog]]></title>
     <url>%2F2017%2F12%2F19%2FMy-first-blog%2F</url>
     <content type="text"><![CDATA[This is blog content larger fontlarger one fontsmall 2323 23232424 323]]></content>
       <categories>
-        <category>-life</category>
+        <category>life</category>
       </categories>
       <tags>
-        <tag>-hexo -blog</tag>
+        <tag>hexo</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
