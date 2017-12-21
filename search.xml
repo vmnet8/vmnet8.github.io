@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[The fourth post]]></title>
+    <url>%2F2017%2F12%2F20%2FThe-fourth-post%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>-life</category>
+      </categories>
+      <tags>
+        <tag>-hexo -image</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[The third blog]]></title>
+    <url>%2F2017%2F12%2F20%2FThe-third-blog%2F</url>
+    <content type="text"><![CDATA[test again. fontlarge fontlarge]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[The second blog]]></title>
+    <url>%2F2017%2F12%2F20%2FThe-second-blog%2F</url>
+    <content type="text"><![CDATA[The second day for testing blog date: 2017-12-20 11:58:11 tags:larger fontsmall largest fontsmall]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[My first blog]]></title>
+    <url>%2F2017%2F12%2F19%2FMy-first-blog%2F</url>
+    <content type="text"><![CDATA[This is blog content larger fontlarger one fontsmall 2323 23232424 323]]></content>
+      <categories>
+        <category>-life</category>
+      </categories>
+      <tags>
+        <tag>-hexo -blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F12%2F19%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>

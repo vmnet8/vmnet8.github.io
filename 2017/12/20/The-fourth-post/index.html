@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-hexo -image," />
 
 
 
@@ -81,16 +81,17 @@
 
 
 
+<meta name="keywords" content="-hexo -image">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The fourth post">
 <meta property="og:url" content="http://yoursite.com/2017/12/20/The-fourth-post/index.html">
 <meta property="og:site_name" content="Anna&#39;s tech blog">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/12/20/The-fourth-post/searchicon.png">
-<meta property="og:updated_time" content="2017-12-20T22:32:55.134Z">
+<meta property="og:image" content="http://yoursite.com/2017/12/20/The-fourth-post/penguins.jpg">
+<meta property="og:updated_time" content="2017-12-21T05:26:58.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The fourth post">
-<meta name="twitter:image" content="http://yoursite.com/2017/12/20/The-fourth-post/searchicon.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/20/The-fourth-post/penguins.jpg">
 
 
 
@@ -337,6 +338,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">-life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -380,7 +403,7 @@
       
 
       
-        <img src="/2017/12/20/The-fourth-post/searchicon.png" title="This is an example image">
+        <img src="/2017/12/20/The-fourth-post/penguins.jpg" title="This is an example image">
 
       
     </div>
@@ -395,6 +418,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo-image/" rel="tag"># -hexo -image</a>
+          
+        </div>
       
 
       
@@ -502,7 +531,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -759,7 +806,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
