@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Anna&#39;s tech blog</title>
+  <title>Anna X</title>
   
-  <subtitle>My tech Blog</subtitle>
+  <subtitle>Anna&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-21T06:06:50.922Z</updated>
+  <updated>2017-12-22T05:26:36.123Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,106 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>The fourth post</title>
-    <link href="http://yoursite.com/2017/12/20/The-fourth-post/"/>
-    <id>http://yoursite.com/2017/12/20/The-fourth-post/</id>
-    <published>2017-12-20T22:27:44.000Z</published>
-    <updated>2017-12-21T06:06:50.922Z</updated>
+    <title>Decorating my blog with Hexo - theme, features, tips</title>
+    <link href="http://yoursite.com/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/"/>
+    <id>http://yoursite.com/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/</id>
+    <published>2017-12-22T02:39:37.000Z</published>
+    <updated>2017-12-22T05:26:36.123Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;img src=&quot;/2017/12/20/The-fourth-post/penguins.jpg&quot; title=&quot;This is an example
-        
-      
+      &lt;h3 id=&quot;Change-hexo-blog-theme-NexT&quot;&gt;&lt;a href=&quot;#Change-hexo-blog-theme-NexT&quot; class=&quot;headerlink&quot; title=&quot;Change hexo blog theme - NexT&quot;&gt;&lt;/a&gt;Change hexo blog theme - NexT&lt;/h3&gt;&lt;p&gt;Change to hexo blog theme &lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;NexT&lt;/a&gt; which has neat look and supports a lot cool features.&lt;br&gt;Download the theme&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/iissnan/hexo-theme-next themes/next&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Edit blog configuration file _config.yml, change to theme from the default langscape to next&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;theme: next&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Edit theme configuration file themes/next/_config.yml, change list scheme from default Muse to Pisces, see more about &lt;a href=&quot;https://github.com/iissnan/hexo-theme-next&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;NexT theme scheme&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Schemes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#scheme: Muse&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#scheme: Mist&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scheme: Pisces&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;I prefer the scheme Pisces because it has menu and links and other stuff showing on left side of the blog content.&lt;/p&gt;
     
     </summary>
     
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="image" scheme="http://yoursite.com/tags/image/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The third blog</title>
-    <link href="http://yoursite.com/2017/12/20/The-third-blog/"/>
-    <id>http://yoursite.com/2017/12/20/The-third-blog/</id>
-    <published>2017-12-20T20:06:37.000Z</published>
-    <updated>2017-12-21T06:13:02.545Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;test again.&lt;/p&gt;
-&lt;h2 id=&quot;font&quot;&gt;&lt;a href=&quot;#font&quot; class=&quot;headerlink&quot; title=&quot;font&quot;&gt;&lt;/a&gt;font&lt;/h2&gt;&lt;p&gt;large&lt;/p&gt;
-&lt;h5 id=&quot;font-1&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The second blog</title>
-    <link href="http://yoursite.com/2017/12/20/The-second-blog/"/>
-    <id>http://yoursite.com/2017/12/20/The-second-blog/</id>
-    <published>2017-12-20T19:58:11.000Z</published>
-    <updated>2017-12-21T06:12:56.073Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;The second day for testing blog&lt;/p&gt;
-&lt;h2 id=&quot;larger-font&quot;&gt;&lt;a href=&quot;#larger-font&quot; class=&quot;headerlink&quot; title=&quot;larger font&quot;&gt;&lt;/a&gt;larger
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>My first blog</title>
-    <link href="http://yoursite.com/2017/12/19/My-first-blog/"/>
-    <id>http://yoursite.com/2017/12/19/My-first-blog/</id>
-    <published>2017-12-20T04:02:16.000Z</published>
-    <updated>2017-12-21T06:07:13.682Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This is blog content&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;larger-font&quot;&gt;&lt;a href=&quot;#larger-font&quot; class=&quot;headerlink&quot; title=&quot;larger font&quot;&gt;&lt;/a&gt;larger
-        
-      
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
       <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>First blog - Setting up my github pages blog with Hexo</title>
+    <link href="http://yoursite.com/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/"/>
+    <id>http://yoursite.com/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/</id>
+    <published>2017-12-22T02:33:18.000Z</published>
+    <updated>2017-12-22T05:36:39.145Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;h4 id=&quot;Github-pages&quot;&gt;&lt;a href=&quot;#Github-pages&quot; class=&quot;headerlink&quot; title=&quot;Github pages&quot;&gt;&lt;/a&gt;Github pages&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github pages&lt;/a&gt; is a github service that can host personal or project web pages directly from a github repository. This is ideal place to host my blog site because it is fast, and I will have a &lt;username&gt;github.io domain, and there are some really cool blog frameworks that support deploying blog site to Github Pages.&lt;/username&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot; title=&quot;Hexo&quot;&gt;&lt;/a&gt;Hexo&lt;/h4&gt;&lt;p&gt;The most popular blog framework that supports github pages is Jekyll It seems, because it is officially recommended by github.  But I found another framework &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;, which compared to Jekyll, is similar but much easier to use, I only need to know 4 commands,&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo n # new post&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo g # generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo s # server&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo d # deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;After I checked out some Hexo built blog sites, I decied to go with Hexo.  Hexo is wirtten in node.js, and it supports a lot powerfull plugins and has cool themes.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
