@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-22T05:26:36.123Z</updated>
+  <updated>2018-01-09T06:58:32.249Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Making charts with python matplotlib</title>
+    <link href="http://yoursite.com/2018/01/08/Making-charts-with-python-matplotlib/"/>
+    <id>http://yoursite.com/2018/01/08/Making-charts-with-python-matplotlib/</id>
+    <published>2018-01-09T06:55:35.000Z</published>
+    <updated>2018-01-09T06:58:32.249Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;About-matplotlib&quot;&gt;&lt;a href=&quot;#About-matplotlib&quot; class=&quot;headerlink&quot; title=&quot;About matplotlib&quot;&gt;&lt;/a&gt;About matplotlib&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://matplotlib.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Matplotlib&lt;/a&gt; is a python plotting library which can help generate plots, and charts. &lt;/p&gt;
+&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot; title=&quot;Installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;&lt;p&gt;Install python3 matplotlib on my Ubuntu 16.04 box&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt install python3-matplotlib&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Creating-a-simple-chart-in-python-shell&quot;&gt;&lt;a href=&quot;#Creating-a-simple-chart-in-python-shell&quot; class=&quot;headerlink&quot; title=&quot;Creating a simple chart in python shell&quot;&gt;&lt;/a&gt;Creating a simple chart in python shell&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ python3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Python &lt;span class=&quot;number&quot;&gt;3.5&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.2&lt;/span&gt; (default, Nov &lt;span class=&quot;number&quot;&gt;23&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2017&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;37&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;01&lt;/span&gt;) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[GCC &lt;span class=&quot;number&quot;&gt;5.4&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;20160609&lt;/span&gt;] on linux&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Type &lt;span class=&quot;string&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;credits&quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; plt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;plt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;module &lt;span class=&quot;string&quot;&gt;&#39;matplotlib.pyplot&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;/usr/lib/python3/dist-packages/matplotlib/pyplot.py&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;x = range(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;# create X coordinate data&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;y = [ i*i &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; x ] &lt;span class=&quot;comment&quot;&gt;# create Y coordinate data with square of data on X.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;plt.plot(x, y)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&amp;lt;matplotlib.lines.Line2D object at &lt;span class=&quot;number&quot;&gt;0x7f4f7d4433c8&lt;/span&gt;&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;plt.show()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Then I got the chart&lt;br&gt;&lt;img src=&quot;/2018/01/08/Making-charts-with-python-matplotlib/plot_example.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Decorating my blog with Hexo - theme, features, tips</title>
