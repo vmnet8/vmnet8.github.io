@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="I need to simulate a npm repo to test codes. The following steps are how to create a npm repo. Create a npm accountGo to npmjs.com, click “join for free”, then create your account. The weird thing is">
+<meta name="keywords" content="npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Create npm repo">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;10&#x2F;19&#x2F;Create-npm-repo&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="I need to simulate a npm repo to test codes. The following steps are how to create a npm repo. Create a npm accountGo to npmjs.com, click “join for free”, then create your account. The weird thing is">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-23T21:26:31.000Z">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vmnet8.github.io/2019/10/19/Create-npm-repo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Create npm repo | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">10</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/10/19/Create-npm-repo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Create npm repo
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-19 09:12:43" itemprop="dateCreated datePublished" datetime="2019-10-19T09:12:43-07:00">2019-10-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-23 14:26:31" itemprop="dateModified" datetime="2019-10-23T14:26:31-07:00">2019-10-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/10/19/Create-npm-repo/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/19/Create-npm-repo/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>I need to simulate a npm repo to test codes. The following steps are how to create a npm repo.</p>
+<h4 id="Create-a-npm-account"><a href="#Create-a-npm-account" class="headerlink" title="Create a npm account"></a>Create a npm account</h4><p>Go to <a href="npmjs.com">npmjs.com</a>, click “join for free”, then create your account. The weird thing is the password needs at least 10 characters!</p>
+<h4 id="Create-a-npm-repo-on-your-local-terminal"><a href="#Create-a-npm-repo-on-your-local-terminal" class="headerlink" title="Create a npm repo on your local terminal"></a>Create a npm repo on your local terminal</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir npm_own</span><br></pre></td></tr></table></figure>
+<h4 id="Copy-github-com-treehouses-cli-package-json-url-to-local"><a href="#Copy-github-com-treehouses-cli-package-json-url-to-local" class="headerlink" title="Copy github.com/treehouses/cli package.json url to local"></a>Copy github.com/treehouses/cli package.json url to local</h4><p>Because I want to test the code on github.com/treehouses/cli and don’t want to mess up the current repo, I copy the url to my local</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/treehouses/cli/blob/master/package.json</span><br></pre></td></tr></table></figure>
+<h4 id="Create-your-own-package-json"><a href="#Create-your-own-package-json" class="headerlink" title="Create your own package.json"></a>Create your own package.json</h4><p>I try to create a repo named “flyingsaucer8”.<br>Using vim to make my own package.json based on treehouses package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;flyingsaucer8&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.6&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;flyingsaucer&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;cli.sh&quot;,</span><br><span class="line">  &quot;bin&quot;: &#123;</span><br><span class="line">    &quot;flyingsaucer&quot;: &quot;cli.sh&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;publishConfig&quot;: &#123;</span><br><span class="line">    &quot;access&quot;: &quot;public&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/vmnet8/flyingsaucer.git&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;postinstall&quot;: &quot;if [ $(id -u) = 0 ]; then ln -sr _flyingsaucer /etc/bash_completion.d/_flyingsaucer; fi &amp;&amp; exit 0&quot;,</span><br><span class="line">    &quot;postuninstall&quot;: &quot;if [ $(id -u) = 0 ]; then rm /etc/bash_completion.d/_flyingsaucer; fi &amp;&amp; exit 0&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;keywords&quot;: [</span><br><span class="line">    &quot;flyingsaucer&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;author&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;flyingsaucer team&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;alien@flyingsaucer.io&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://flyingsaucer.io&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;license&quot;: &quot;AGPL-3.0&quot;,</span><br><span class="line">  &quot;bugs&quot;: &#123;</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/vmnet8/flyingsaucer/issues&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;alien@flyingsaucer.io&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;homepage&quot;: &quot;https://github.com/vmnet8/flyingsaucer&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="npm-publish"><a href="#npm-publish" class="headerlink" title="npm publish"></a>npm publish</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pi@treehouses:~/git_repo/npm_own:npm login</span><br><span class="line">Username:vmnet8</span><br><span class="line">password:</span><br><span class="line">Email:(This IS Public)vmnet8@gmail.com</span><br><span class="line">Logged in as vmnet8 on https://registry.npmjs.org/.</span><br></pre></td></tr></table></figure>
+<p>then you can publish your repo to npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi@treehouses:~/git_repo/npm_own:npm publish --access=public</span><br></pre></td></tr></table></figure>
+
+<p>Right now, you know how to push your code to npmjs repo</p>
+<h3 id="copy-other-code-from-github-com-treehouses-cli"><a href="#copy-other-code-from-github-com-treehouses-cli" class="headerlink" title="copy other code from github.com/treehouses/cli"></a>copy other code from github.com/treehouses/cli</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/treehouses/cli/blob/master/cli.sh</span><br><span class="line">wget https://github.com/treehouses/cli/blob/master/_treehouses</span><br></pre></td></tr></table></figure>
+<p>I need to copy globals.sh and other modules, I only copied speedtest and detectpi.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/treehouses/cli/blob/master/modules/speedtest.sh</span><br><span class="line">wget https://github.com/treehouses/cli/blob/master/modules/globals.sh</span><br><span class="line">wget https:eehouses/cli/blob/master/modules/detectrpi.sh</span><br></pre></td></tr></table></figure>
+<h4 id="change-the-cli-sh-and-treehouses-to-fit-my-situation"><a href="#change-the-cli-sh-and-treehouses-to-fit-my-situation" class="headerlink" title="change the cli.sh and _treehouses to fit my situation"></a>change the cli.sh and _treehouses to fit my situation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">SCRIPTPATH=$(realpath &quot;$0&quot;)</span><br><span class="line">SCRIPTFOLDER=$(dirname &quot;$SCRIPTPATH&quot;)</span><br><span class="line"></span><br><span class="line">source &quot;$SCRIPTFOLDER/modules/globals.sh&quot; </span><br><span class="line">source &quot;$SCRIPTFOLDER/modules/detectrpi.sh&quot; </span><br><span class="line">source &quot;$SCRIPTFOLDER/modules/speedtest.sh&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line">  detectrpi)</span><br><span class="line">    detectrpi</span><br><span class="line">    ;;</span><br><span class="line">  speedtest)</span><br><span class="line">    shift</span><br><span class="line">    speedtest &quot;$@&quot;</span><br><span class="line">    ;;</span><br><span class="line">  help)</span><br><span class="line">    help &quot;$2&quot;</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    help</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<p>Notice: I am supposed to keep globals.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">_treehouses_complete()</span><br><span class="line">&#123;</span><br><span class="line">  local cur prev</span><br><span class="line"></span><br><span class="line">  # Valid top-level completions</span><br><span class="line">  commands=&quot;detectpi speedtest&quot;</span><br><span class="line">  help_cmds=&quot;detectpi speedtest&quot;</span><br><span class="line"></span><br><span class="line"># services_cmds=&quot;&quot; Think about it, a little bit complicated</span><br><span class="line"></span><br><span class="line"># upgrade_cmds=&quot;&quot; I am not sure whether we should put autocompletion here.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  COMPREPLY=()</span><br><span class="line">  cur=$&#123;COMP_WORDS[COMP_CWORD]&#125;</span><br><span class="line">  prev=$&#123;COMP_WORDS[COMP_CWORD-1]&#125;</span><br><span class="line"></span><br><span class="line">  if [ $COMP_CWORD -eq 1 ]</span><br><span class="line">  then</span><br><span class="line">    COMPREPLY=( $(compgen -W &quot;$&#123;commands&#125;&quot; -- $cur) )</span><br><span class="line">  elif [ $COMP_CWORD -eq 2 ]</span><br><span class="line">  then</span><br><span class="line">    case &quot;$prev&quot; in</span><br><span class="line">      &quot;help&quot;)</span><br><span class="line">        COMPREPLY=( $(compgen -W &quot;$help_cmds&quot; -- $cur) )</span><br><span class="line">        ;;</span><br><span class="line">      &quot;*&quot;)</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">  elif [ $COMP_CWORD -eq 3 ]</span><br><span class="line">  then</span><br><span class="line">    case &quot;$prev&quot; in</span><br><span class="line">      &quot;console&quot;)</span><br><span class="line">        COMPREPLY=( $(compgen -W &quot;$bootoption_second_cmds&quot; -- $cur) )</span><br><span class="line">        ;;</span><br><span class="line">      &quot;desktop&quot;)</span><br><span class="line">        COMPREPLY=( $(compgen -W &quot;$bootoption_second_cmds&quot; -- $cur) )</span><br><span class="line">        ;;</span><br><span class="line">      &quot;notice&quot;)</span><br><span class="line">        COMPREPLY=( $(compgen -W &quot;$notice_cmds&quot; -- $cur) )</span><br><span class="line">        ;;</span><br><span class="line">      &quot;*&quot;)</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">	complete -F _treehouses_complete treehouses</span><br></pre></td></tr></table></figure>
+
+<p>then I need to add execute to cli.sh and _flyingsaucer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pi@treehosues:~/git_repo/npm_own/ $chmod +x cli.sh</span><br><span class="line">pi@treehosues:~/git_repo/npm_own/ $chmod +x _flyingsaucer</span><br></pre></td></tr></table></figure>
+<h4 id="install-npm-package"><a href="#install-npm-package" class="headerlink" title="install npm package"></a>install npm package</h4><p>Go to my local terminal to install npm package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi@treehosues:~/git_repo/npm_own/ $ sudo npm install -g flyingsaucer8</span><br></pre></td></tr></table></figure>
+<h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><p>After npm installed, I can test on my local maching if the bash completion works</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@treehouses:~/git_repo/npm_own/ $ cd /etc/bash_completion</span><br><span class="line">pi@treehouses:~/etc/bash_completion $ ls -al</span><br><span class="line">lrwxrwxrwx   1 root root    54 Oct 17 07:09 _treehouses -&gt; ../../usr/lib/node_modules/@treehouses/cli/_treehouses</span><br></pre></td></tr></table></figure>
+
+<p>It shows the symbolic doesn’t work.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">pi@treehouses:~/git_repo/npm_own/ $ flyingsaucer speedtest</span><br><span class="line">pi@treehouses:~/git_repo/npm_own/ $ flyingsaucer detectpi</span><br></pre></td></tr></table></figure>
+<p>It shows <code>speedtest</code> works well, but <code>detectpi</code> doesn’t</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/npm/" rel="tag"># npm</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/14/Convert-markdown-file-to-PDF-file/" rel="next" title="Convert markdown file to PDF file">
+                  <i class="fa fa-chevron-left"></i> Convert markdown file to PDF file
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/02/npms-analyzer-project-part-1/" rel="prev" title="npms analyzer project: part 1">
+                  npms analyzer project: part 1 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-npm-account"><span class="nav-number">1.</span> <span class="nav-text">Create a npm account</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-npm-repo-on-your-local-terminal"><span class="nav-number">2.</span> <span class="nav-text">Create a npm repo on your local terminal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Copy-github-com-treehouses-cli-package-json-url-to-local"><span class="nav-number">3.</span> <span class="nav-text">Copy github.com/treehouses/cli package.json url to local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-your-own-package-json"><span class="nav-number">4.</span> <span class="nav-text">Create your own package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-publish"><span class="nav-number">5.</span> <span class="nav-text">npm publish</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-other-code-from-github-com-treehouses-cli"><span class="nav-number"></span> <span class="nav-text">copy other code from github.com/treehouses/cli</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#change-the-cli-sh-and-treehouses-to-fit-my-situation"><span class="nav-number">1.</span> <span class="nav-text">change the cli.sh and _treehouses to fit my situation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#install-npm-package"><span class="nav-number">2.</span> <span class="nav-text">install npm package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test"><span class="nav-number">3.</span> <span class="nav-text">test</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2019/10/19/Create-npm-repo/";
+    this.page.identifier = "2019/10/19/Create-npm-repo/";
+    this.page.title = 'Create npm repo';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>

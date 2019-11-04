@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="RAID stands for “Redundant Array of Independent Disks”. The RAID levelsRaid 0: stripe mode,no redundancy in this level,not safe for storage.Raid 1: mirror mode,having redundancy and good at backup.Rai">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux: key points of raid">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;03&#x2F;02&#x2F;Linux-key-points-of-raid&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="RAID stands for “Redundant Array of Independent Disks”. The RAID levelsRaid 0: stripe mode,no redundancy in this level,not safe for storage.Raid 1: mirror mode,having redundancy and good at backup.Rai">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-17T20:07:07.000Z">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux: key points of raid | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">10</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Linux: key points of raid
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-03-02 12:01:53" itemprop="dateCreated datePublished" datetime="2019-03-02T12:01:53-08:00">2019-03-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-17 13:07:07" itemprop="dateModified" datetime="2019-07-17T13:07:07-07:00">2019-07-17</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/02/Linux-key-points-of-raid/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/02/Linux-key-points-of-raid/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>RAID stands for “Redundant Array of Independent Disks”.</p>
+<h4 id="The-RAID-levels"><a href="#The-RAID-levels" class="headerlink" title="The RAID levels"></a>The RAID levels</h4><p>Raid 0: stripe mode,no redundancy in this level,not safe for storage.<br>Raid 1: mirror mode,having redundancy and good at backup.<br>Raid 1+0:it is the combination of RAID-1 and RAID-0.<br>Raid 5: at least 3 disks, can stand max 1 disk broken<br>Raid 6:at least 4 disks, can stand max 2 disks broken</p>
+<h4 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a>config file</h4><p>/etc/mdadm.conf<br>/proc/mdstat </p>
+<h4 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# mdadm --create /dev/md0 --auto=yes --level=5 --raid-devices=3 --chunk=64 /dev/sdb&#123;2,3,4&#125;</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md0 started.</span><br><span class="line">[root@client ~]# mkfs.xfs /dev/md0</span><br><span class="line">meta-data=/dev/md0               isize=512    agcount=8, agsize=65456 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=523648, imaxpct=25</span><br><span class="line">         =                       sunit=16     swidth=32 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=16 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@client mnt]# mkdir raid_md0</span><br><span class="line">[root@client mnt]# mount /dev/md0 /mnt/raid_md0/</span><br><span class="line">[root@client mnt]# df -h /dev/md0</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/md0        2.0G   33M  2.0G   2% /mnt/raid_md0</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="check-the-status"><a href="#check-the-status" class="headerlink" title="check the status"></a>check the status</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# cat /proc/mdstat </span><br><span class="line">Personalities : [raid6] [raid5] [raid4] </span><br><span class="line">md0 : active raid5 sdb4[3] sdb3[1] sdb2[0]</span><br><span class="line">      2095104 blocks super 1.2 level 5, 64k chunk, algorithm 2 [3/3] [UUU]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br><span class="line">[root@client ~]# mdadm --detail /dev/md0</span><br><span class="line">/dev/md0:</span><br><span class="line">        Version : 1.2</span><br><span class="line">     Raid Level : raid5</span><br><span class="line">     Array Size : 2095104 (2046.00 MiB 2145.39 MB)</span><br><span class="line">  Used Dev Size : 1047552 (1023.00 MiB 1072.69 MB)</span><br><span class="line">   Raid Devices : 3</span><br><span class="line">  Total Devices : 3</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">          State : clean </span><br><span class="line"> Active Devices : 3</span><br><span class="line">Working Devices : 3</span><br><span class="line"> Failed Devices : 0</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">         Layout : left-symmetric</span><br><span class="line">     Chunk Size : 64K</span><br><span class="line"></span><br><span class="line">           Name : client.centos7.study:0  (local to host client.centos7.study)</span><br><span class="line">           UUID : add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">         Events : 18</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       18        0      active sync   /dev/sdb2</span><br><span class="line">       1       8       19        1      active sync   /dev/sdb3</span><br><span class="line">       3       8       20        2      active sync   /dev/sdb4</span><br></pre></td></tr></table></figure>
+<p>If mount md0 permanently, need to know md0 UUID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@client mnt]# mdadm  --detail /dev/md0  |grep -i uuid</span><br><span class="line">           UUID : add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">[root@client mnt]# vim /etc/mdadm.conf</span><br><span class="line">ARRAY /dev/md0 UUID : add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">[root@client mnt]# blkid /dev/md0</span><br><span class="line">/dev/md0: UUID=&quot;acf71d8f-8027-49fc-b3dd-fe6d89f3491f&quot; TYPE=&quot;xfs&quot;</span><br><span class="line">[root@client mnt]# vim /etc/fstab</span><br><span class="line">UUID=&quot;acf71d8f-8027-49fc-b3dd-fe6d89f3491f&quot;    /mnt/raid_md0  xfs defaults  0 0</span><br><span class="line">[root@client mnt]# mount -a</span><br></pre></td></tr></table></figure>
+<h4 id="Close-raid"><a href="#Close-raid" class="headerlink" title="Close raid"></a>Close raid</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">[root@client mnt]# umount /dev/md0</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --fail /dev/sdb2</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: set /dev/sdb2 faulty in /dev/md0</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --fail /dev/sdb3</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: set /dev/sdb3 faulty in /dev/md0</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --fail /dev/sdb4</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: set /dev/sdb4 faulty in /dev/md0</span><br><span class="line">[root@client ~]# mdadm --detail /dev/md0</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">/dev/md0:</span><br><span class="line">        Version : 1.2</span><br><span class="line">  Creation Time : Wed Jul 17 11:37:14 2019</span><br><span class="line">     Raid Level : raid5</span><br><span class="line">     Array Size : 2095104 (2046.00 MiB 2145.39 MB)</span><br><span class="line">  Used Dev Size : 1047552 (1023.00 MiB 1072.69 MB)</span><br><span class="line">   Raid Devices : 3</span><br><span class="line">  Total Devices : 3</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">    Update Time : Wed Jul 17 12:53:53 2019</span><br><span class="line">          State : clean, FAILED </span><br><span class="line"> Active Devices : 0</span><br><span class="line"> Failed Devices : 3</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">         Layout : left-symmetric</span><br><span class="line">     Chunk Size : 64K</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       -       0        0        0      removed</span><br><span class="line">       -       0        0        1      removed</span><br><span class="line">       -       0        0        2      removed</span><br><span class="line"></span><br><span class="line">       0       8       18        -      faulty   /dev/sdb2</span><br><span class="line">       1       8       19        -      faulty   /dev/sdb3</span><br><span class="line">       3       8       20        -      faulty   /dev/sdb4</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --remove /dev/sdb2</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: hot removed /dev/sdb2 from /dev/md0</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --remove /dev/sdb3</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: hot removed /dev/sdb3 from /dev/md0</span><br><span class="line">[root@client ~]# mdadm --manage /dev/md0 --remove /dev/sdb4</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: hot removed /dev/sdb4 from /dev/md0</span><br><span class="line">[root@client ~]# mdadm --detail /dev/md0</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">/dev/md0:</span><br><span class="line">        Version : 1.2</span><br><span class="line">  Creation Time : Wed Jul 17 11:37:14 2019</span><br><span class="line">     Raid Level : raid5</span><br><span class="line">     Array Size : 2095104 (2046.00 MiB 2145.39 MB)</span><br><span class="line">  Used Dev Size : 1047552 (1023.00 MiB 1072.69 MB)</span><br><span class="line">   Raid Devices : 3</span><br><span class="line">  Total Devices : 0</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">    Update Time : Wed Jul 17 12:55:39 2019</span><br><span class="line">          State : clean, FAILED </span><br><span class="line"> Active Devices : 0</span><br><span class="line"> Failed Devices : 0</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">         Layout : left-symmetric</span><br><span class="line">     Chunk Size : 64K</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       -       0        0        0      removed</span><br><span class="line">       -       0        0        1      removed</span><br><span class="line">       -       0        0        2      removed</span><br><span class="line">[root@client ~]# mdadm --stop /dev/md0</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: stopped /dev/md0</span><br><span class="line">[root@client ~]# mdadm --detail /dev/md0</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and UUID</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and :</span><br><span class="line">mdadm: only give one device per ARRAY line: /dev/md0 and add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">mdadm: ARRAY line /dev/md0 has no identity information.</span><br><span class="line">mdadm: cannot open /dev/md0: No such file or directory</span><br><span class="line">[root@client ~]# cat /proc/mdstat </span><br><span class="line">Personalities : [raid6] [raid5] [raid4] </span><br><span class="line">unused devices: &lt;none&gt;</span><br><span class="line">[root@client ~]# lsblk</span><br><span class="line">NAME                         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sdb                            8:16   0 29.9G  0 disk </span><br><span class="line">├─sdb1                         8:17   0    2G  0 part </span><br><span class="line">│ ├─thin_vg-thinpool_tmeta   253:4    0    4M  0 lvm  </span><br><span class="line">│ │ └─thin_vg-thinpool-tpool 253:6    0    1G  0 lvm  </span><br><span class="line">│ │   ├─thin_vg-thinpool     253:7    0    1G  0 lvm  </span><br><span class="line">│ │   └─thin_vg-annathin1    253:8    0   10G  0 lvm  </span><br><span class="line">│ └─thin_vg-thinpool_tdata   253:5    0    1G  0 lvm  </span><br><span class="line">│   └─thin_vg-thinpool-tpool 253:6    0    1G  0 lvm  </span><br><span class="line">│     ├─thin_vg-thinpool     253:7    0    1G  0 lvm  </span><br><span class="line">│     └─thin_vg-annathin1    253:8    0   10G  0 lvm  </span><br><span class="line">├─sdb2                         8:18   0    1G  0 part </span><br><span class="line">├─sdb3                         8:19   0    1G  0 part </span><br><span class="line">└─sdb4                         8:20   0    1G  0 part </span><br><span class="line">sdc                            8:32   0   40G  0 disk </span><br><span class="line">sr0                           11:0    1 1024M  0 rom  </span><br><span class="line">[root@client ~]# vim /etc/mdadm.conf</span><br><span class="line">#ARRAY /dev/md0 UUID : add4f325:d589a29e:1f234b1b:309885ff</span><br><span class="line">[root@client ~]# vim /etc/fstab</span><br><span class="line">#UUID=&quot;acf71d8f-8027-49fc-b3dd-fe6d89f3491f&quot;    /mnt/raid_md0  xfs defaults  0 0</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/linux/" rel="tag"># linux</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/" rel="next" title="Cyber Security: Using Nmap-zenmap and Wireshark to do pen test">
+                  <i class="fa fa-chevron-left"></i> Cyber Security: Using Nmap-zenmap and Wireshark to do pen test
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/" rel="prev" title="Cyber Security: Some pen tests in Kali-Linux in Virtualbox">
+                  Cyber Security: Some pen tests in Kali-Linux in Virtualbox <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-RAID-levels"><span class="nav-number">1.</span> <span class="nav-text">The RAID levels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#config-file"><span class="nav-number">2.</span> <span class="nav-text">config file</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create"><span class="nav-number">3.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#check-the-status"><span class="nav-number">4.</span> <span class="nav-text">check the status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Close-raid"><span class="nav-number">5.</span> <span class="nav-text">Close raid</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/";
+    this.page.identifier = "2019/03/02/Linux-key-points-of-raid/";
+    this.page.title = 'Linux: key points of raid';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>

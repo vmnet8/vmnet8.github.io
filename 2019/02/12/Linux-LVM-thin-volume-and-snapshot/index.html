@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="LVM: logical volume manager Advantage: give more flexible of space LVM thin volumeCreate thin pool first 1234567891011121314151617181920212223[root@client ~]# lvcreate -L 1G -T thin_vg&#x2F;thinpool  Using">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux: LVM thin volume and snapshot">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;02&#x2F;12&#x2F;Linux-LVM-thin-volume-and-snapshot&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="LVM: logical volume manager Advantage: give more flexible of space LVM thin volumeCreate thin pool first 1234567891011121314151617181920212223[root@client ~]# lvcreate -L 1G -T thin_vg&#x2F;thinpool  Using">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-15T07:55:05.000Z">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux: LVM thin volume and snapshot | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">10</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Linux: LVM thin volume and snapshot
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-12 12:09:20" itemprop="dateCreated datePublished" datetime="2019-02-12T12:09:20-08:00">2019-02-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-15 00:55:05" itemprop="dateModified" datetime="2019-07-15T00:55:05-07:00">2019-07-15</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/02/12/Linux-LVM-thin-volume-and-snapshot/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/12/Linux-LVM-thin-volume-and-snapshot/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>LVM: logical volume manager</p>
+<p>Advantage: give more flexible of space</p>
+<h4 id="LVM-thin-volume"><a href="#LVM-thin-volume" class="headerlink" title="LVM thin volume"></a>LVM thin volume</h4><p>Create thin pool first</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# lvcreate -L 1G -T thin_vg/thinpool</span><br><span class="line">  Using default stripesize 64.00 KiB.</span><br><span class="line">  Logical volume &quot;thinpool&quot; created.</span><br><span class="line">[root@client ~]# lvdisplay thin_vg/thinpool</span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Name                thinpool</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                ncc3Kh-eZgD-WLQn-F4cq-pPJJ-rYjD-XsTx34</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-12 13:02:42 -0700</span><br><span class="line">  LV Pool metadata       thinpool_tmeta</span><br><span class="line">  LV Pool data           thinpool_tdata</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 0</span><br><span class="line">  LV Size                1.00 GiB</span><br><span class="line">  Allocated pool data    0.00%</span><br><span class="line">  Allocated metadata     0.98%</span><br><span class="line">  Current LE             256</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:6</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Create a thin1 on thinpool</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# lvcreate -V 10G -T thin_vg/thinpool -n annathin1</span><br><span class="line">  Using default stripesize 64.00 KiB.</span><br><span class="line">  WARNING: Sum of all thin volume sizes (10.00 GiB) exceeds the size of thin pool thin_vg/thinpool and the size of whole volume group (2.00 GiB)!</span><br><span class="line">  For thin pool auto extension activation/thin_pool_autoextend_threshold should be below 100.</span><br><span class="line">  Logical volume &quot;annathin1&quot; created.</span><br><span class="line">[root@client ~]# lvdisplay thin_vg</span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Name                thinpool</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                ncc3Kh-eZgD-WLQn-F4cq-pPJJ-rYjD-XsTx34</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-12 13:02:42 -0700</span><br><span class="line">  LV Pool metadata       thinpool_tmeta</span><br><span class="line">  LV Pool data           thinpool_tdata</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 2</span><br><span class="line">  LV Size                1.00 GiB</span><br><span class="line">  Allocated pool data    0.00%</span><br><span class="line">  Allocated metadata     1.07%</span><br><span class="line">  Current LE             256</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:6</span><br><span class="line">   </span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/thin_vg/annathin1</span><br><span class="line">  LV Name                annathin1</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                q47tG0-P2xf-CMsw-a2tE-SgWl-gjni-VJD1jA</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-12 13:09:12 -0700</span><br><span class="line">  LV Pool name           thinpool</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 0</span><br><span class="line">  LV Size                10.00 GiB</span><br><span class="line">  Mapped size            0.00%</span><br><span class="line">  Current LE             2560</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:8</span><br><span class="line">[root@client /]# mkfs.xfs /dev/thin_vg/annathin1 </span><br><span class="line">meta-data=/dev/thin_vg/annathin1 isize=512    agcount=16, agsize=163824 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=2621184, imaxpct=25</span><br><span class="line">         =                       sunit=16     swidth=16 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=16 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@client /]# mkdir /mnt/annathin1</span><br><span class="line">[root@client /]# mount /dev/thin_vg/annathin1 /mnt/annathin1/</span><br><span class="line">[root@client /]# df -Th /mnt/annathin1</span><br><span class="line">Filesystem                    Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/thin_vg-annathin1 xfs        10G   33M   10G   1% /mnt/annathin1</span><br></pre></td></tr></table></figure>
+<p>copy some files to  annathin1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@client ]# cp -a /etc/vsftpd/ /mnt/annathin1/</span><br><span class="line">[root@client ]# cp -a /usr/share/doc/man-db-2.6.3/  /mnt/annathin1/</span><br><span class="line">[root@client annathin1]# ll</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x. 2 root root 113 Jun  2  2017 man-db-2.6.3</span><br><span class="line">drwxr-xr-x. 2 root root 128 Apr  4 12:46 vsftpd</span><br><span class="line">[root@client ~]# df -Th /mnt/annathin1/</span><br><span class="line">Filesystem                    Type  Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/thin_vg-annathin1 xfs    10G   34M   10G   1% /mnt/annathin1</span><br></pre></td></tr></table></figure>
+<p>The vg thin_vg actually  only has 1G, but it shows 10G after create thinpool. That is the magical of LVM thinpool.<br>Note: users are not supposed to exceed actual 1G volume even though it shows having 10G volume, otherwise  it will destory the filesystem!</p>
+<h4 id="LVM-snapshot"><a href="#LVM-snapshot" class="headerlink" title="LVM snapshot"></a>LVM snapshot</h4><p>create a snapshot for annathin1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# lvcreate -s -l 99 -n  thinpool_snapshot  /dev/thin_vg/annathin1</span><br><span class="line">  Using default stripesize 64.00 KiB.</span><br><span class="line">  WARNING: Sum of all thin volume sizes (10.00 GiB) exceeds the size of thin pools and the size of whole volume group (2.00 GiB)!</span><br><span class="line">  For thin pool auto extension activation/thin_pool_autoextend_threshold should be below 100.</span><br><span class="line">  Logical volume &quot;thinpool_snapshot&quot; created.</span><br><span class="line">[root@client ~]# lvdisplay /dev/thin_vg/thinpool_snapshot </span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/thin_vg/thinpool_snapshot</span><br><span class="line">  LV Name                thinpool_snapshot</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                4fYojx-SvHi-5IVX-aoIk-RxpD-8Nlb-1hHK3g</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-14 17:01:32 -0700</span><br><span class="line">  LV snapshot status     active destination for annathin1</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 0</span><br><span class="line">  LV Size                10.00 GiB</span><br><span class="line">  Current LE             2560</span><br><span class="line">  COW-table size         396.00 MiB</span><br><span class="line">  COW-table LE           99</span><br><span class="line">  Allocated to snapshot  0.02%</span><br><span class="line">  Snapshot chunk size    4.00 KiB</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:11</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@client ~]# lvdisplay /dev/thin_vg/annathin1 </span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/thin_vg/annathin1</span><br><span class="line">  LV Name                annathin1</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                q47tG0-P2xf-CMsw-a2tE-SgWl-gjni-VJD1jA</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-12 13:09:12 -0700</span><br><span class="line">  LV snapshot status     source of</span><br><span class="line">                         thinpool_snapshot [active]</span><br><span class="line">  LV Pool name           thinpool</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 1</span><br><span class="line">  LV Size                10.00 GiB</span><br><span class="line">  Mapped size            0.12%</span><br><span class="line">  Current LE             2560</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:8</span><br></pre></td></tr></table></figure>
+<p>Mount</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@client /]# mkdir  /mnt/snapshot</span><br><span class="line">[root@client snapshot]# blkid</span><br><span class="line">/dev/mapper/thin_vg-annathin1: UUID=&quot;93b48865-b28d-4e2e-b76e-893e804d944c&quot; TYPE=&quot;xfs&quot; </span><br><span class="line">/dev/mapper/thin_vg-thinpool_snapshot: UUID=&quot;93b48865-b28d-4e2e-b76e-893e804d944c&quot; TYPE=&quot;xfs&quot;</span><br><span class="line">[root@client /]# mount -o nouuid /dev/thin_vg/thinpool_snapshot  /mnt/snapshot</span><br><span class="line">[root@client /]# df -Th</span><br><span class="line">Filesystem                            Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/thin_vg-annathin1         xfs        10G   34M   10G   1% /mnt/annathin1</span><br><span class="line">/dev/mapper/thin_vg-thinpool_snapshot xfs        10G   34M   10G   1% /mnt/snapshot</span><br></pre></td></tr></table></figure>
+
+<p>Due to snapshot, /dev/thin_vg/annathin1 and /dev/thin_vg/thinpool_snapshot have same uuid. When mount to  mount point, users need to use “nouuid” arguments.</p>
+<h4 id="make-some-changes-on-the-mnt-annathin1-dir"><a href="#make-some-changes-on-the-mnt-annathin1-dir" class="headerlink" title="make some changes on the /mnt/annathin1 dir"></a>make some changes on the /mnt/annathin1 dir</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@client man-db-2.6.3]# rm ChangeLog</span><br><span class="line">rm: remove regular file ‘ChangeLog’?</span><br><span class="line">[root@client man-db-2.6.3]# df -Th /mnt/annathin1/ /mnt/snapshot/</span><br><span class="line">Filesystem                            Type  Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/thin_vg-annathin1         xfs    10G   33M   10G   1% /mnt/annathin1</span><br><span class="line">/dev/mapper/thin_vg-thinpool_snapshot xfs    10G   34M   10G   1% /mnt/snapshot</span><br></pre></td></tr></table></figure>
+<p>check the status  of snapshot after doing the change on the original annathin1 dir</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@client man-db-2.6.3]# lvdisplay /dev/thin_vg/thinpool_snapshot </span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/thin_vg/thinpool_snapshot</span><br><span class="line">  LV Name                thinpool_snapshot</span><br><span class="line">  VG Name                thin_vg</span><br><span class="line">  LV UUID                eT1j03-4v5E-7fUi-BSV0-6dun-RCL1-fy9atx</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time client.centos7.study, 2019-07-14 17:18:16 -0700</span><br><span class="line">  LV snapshot status     active destination for annathin1</span><br><span class="line">  LV Status              available</span><br><span class="line">  # open                 1</span><br><span class="line">  LV Size                10.00 GiB</span><br><span class="line">  Current LE             2560</span><br><span class="line">  COW-table size         396.00 MiB</span><br><span class="line">  COW-table LE           99</span><br><span class="line">  Allocated to snapshot  0.52%</span><br><span class="line">  Snapshot chunk size    4.00 KiB</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:11</span><br></pre></td></tr></table></figure>
+<p>It shows the snapshot has been used 0.52%</p>
+<p>next, we will restore annathin1 by snapshot, we will backup snapshot first.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# xfsdump -l 0 -L lvm1 -M lvm1 -f /tmp/backup.lvm    /mnt/snapshot</span><br><span class="line">xfsdump: using file dump (drive_simple) strategy</span><br><span class="line">xfsdump: version 3.1.4 (dump format 3.0) - type ^C for status and control</span><br><span class="line">xfsdump: level 0 dump of client.centos7.study:/mnt/snapshot</span><br><span class="line">xfsdump: dump date: Sun Jul 14 17:31:38 2019</span><br><span class="line">xfsdump: session id: 5ea4e354-bf53-4069-8b63-ec4c2259c444</span><br><span class="line">xfsdump: session label: &quot;lvm1&quot;</span><br><span class="line">xfsdump: ino map phase 1: constructing initial dump list</span><br><span class="line">xfsdump: ino map phase 2: skipping (no pruning necessary)</span><br><span class="line">xfsdump: ino map phase 3: skipping (only one dump stream)</span><br><span class="line">xfsdump: ino map construction complete</span><br><span class="line">xfsdump: estimated dump size: 786816 bytes</span><br><span class="line">xfsdump: creating dump session media file 0 (media 0, file 0)</span><br><span class="line">xfsdump: dumping ino map</span><br><span class="line">xfsdump: dumping directories</span><br><span class="line">xfsdump: dumping non-directory files</span><br><span class="line">xfsdump: ending media file</span><br><span class="line">xfsdump: media file size 775272 bytes</span><br><span class="line">xfsdump: dump size (non-dir files) : 745816 bytes</span><br><span class="line">xfsdump: dump complete: 1 seconds elapsed</span><br><span class="line">xfsdump: Dump Summary:</span><br><span class="line">xfsdump:   stream 0 /tmp/backup.lvm OK (success)</span><br><span class="line">xfsdump: Dump Status: SUCCESS</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# umount /mnt/snapshot</span><br><span class="line">[root@client ~]# lvremove /dev/thin_vg/thinpool_snapshot </span><br><span class="line">Do you really want to remove active logical volume thin_vg/thinpool_snapshot? [y/n]: y</span><br><span class="line">  Logical volume &quot;thinpool_snapshot&quot; successfully removed</span><br><span class="line">[root@client ~]# umount /mnt/annathin1/</span><br><span class="line">[root@client ~]# mkfs.xfs -f /dev/thin_vg/annathin1 </span><br><span class="line">meta-data=/dev/thin_vg/annathin1 isize=512    agcount=16, agsize=163824 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=2621184, imaxpct=25</span><br><span class="line">         =                       sunit=16     swidth=16 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=16 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@client ~]# mount /dev/thin_vg/annathin1  /mnt/annathin1/</span><br><span class="line"></span><br><span class="line">[root@client ~]# xfsrestore -f /tmp/backup.lvm -L lvm1 /mnt/annathin1/</span><br><span class="line">xfsrestore: using file dump (drive_simple) strategy</span><br><span class="line">xfsrestore: version 3.1.4 (dump format 3.0) - type ^C for status and control</span><br><span class="line">xfsrestore: searching media for dump</span><br><span class="line">xfsrestore: examining media file 0</span><br><span class="line">xfsrestore: found dump matching specified label:</span><br><span class="line">xfsrestore: hostname: client.centos7.study</span><br><span class="line">xfsrestore: mount point: /mnt/snapshot</span><br><span class="line">xfsrestore: volume: /dev/mapper/thin_vg-thinpool_snapshot</span><br><span class="line">xfsrestore: session time: Sun Jul 14 17:31:38 2019</span><br><span class="line">xfsrestore: level: 0</span><br><span class="line">xfsrestore: session label: &quot;lvm1&quot;</span><br><span class="line">xfsrestore: media label: &quot;lvm1&quot;</span><br><span class="line">xfsrestore: file system id: 93b48865-b28d-4e2e-b76e-893e804d944c</span><br><span class="line">xfsrestore: session id: 5ea4e354-bf53-4069-8b63-ec4c2259c444</span><br><span class="line">xfsrestore: media id: e223f10b-7718-4801-bda7-7e066e59deb1</span><br><span class="line">xfsrestore: using online session inventory</span><br><span class="line">xfsrestore: searching media for directory dump</span><br><span class="line">xfsrestore: reading directories</span><br><span class="line">xfsrestore: 3 directories and 13 entries processed</span><br><span class="line">xfsrestore: directory post-processing</span><br><span class="line">xfsrestore: restoring non-directory files</span><br><span class="line">xfsrestore: restore complete: 0 seconds elapsed</span><br><span class="line">xfsrestore: Restore Summary:</span><br><span class="line">xfsrestore:   stream 0 /tmp/backup.lvm OK (success)</span><br><span class="line">xfsrestore: Restore Status: SUCCESS</span><br><span class="line"></span><br><span class="line">[root@client ~]# df -Th  /mnt/annathin1/</span><br><span class="line">Filesystem                    Type  Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/thin_vg-annathin1 xfs    10G   34M   10G   1% /mnt/annathin1</span><br></pre></td></tr></table></figure>
+<p>It shows the annathins dir back from 33M to 34M, the original one.</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/linux/" rel="tag"># linux</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/02/09/Cyber-Security-Risk-Management-Report/" rel="next" title="Cyber Security: Risk Management Report">
+                  <i class="fa fa-chevron-left"></i> Cyber Security: Risk Management Report
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/" rel="prev" title="Cyber Security: using wireshark to trace packets">
+                  Cyber Security: using wireshark to trace packets <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LVM-thin-volume"><span class="nav-number">1.</span> <span class="nav-text">LVM thin volume</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LVM-snapshot"><span class="nav-number">2.</span> <span class="nav-text">LVM snapshot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-some-changes-on-the-mnt-annathin1-dir"><span class="nav-number">3.</span> <span class="nav-text">make some changes on the /mnt/annathin1 dir</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/";
+    this.page.identifier = "2019/02/12/Linux-LVM-thin-volume-and-snapshot/";
+    this.page.title = 'Linux: LVM thin volume and snapshot';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>

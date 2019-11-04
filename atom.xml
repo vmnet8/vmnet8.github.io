@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Anna X</title>
+  
+  <subtitle>Anna&#39;s Tech Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://vmnet8.github.io/"/>
+  <updated>2019-11-04T00:25:51.660Z</updated>
+  <id>https://vmnet8.github.io/</id>
+  
+  <author>
+    <name>Anna X</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npms analyzer project: part 1</title>
+    <link href="https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/"/>
+    <id>https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/</id>
+    <published>2019-11-03T06:03:48.000Z</published>
+    <updated>2019-11-04T00:25:51.660Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;The npms-analyzer analyzes the npm ecosystem, collecting info, evaluating and scoring each package.In this project, I am going to create
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="-npm couchDB rabbitMQ Elasticsearch" scheme="https://vmnet8.github.io/tags/npm-couchDB-rabbitMQ-Elasticsearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Create npm repo</title>
+    <link href="https://vmnet8.github.io/2019/10/19/Create-npm-repo/"/>
+    <id>https://vmnet8.github.io/2019/10/19/Create-npm-repo/</id>
+    <published>2019-10-19T16:12:43.000Z</published>
+    <updated>2019-10-23T21:26:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I need to simulate a npm repo to test codes. The following steps are how to create a npm repo.&lt;/p&gt;
+&lt;h4 id=&quot;Create-a-npm-account&quot;&gt;&lt;a href=&quot;#Create-a-npm-account&quot; class=&quot;headerlink&quot; title=&quot;Create a npm account&quot;&gt;&lt;/a&gt;Create a npm account&lt;/h4&gt;&lt;p&gt;Go to &lt;a href=&quot;npmjs.com&quot;&gt;npmjs.com&lt;/a&gt;, click “join for free”, then create your account. The weird thing is the password needs at least 10 characters!&lt;/p&gt;
+&lt;h4 id=&quot;Create-a-npm-repo-on-your-local-terminal&quot;&gt;&lt;a href=&quot;#Create-a-npm-repo-on-your-local-terminal&quot; class=&quot;headerlink&quot; title=&quot;Create a npm repo on your local terminal&quot;&gt;&lt;/a&gt;Create a npm repo on your local terminal&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mkdir npm_own&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Copy-github-com-treehouses-cli-package-json-url-to-local&quot;&gt;&lt;a href=&quot;#Copy-github-com-treehouses-cli-package-json-url-to-local&quot; class=&quot;headerlink&quot; title=&quot;Copy github.com/treehouses/cli package.json url to local&quot;&gt;&lt;/a&gt;Copy github.com/treehouses/cli package.json url to local&lt;/h4&gt;&lt;p&gt;Because I want to test the code on github.com/treehouses/cli and don’t want to mess up the current repo, I copy the url to my local&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://github.com/treehouses/cli/blob/master/package.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Create-your-own-package-json&quot;&gt;&lt;a href=&quot;#Create-your-own-package-json&quot; class=&quot;headerlink&quot; title=&quot;Create your own package.json&quot;&gt;&lt;/a&gt;Create your own package.json&lt;/h4&gt;&lt;p&gt;I try to create a repo named “flyingsaucer8”.&lt;br&gt;Using vim to make my own package.json based on treehouses package.json&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;name&amp;quot;: &amp;quot;flyingsaucer8&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;version&amp;quot;: &amp;quot;0.0.6&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;description&amp;quot;: &amp;quot;flyingsaucer&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;main&amp;quot;: &amp;quot;cli.sh&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;bin&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;flyingsaucer&amp;quot;: &amp;quot;cli.sh&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;publishConfig&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;access&amp;quot;: &amp;quot;public&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;repository&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;type&amp;quot;: &amp;quot;git&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://github.com/vmnet8/flyingsaucer.git&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;scripts&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;postinstall&amp;quot;: &amp;quot;if [ $(id -u) = 0 ]; then ln -sr _flyingsaucer /etc/bash_completion.d/_flyingsaucer; fi &amp;amp;&amp;amp; exit 0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;postuninstall&amp;quot;: &amp;quot;if [ $(id -u) = 0 ]; then rm /etc/bash_completion.d/_flyingsaucer; fi &amp;amp;&amp;amp; exit 0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;test&amp;quot;: &amp;quot;echo \&amp;quot;Error: no test specified\&amp;quot; &amp;amp;&amp;amp; exit 0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;keywords&amp;quot;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;flyingsaucer&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;author&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;name&amp;quot;: &amp;quot;flyingsaucer team&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;email&amp;quot;: &amp;quot;alien@flyingsaucer.io&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://flyingsaucer.io&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;license&amp;quot;: &amp;quot;AGPL-3.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;bugs&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://github.com/vmnet8/flyingsaucer/issues&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;email&amp;quot;: &amp;quot;alien@flyingsaucer.io&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;homepage&amp;quot;: &amp;quot;https://github.com/vmnet8/flyingsaucer&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;dependencies&amp;quot;: &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Convert markdown file to PDF file</title>
+    <link href="https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/"/>
+    <id>https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/</id>
+    <published>2019-10-15T06:36:34.000Z</published>
+    <updated>2019-10-15T07:23:07.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I keep my resume on github, and is going to update it with my working experience changing.Since resume is written in markdown format on github, I need a PDF format when applying job on line. How to convert markdown file to PDF file easily?&lt;/p&gt;
+&lt;h2 id=&quot;Convert-markdown-file-to-html-format-first&quot;&gt;&lt;a href=&quot;#Convert-markdown-file-to-html-format-first&quot; class=&quot;headerlink&quot; title=&quot;Convert markdown file to html format first&quot;&gt;&lt;/a&gt;Convert markdown file to html format first&lt;/h2&gt;&lt;p&gt;You need to check markdown is already installed or not. If not, you need use &lt;code&gt;apt install markdown&lt;/code&gt; to install it.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~$ which markdown&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/markdown&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Go to directory where your markdown file lies, run&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~/git_repo/resume$ markdown resume.md resume.html&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;you will convert resume.md markdown file to resume.html&lt;/p&gt;
+&lt;p&gt;then you can go to webbrowser to see this html file, to make sure it works.&lt;/p&gt;
+&lt;h2 id=&quot;Convert-html-file-to-PDF-file&quot;&gt;&lt;a href=&quot;#Convert-html-file-to-PDF-file&quot; class=&quot;headerlink&quot; title=&quot;Convert html file to PDF file&quot;&gt;&lt;/a&gt;Convert html file to PDF file&lt;/h2&gt;&lt;p&gt;To convert PDF file, you need to use wkhtmltopdf tool&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt install wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~$ which wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;go to the same directory where the resume.md and resume.html lie, run&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wkhtmltopdf -s letter  -B 25mm -T 25mm -L 25mm -R 25mm resume.html resume.pdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;then you can get the PDF format resume file.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~/git_repo/resume$ ll&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna  4493 Oct 14 22:46 resume.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna  3728 Oct 14 22:45 resume.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna 34985 Oct 14 22:46 resume.pdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Write-a-script-to-execute-convert-automaticly&quot;&gt;&lt;a href=&quot;#Write-a-script-to-execute-convert-automaticly&quot; class=&quot;headerlink&quot; title=&quot;Write a script to execute convert automaticly&quot;&gt;&lt;/a&gt;Write a script to execute convert automaticly&lt;/h2&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="shell script" scheme="https://vmnet8.github.io/tags/shell-script/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ovirt-configuring-storage</title>
+    <link href="https://vmnet8.github.io/2019/10/04/Ovirt-configuring-storage/"/>
+    <id>https://vmnet8.github.io/2019/10/04/Ovirt-configuring-storage/</id>
+    <published>2019-10-04T16:14:08.000Z</published>
+    <updated>2019-10-04T22:05:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Last time we talked about adding a host to oVirt engine, it looks like following:&lt;/p&gt;
+&lt;img src=&quot;/2019/10/04/Ovirt-configuring-storage/first.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;h2 id=&quot;configure-storage&quot;&gt;&lt;a href=&quot;#configure-storage&quot; class=&quot;headerlink&quot; title=&quot;configure storage&quot;&gt;&lt;/a&gt;configure storage&lt;/h2&gt;&lt;p&gt;Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.&lt;br&gt;A storage domain is a collection of images that have a common storage domain contains complete images of templates and virtual machots), ISO files, and metadata about themselves. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).&lt;/p&gt;
+&lt;h2 id=&quot;configure-NFS-storage&quot;&gt;&lt;a href=&quot;#configure-NFS-storage&quot; class=&quot;headerlink&quot; title=&quot;configure NFS storage&quot;&gt;&lt;/a&gt;configure NFS storage&lt;/h2&gt;&lt;p&gt;First I use another centOS as a nfs server,then attached it to storage domain.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@cube4200 ~]# showmount -e&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Export list for cube4200:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/export/hosted_vm 192.168.0.0/24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&quot;/2019/10/04/Ovirt-configuring-storage/create_nfs.jpg&quot; class=&quot;&quot;&gt;
+&lt;p&gt;It is attached successfully.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ovirt" scheme="https://vmnet8.github.io/tags/Ovirt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ovirt: installation -- using cockpit wizard</title>
+    <link href="https://vmnet8.github.io/2019/09/14/Ovirt-installation/"/>
+    <id>https://vmnet8.github.io/2019/09/14/Ovirt-installation/</id>
+    <published>2019-09-15T05:25:21.000Z</published>
+    <updated>2019-10-04T14:56:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ovirt&quot;&gt;&lt;a href=&quot;#Ovirt&quot; class=&quot;headerlink&quot; title=&quot;Ovirt&quot;&gt;&lt;/a&gt;Ovirt&lt;/h2&gt;&lt;p&gt;oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure. oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.&lt;br&gt;Go to &lt;a href=&quot;https://www.ovirt.org/download/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ovirt&lt;/a&gt;to see how to install Ovirt.&lt;br&gt;oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.I use cockpit wizard to install Ovirt on CentOS.&lt;br&gt;Two types hosts&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;oVirt node, other name ‘thin host’, it is a minimal OS, contains the only packagesrequired for the machine to act as a host. &lt;/li&gt;
+&lt;li&gt;centOS or RHEL host&lt;br&gt;I use centOS 7 as a host.&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum update -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+Add the official oVirt repository:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+I use cockpit wizard to install Ovirt on CentOS.&lt;br&gt;Install Cockpit and the cockpit-ovirt-dashboard plugin:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install cockpit cockpit-ovirt-dashboard -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+Enable Cockpit:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;systemctl enable --now cockpit.socket&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+Open the firewall:
+    
+    </summary>
+    
+    
+    
+      <category term="Ovirt" scheme="https://vmnet8.github.io/tags/Ovirt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git and github</title>
+    <link href="https://vmnet8.github.io/2019/09/09/git-and-github/"/>
+    <id>https://vmnet8.github.io/2019/09/09/git-and-github/</id>
+    <published>2019-09-09T18:52:33.000Z</published>
+    <updated>2019-09-09T23:00:02.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website&quot;&gt;&lt;a href=&quot;#Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website&quot; class=&quot;headerlink&quot; title=&quot;Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.&quot;&gt;&lt;/a&gt;Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.&lt;/h4&gt;&lt;h5 id=&quot;on-Github&quot;&gt;&lt;a href=&quot;#on-Github&quot; class=&quot;headerlink&quot; title=&quot;on  Github&quot;&gt;&lt;/a&gt;on  Github&lt;/h5&gt;&lt;p&gt;Create a repository&lt;br&gt;Create a new file&lt;br&gt;Commit (same as save)&lt;br&gt;Issue (like comments)&lt;br&gt;Create an organization&lt;br&gt;Create branch&lt;br&gt;Pull request&lt;br&gt;Merge&lt;/p&gt;
+&lt;h4 id=&quot;Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github&quot;&gt;&lt;a href=&quot;#Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github&quot; class=&quot;headerlink&quot; title=&quot;Most of the time, you need to work on your local machine to use git. You can clone your repo from github.&quot;&gt;&lt;/a&gt;Most of the time, you need to work on your local machine to use git. You can clone your repo from github.&lt;/h4&gt;&lt;h5 id=&quot;On-local-computer&quot;&gt;&lt;a href=&quot;#On-local-computer&quot; class=&quot;headerlink&quot; title=&quot;On local computer&quot;&gt;&lt;/a&gt;On local computer&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone git@github.com:vmnet8/Hello-World.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cloning into &amp;apos;Hello-World&amp;apos;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Enumerating objects: 4, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Counting objects: 100% (4/4), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Compressing objects: 100% (3/3), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Receiving objects: 100% (14/14), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Resolving deltas: 100% (1/1), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Checking connectivity... done.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;make this a repo located on your local OS&lt;br&gt;compare with github repo you clone&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;On branch master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Your branch is up-to-date with &amp;apos;origin/master&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nothing to commit, working directory clean&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”&quot;&gt;&lt;a href=&quot;#After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”&quot; class=&quot;headerlink&quot; title=&quot;After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”&quot;&gt;&lt;/a&gt;After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;On branch master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Your branch is up-to-date with &amp;apos;origin/master&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Changes not staged for commit:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    modified:   README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add README.md&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;put this changed file to a stage to wait to be saved in the future.&lt;br&gt;any changes if want to be saved should be added to this stage first!&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git commit README.md -m &amp;quot;add new line under bottom&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[master 37c5b60] add new line under bottom&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 1 file changed, 1 insertion(+)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;only done this, the changed can be “saved” into repo&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;origin  git@github.com:vmnet8/Hello-World.git (fetch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;origin  git@github.com:vmnet8/Hello-World.git (push)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Then you can make the changes you made on your local computer to sync to github repo&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git push origin master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Counting objects: 3, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Delta compression using up to 2 threads.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Compressing objects: 100% (2/2), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Writing objects: 100% (3/3), 302 bytes | 0 bytes/s, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Total 3 (delta 1), reused 0 (delta 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Resolving deltas: 100% (1/1), completed with 1 local object.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;To git@github.com:vmnet8/Hello-World.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   efdcef9..37c5b60  master -&amp;gt; master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;If you made changes on github first, how to get your local to sync to github repo?&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://vmnet8.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security: Some pen tests in Kali-Linux in Virtualbox</title>
+    <link href="https://vmnet8.github.io/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/"/>
+    <id>https://vmnet8.github.io/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/</id>
+    <published>2019-04-11T05:36:48.000Z</published>
+    <updated>2019-07-11T06:15:29.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract:&quot;&gt;&lt;/a&gt;Abstract:&lt;/h4&gt;&lt;p&gt;Install Virtualbox in computer system, in which to install Kali Linux, then try wireshark, nmap and crunch application. It shows a lot of security tools can be implemented correctly in Virtualbox.&lt;/p&gt;
+&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.virtualbox.org&quot;&gt;virtualbox page&lt;/a&gt; to download the virtual 5.2.18 version, then install it based on wizard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Search “kali OVA”, then go to official kali linux download page, select the “Kali Linux 64 bit Vbox”, click “offensive security download page” icon to select “Kali Linux 64 bit Ova” which is for Virtualbox, download it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open Virtual box,click “file” button then select “import application”, input the “kali 2018.3 ova” into the frame, then select the fold where the “kali linux 64 bit” you have download before, then open it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Select the “OS Redhat 64 bit”, choose all other items  as defaults, such as sound card, network adapter card etc, then click “import”. Waiting a couple minutes to finish installing. After installation, you can see “kali 2018.3” icon on the Virtualbox panel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click the “kali 2018.3”, it will start to boot, just taking defaults. Input the username “root” and password “toor” to log in Kali.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: key points of raid</title>
+    <link href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/"/>
+    <id>https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/</id>
+    <published>2019-03-02T20:01:53.000Z</published>
+    <updated>2019-07-17T20:07:07.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;RAID stands for “Redundant Array of Independent Disks”.&lt;/p&gt;
+&lt;h4 id=&quot;The-RAID-levels&quot;&gt;&lt;a href=&quot;#The-RAID-levels&quot; class=&quot;headerlink&quot; title=&quot;The RAID levels&quot;&gt;&lt;/a&gt;The RAID levels&lt;/h4&gt;&lt;p&gt;Raid 0: stripe mode,no redundancy in this level,not safe for storage.&lt;br&gt;Raid 1: mirror mode,having redundancy and good at backup.&lt;br&gt;Raid 1+0:it is the combination of RAID-1 and RAID-0.&lt;br&gt;Raid 5: at least 3 disks, can stand max 1 disk broken&lt;br&gt;Raid 6:at least 4 disks, can stand max 2 disks broken&lt;/p&gt;
+&lt;h4 id=&quot;config-file&quot;&gt;&lt;a href=&quot;#config-file&quot; class=&quot;headerlink&quot; title=&quot;config file&quot;&gt;&lt;/a&gt;config file&lt;/h4&gt;&lt;p&gt;/etc/mdadm.conf&lt;br&gt;/proc/mdstat &lt;/p&gt;
+&lt;h4 id=&quot;Create&quot;&gt;&lt;a href=&quot;#Create&quot; class=&quot;headerlink&quot; title=&quot;Create&quot;&gt;&lt;/a&gt;Create&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# mdadm --create /dev/md0 --auto=yes --level=5 --raid-devices=3 --chunk=64 /dev/sdb&amp;#123;2,3,4&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mdadm: Defaulting to version 1.2 metadata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mdadm: array /dev/md0 started.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# mkfs.xfs /dev/md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;meta-data=/dev/md0               isize=512    agcount=8, agsize=65456 blks&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sectsz=512   attr=2, projid32bit=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       crc=1        finobt=0, sparse=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;data     =                       bsize=4096   blocks=523648, imaxpct=25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sunit=16     swidth=32 blks&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;naming   =version 2              bsize=4096   ascii-ci=0 ftype=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log      =internal log           bsize=4096   blocks=2560, version=2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sectsz=512   sunit=16 blks, lazy-count=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;realtime =none                   extsz=4096   blocks=0, rtextents=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# mkdir raid_md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# mount /dev/md0 /mnt/raid_md0/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# df -h /dev/md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Filesystem      Size  Used Avail Use% Mounted on&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/dev/md0        2.0G   33M  2.0G   2% /mnt/raid_md0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security: Using Nmap-zenmap and Wireshark to do pen test</title>
+    <link href="https://vmnet8.github.io/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/"/>
+    <id>https://vmnet8.github.io/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/</id>
+    <published>2019-02-28T07:54:19.000Z</published>
+    <updated>2019-07-10T07:16:32.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract:&quot;&gt;&lt;/a&gt;Abstract:&lt;/h4&gt;&lt;p&gt;Using Zenmap, enumerating 2 IP address to scan, Using Wireshark to observe the TCP handshake process when enumerating 2 IP addresses with Zenmap.&lt;/p&gt;
+&lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction:&quot;&gt;&lt;/a&gt;Introduction:&lt;/h4&gt;&lt;p&gt;Scan 2 IP with Zenmap and use Wireshark to observe the TCP handshake.&lt;/p&gt;
+&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.nmap.org&quot;&gt;nmap page&lt;/a&gt; to download zenmap application.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open Wireshark to see the Wi_Fi wiggling wave, it shows capturing the packets, then click it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open Zenmap, input first IP address 192.168.227.187 into “target” frame, then select “quick scan” to see what will happen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;go to Wireshark to stop and save it for first IP scan.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;go back to Zenmap to input other IP address into “target” frame, do quick scan again.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In Wireshark, select the source and destination IP address 192.168.0.1 to observe the captured packets, analyze the TCP handshake process.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security: using wireshark to trace packets</title>
+    <link href="https://vmnet8.github.io/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/"/>
+    <id>https://vmnet8.github.io/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/</id>
+    <published>2019-02-20T04:34:53.000Z</published>
+    <updated>2019-07-10T06:39:55.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Wireshark is a network packet analyzer. It will try to capture network packets and tries to display that packet data as detailed as possible.&lt;/p&gt;
+&lt;h4 id=&quot;Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address&quot;&gt;&lt;a href=&quot;#Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address&quot; class=&quot;headerlink&quot; title=&quot;Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address.&quot;&gt;&lt;/a&gt;Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address.&lt;/h4&gt;&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.wireshark.org&quot;&gt;wireshark pages&lt;/a&gt;, read some basic knowledge of wireshark, then download &lt;a href=&quot;https://1.na.dl.wireshark.org/win64/Wireshark-win64-3.0.2.exe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;wireshark Windows Installer(64-bit)&lt;/a&gt;, according to the instructions to install it on my windows operating system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;go to desktop to open Wireshark up, double click “*Wi-Fi” link,it will show a “Capturing from my local area connection” to see the packets captured here.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open a browser and input a website, such as &lt;a href=&quot;http://www.qwerty.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;www.qwerty.com&lt;/a&gt; to generate the traffic.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: LVM thin volume and snapshot</title>
+    <link href="https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/"/>
+    <id>https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/</id>
+    <published>2019-02-12T20:09:20.000Z</published>
+    <updated>2019-07-15T07:55:05.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;LVM: logical volume manager&lt;/p&gt;
+&lt;p&gt;Advantage: give more flexible of space&lt;/p&gt;
+&lt;h4 id=&quot;LVM-thin-volume&quot;&gt;&lt;a href=&quot;#LVM-thin-volume&quot; class=&quot;headerlink&quot; title=&quot;LVM thin volume&quot;&gt;&lt;/a&gt;LVM thin volume&lt;/h4&gt;&lt;p&gt;Create thin pool first&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# lvcreate -L 1G -T thin_vg/thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Using default stripesize 64.00 KiB.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Logical volume &amp;quot;thinpool&amp;quot; created.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# lvdisplay thin_vg/thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --- Logical volume ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Name                thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  VG Name                thin_vg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV UUID                ncc3Kh-eZgD-WLQn-F4cq-pPJJ-rYjD-XsTx34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Write Access        read/write&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Creation host, time client.centos7.study, 2019-07-12 13:02:42 -0700&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Pool metadata       thinpool_tmeta&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Pool data           thinpool_tdata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Status              available&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # open                 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Size                1.00 GiB&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocated pool data    0.00%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocated metadata     0.98%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Current LE             256&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Segments               1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocation             inherit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Read ahead sectors     auto&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  - currently set to     8192&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Block device           253:6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security: Risk Management Report</title>
+    <link href="https://vmnet8.github.io/2019/02/09/Cyber-Security-Risk-Management-Report/"/>
+    <id>https://vmnet8.github.io/2019/02/09/Cyber-Security-Risk-Management-Report/</id>
+    <published>2019-02-10T01:26:44.000Z</published>
+    <updated>2019-07-10T00:29:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Identify the potential risk or threat on computer\iPad\Phone, decide how the impact and likely of threat, deal the threat with the mitigation, using the risk chart to record the steps.&lt;/p&gt;
+&lt;h4 id=&quot;Item-1-name-ThinkPad-laptop-2017&quot;&gt;&lt;a href=&quot;#Item-1-name-ThinkPad-laptop-2017&quot; class=&quot;headerlink&quot; title=&quot;Item 1 name: ThinkPad laptop 2017&quot;&gt;&lt;/a&gt;Item 1 name: ThinkPad laptop 2017&lt;/h4&gt;&lt;p&gt;Description: This is a laptop with a lot of important files on it.&lt;br&gt;Threat 1: Virus Attacks that can damage computer systems and data.&lt;br&gt;Mitigation: Install the anti-virus software, such as McAfee.&lt;/p&gt;
+&lt;h4 id=&quot;Item-2-name-laptop-hard-drive&quot;&gt;&lt;a href=&quot;#Item-2-name-laptop-hard-drive&quot; class=&quot;headerlink&quot; title=&quot;Item 2 name: laptop hard drive&quot;&gt;&lt;/a&gt;Item 2 name: laptop hard drive&lt;/h4&gt;&lt;p&gt;Description: Hard drive is the most important part in laptop. With the damage hard drive, the laptop can’t even start.&lt;br&gt;Threat 2: HDD has unrecoverable failure and lost all data on laptop&lt;br&gt;Mitigation: Make extra copy on other computer or buy extra HDD for storing important files.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python-using repetition structures nest loop to print patterns</title>
+    <link href="https://vmnet8.github.io/2019/01/08/Python-using-repetition-structures-to-draw-mode/"/>
+    <id>https://vmnet8.github.io/2019/01/08/Python-using-repetition-structures-to-draw-mode/</id>
+    <published>2019-01-09T07:46:42.000Z</published>
+    <updated>2019-09-09T16:17:05.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Two-repetition-structures-in-python&quot;&gt;&lt;a href=&quot;#Two-repetition-structures-in-python&quot; class=&quot;headerlink&quot; title=&quot;Two repetition structures in python:&quot;&gt;&lt;/a&gt;Two repetition structures in python:&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;while loop&lt;/li&gt;
+&lt;li&gt;for loop&lt;h4 id=&quot;Nest-loop&quot;&gt;&lt;a href=&quot;#Nest-loop&quot; class=&quot;headerlink&quot; title=&quot;Nest loop&quot;&gt;&lt;/a&gt;Nest loop&lt;/h4&gt;For loop has a nest loop function. clock is a good example.&lt;br&gt;Nest loop can use to print some patterns.&lt;br&gt;Some examples:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&quot;pattern-1&quot;&gt;&lt;a href=&quot;#pattern-1&quot; class=&quot;headerlink&quot; title=&quot;pattern 1&quot;&gt;&lt;/a&gt;pattern 1&lt;/h6&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rows = int(input(&amp;apos;how many rows?&amp;apos;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cols = int(input(&amp;apos;how many columns?&amp;apos;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;for r in range(rows):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for  c in range(cols):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&amp;apos;*&amp;apos;,end=&amp;apos;&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;after input rows and clos value 6, runing code, it will show&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h6 id=&quot;pattern-2&quot;&gt;&lt;a href=&quot;#pattern-2&quot; class=&quot;headerlink&quot; title=&quot;pattern 2&quot;&gt;&lt;/a&gt;pattern 2&lt;/h6&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;***&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;****&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*****&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;******&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*******&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;code as following:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;base_size = 7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;for r in range(base_size):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for c in range(r+1):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&amp;apos;*&amp;apos;,end=&amp;apos;&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h6 id=&quot;pattern-3-up-side-down-triangle&quot;&gt;&lt;a href=&quot;#pattern-3-up-side-down-triangle&quot; class=&quot;headerlink&quot; title=&quot;pattern 3: up side down triangle:&quot;&gt;&lt;/a&gt;pattern 3: up side down triangle:&lt;/h6&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="https://vmnet8.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security: Security Audit Report about Computer System</title>
+    <link href="https://vmnet8.github.io/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/"/>
+    <id>https://vmnet8.github.io/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/</id>
+    <published>2018-07-20T17:25:09.000Z</published>
+    <updated>2019-07-11T23:45:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract:&quot;&gt;&lt;/a&gt;Abstract:&lt;/h4&gt;&lt;p&gt;Using MBSA to audit computer to find 4 things need to be fixed, some missing update, some passwords are vulnerable. To fix these problems, update application and change the password policy to force users to change passwords.&lt;/p&gt;
+&lt;h3 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h3&gt;&lt;p&gt;Got MBSA App 2.1 from Microsoft website and install it.&lt;/p&gt;
+&lt;p&gt;Get started to scam computer, it takes a little longer than expected to finish scan.&lt;/p&gt;
+&lt;h3 id=&quot;Finding-1&quot;&gt;&lt;a href=&quot;#Finding-1&quot; class=&quot;headerlink&quot; title=&quot;Finding 1:&quot;&gt;&lt;/a&gt;Finding 1:&lt;/h3&gt;&lt;p&gt;Description: The Automatic Updates system service is not configured to be started as Automatic.&lt;/p&gt;
+&lt;p&gt;Mitigation: Since sometimes automatic updates is not always good to computer system and network, it is not necessary to update all the time. Keep this configuration not change, then   regularly check the system service to determine which needs to be updated.&lt;/p&gt;
+&lt;h3 id=&quot;Finding-2&quot;&gt;&lt;a href=&quot;#Finding-2&quot; class=&quot;headerlink&quot; title=&quot;Finding 2:&quot;&gt;&lt;/a&gt;Finding 2:&lt;/h3&gt;&lt;p&gt;Description: Some user accounts (4 of 6) have blank or simple passwords, or could not be analyzed.&lt;/p&gt;
+&lt;p&gt;Mitigation: change password policy and inforce the password security, let the users change their passwords.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cyber Security Policy Goals of Chabot College</title>
+    <link href="https://vmnet8.github.io/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/"/>
+    <id>https://vmnet8.github.io/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/</id>
+    <published>2018-07-11T22:46:50.000Z</published>
+    <updated>2019-07-11T23:21:12.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Clean-Desk-Policy&quot;&gt;&lt;a href=&quot;#Clean-Desk-Policy&quot; class=&quot;headerlink&quot; title=&quot;Clean Desk Policy:&quot;&gt;&lt;/a&gt;Clean Desk Policy:&lt;/h4&gt;&lt;h3 id=&quot;Goal&quot;&gt;&lt;a href=&quot;#Goal&quot; class=&quot;headerlink&quot; title=&quot;Goal:&quot;&gt;&lt;/a&gt;Goal:&lt;/h3&gt;&lt;p&gt;Establish the minimum requirements for maintaining a “clean desk” – where sensitive/critical information about  employees, intellectual property, students is secure in locked areas and out of site.&lt;/p&gt;
+&lt;h3 id=&quot;Procedure&quot;&gt;&lt;a href=&quot;#Procedure&quot; class=&quot;headerlink&quot; title=&quot;Procedure:&quot;&gt;&lt;/a&gt;Procedure:&lt;/h3&gt;&lt;p&gt;  a.Employees are required to ensure that all sensitive/confidential information in hardcopy or electronic form is secure in their work area at the end of the day and when they are expected to be gone for an extended period.&lt;br&gt;  b.Computer workstations must be locked when workspace is unoccupied.&lt;br&gt;  c.Computer workstations must be shut completely down at the end of the work day.&lt;br&gt;  d.Any Restricted or Sensitive information must be removed from the desk and locked in a drawer when the desk is unoccupied and at the end of the work day.&lt;br&gt;  e.File cabinets containing Restricted or Sensitive information must be kept closed and locked when not in use or when not attended.&lt;br&gt;  f.Keys used for access to Restricted or Sensitive information must not be left at an unattended desk.&lt;br&gt;  g.Laptops must be either locked with a locking cable or locked away in a drawer.&lt;br&gt;  h.Passwords may not be left on sticky notes posted on or under a computer, nor may they be left written down in an accessible location.&lt;br&gt;  i.Printouts containing Restricted or Sensitive information should be immediately removed from the printer.&lt;br&gt;  j.Upon disposal Restricted and/or Sensitive documents should be shredded in the official shredder bins or placed in the lock confidential disposal bins.&lt;br&gt;  k.Whiteboards containing Restricted and/or Sensitive information should be erased.&lt;br&gt;  l.Lock away portable computing devices such as laptops and tablets.&lt;br&gt;  m.Treat mass storage devices such as CDROM, DVD or USB drives as sensitive and secure them in a locked drawer.&lt;/p&gt;
+&lt;h4 id=&quot;Password-Policy&quot;&gt;&lt;a href=&quot;#Password-Policy&quot; class=&quot;headerlink&quot; title=&quot;Password Policy:&quot;&gt;&lt;/a&gt;Password Policy:&lt;/h4&gt;&lt;h3 id=&quot;Goal-1&quot;&gt;&lt;a href=&quot;#Goal-1&quot; class=&quot;headerlink&quot; title=&quot;Goal:&quot;&gt;&lt;/a&gt;Goal:&lt;/h3&gt;&lt;p&gt; Passwords are a critical component of information security and serve to protect user accounts; however, a poorly constructed password may result in the compromise of individual systems, data, or network. This policy provides best practices for creating secure passwords.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: ACL, useradd and groupadd</title>
+    <link href="https://vmnet8.github.io/2018/04/02/Linux-ACL-useradd-and-groupadd/"/>
+    <id>https://vmnet8.github.io/2018/04/02/Linux-ACL-useradd-and-groupadd/</id>
+    <published>2018-04-02T17:07:04.000Z</published>
+    <updated>2019-07-10T04:58:24.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ACL means “access control list”.&lt;/p&gt;
+&lt;h4 id=&quot;Config-file&quot;&gt;&lt;a href=&quot;#Config-file&quot; class=&quot;headerlink&quot; title=&quot;Config file&quot;&gt;&lt;/a&gt;Config file&lt;/h4&gt;&lt;p&gt;/etc/default/useradd&lt;br&gt;/etc/skel&lt;br&gt;note:this config will add subdir under /etc/skel, it will automatically create the same dir when using useradd command to create  a username&lt;/p&gt;
+&lt;h4 id=&quot;useradd&quot;&gt;&lt;a href=&quot;#useradd&quot; class=&quot;headerlink&quot; title=&quot;useradd&quot;&gt;&lt;/a&gt;useradd&lt;/h4&gt;&lt;p&gt;-u    uid&lt;br&gt;-g    default group, initial login group&lt;br&gt;-a -G append extra group&lt;br&gt;-r    add a system users  (uid &amp;lt; 100)&lt;br&gt;-s    shell     /bin/bash  or  /sbin/login  or /sbin/nologin&lt;br&gt;newgrp  username groupname        set the effective group for user&lt;/p&gt;
+&lt;h4 id=&quot;userdel&quot;&gt;&lt;a href=&quot;#userdel&quot; class=&quot;headerlink&quot; title=&quot;userdel&quot;&gt;&lt;/a&gt;userdel&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;userdel   anna&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;only delete the username, keep the home dir and all other files&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;userdel -r anna&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;delete completely all the username’s file and dir, use “-r”&lt;/p&gt;
+&lt;h4 id=&quot;gpasswd&quot;&gt;&lt;a href=&quot;#gpasswd&quot; class=&quot;headerlink&quot; title=&quot;gpasswd&quot;&gt;&lt;/a&gt;gpasswd&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gpasswd group name&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;create  a passwd for this group&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gpasswd -A username groupname&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Let username to be the administrator of groupname&lt;br&gt;Then user can use  gpasswd to add new user to this group&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: some very useful commands of rpm</title>
+    <link href="https://vmnet8.github.io/2018/03/29/Linux-some-very-useful-commands-of-rpm/"/>
+    <id>https://vmnet8.github.io/2018/03/29/Linux-some-very-useful-commands-of-rpm/</id>
+    <published>2018-03-29T23:25:20.000Z</published>
+    <updated>2019-07-09T21:58:26.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;RPM (Red Hat Package Manager) is an default open source and most popular package management utility in Redhat Linux. The tool allows users to install, update, uninstall, query, verify and manage system software packages in Unix/Linux operating systems.&lt;br&gt;Here are some very useful commands&lt;/p&gt;
+&lt;h4 id=&quot;You-want-to-know-whether-httpd-installed&quot;&gt;&lt;a href=&quot;#You-want-to-know-whether-httpd-installed&quot; class=&quot;headerlink&quot; title=&quot;You want to know whether httpd installed&quot;&gt;&lt;/a&gt;You want to know whether httpd installed&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@www 7]# rpm -qa |grep httpd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;httpd-tools-2.4.6-88.el7.centos.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;httpd-2.4.6-88.el7.centos.x86_64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Query-all-the-config-files-of-http&quot;&gt;&lt;a href=&quot;#Query-all-the-config-files-of-http&quot; class=&quot;headerlink&quot; title=&quot;Query all the config files of http&quot;&gt;&lt;/a&gt;Query all the config files of http&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@www 7]# rpm -qc httpd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.d/autoindex.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.d/userdir.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.d/welcome.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-base.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-dav.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-lua.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-mpm.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-proxy.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/00-systemd.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf.modules.d/01-cgi.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf/httpd.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/httpd/conf/magic&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/logrotate.d/httpd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/sysconfig/htcacheclean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/sysconfig/httpd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Query-all-the-files-about-httpd&quot;&gt;&lt;a href=&quot;#Query-all-the-files-about-httpd&quot; class=&quot;headerlink&quot; title=&quot;Query all the files about httpd&quot;&gt;&lt;/a&gt;Query all the files about httpd&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rpm -ql httpd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;If-you-don’t-know-which-software-a-file-belongs-to-you-can-do&quot;&gt;&lt;a href=&quot;#If-you-don’t-know-which-software-a-file-belongs-to-you-can-do&quot; class=&quot;headerlink&quot; title=&quot;If you don’t know which software a file belongs to, you can do :&quot;&gt;&lt;/a&gt;If you don’t know which software a file belongs to, you can do :&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@www 7]# rpm -qf /etc/rpc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glibc-2.17-260.el7_6.3.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;glibc-2.17-260.el7_6.3.i686&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: some useful command of yum</title>
+    <link href="https://vmnet8.github.io/2018/03/19/Linux-some-useful-command-of-yum/"/>
+    <id>https://vmnet8.github.io/2018/03/19/Linux-some-useful-command-of-yum/</id>
+    <published>2018-03-19T20:10:36.000Z</published>
+    <updated>2019-07-09T21:08:48.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Yum is a very powful tool in Redhat Linux, it can provide install and update software online.&lt;/p&gt;
+&lt;h4 id=&quot;Some-very-useful-commands&quot;&gt;&lt;a href=&quot;#Some-very-useful-commands&quot; class=&quot;headerlink&quot; title=&quot;Some very useful commands&quot;&gt;&lt;/a&gt;Some very useful commands&lt;/h4&gt;&lt;p&gt;Quiry&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list all&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;query all softwares in repository&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list installed&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;softwares already installed on host&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list available&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;softwares not installed yet, you can install right now&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list updates&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;show the software that can be updated at once&lt;/p&gt;
+&lt;p&gt;The following two commands have same function&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum provides passwd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -qf /etc/passwd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Both will tell you what software this command belong to&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: Create a swap</title>
+    <link href="https://vmnet8.github.io/2018/03/15/Linux-Create-a-swap/"/>
+    <id>https://vmnet8.github.io/2018/03/15/Linux-Create-a-swap/</id>
+    <published>2018-03-16T05:57:29.000Z</published>
+    <updated>2019-07-11T23:40:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;There are two ways to create a swap in Linux.&lt;/p&gt;
+&lt;h4 id=&quot;Use-disk-partition&quot;&gt;&lt;a href=&quot;#Use-disk-partition&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux: config Grub2, adding more kernel menu, personality environment</title>
+    <link href="https://vmnet8.github.io/2018/03/08/Linux-Config-grub2/"/>
+    <id>https://vmnet8.github.io/2018/03/08/Linux-Config-grub2/</id>
+    <published>2018-03-09T01:33:18.000Z</published>
+    <updated>2019-07-11T23:39:53.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux provides a method to let users create personality boot menu.Doing as follows:&lt;/p&gt;
+&lt;h4 id=&quot;Config-document-location&quot;&gt;&lt;a href=&quot;#Config-document-location&quot; class=&quot;headerlink&quot; title=&quot;Config document location&quot;&gt;&lt;/a&gt;Config document location&lt;/h4&gt;&lt;p&gt;/boot/grub2/grub.cfg&lt;br&gt;/etc/default/grub&lt;br&gt;/etc/grub.d/*&lt;/p&gt;
+&lt;h4 id=&quot;Adding-more-than-one-kernel-boot-to-menu&quot;&gt;&lt;a href=&quot;#Adding-more-than-one-kernel-boot-to-menu&quot; class=&quot;headerlink&quot; title=&quot;Adding more than one kernel boot to menu&quot;&gt;&lt;/a&gt;Adding more than one kernel boot to menu&lt;/h4&gt;&lt;p&gt;Copy  first  menu from /boot/grub2/grub.cfg&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;menuentry &amp;apos;CentOS Linux (3.10.0-957.10.1.el7.x86_64) 7 (Core)&amp;apos; --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option &amp;apos;gnulinux-3.10.0-957.10.1.el7.x86_64-advanced-51497437-886c-472c-9c74-8ef2e459214b&amp;apos; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        load_video&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set gfxpayload=keep&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod gzio&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod part_msdos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod xfs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set root=&amp;apos;hd0,msdos1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if [ x$feature_platform_search_hint = xy ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint=&amp;apos;hd0,msdos1&amp;apos;  cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        linux16 /vmlinuz-3.10.0-957.10.1.el7.x86_64 root=/dev/mapper/cl-root ro crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap ifname=enp0s3:08:00:27:37:8e:ba  elevator=deadline elevator=deadline&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        initrd16 /initramfs-3.10.0-957.10.1.el7.x86_64.img&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;then&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /etc/grub.d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vim 40_custom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;menuentry &amp;apos;my CentOS Linux (3.10.0-957.5.1.el7.x86_64) 7 (Core)&amp;apos; --class centos --class gnu-linux --class gnu --class os --unrestricted --id &amp;apos;mygraphical&amp;apos; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        load_video&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set gfxpayload=keep&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod gzio&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod part_msdos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod xfs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set root=&amp;apos;hd0,msdos1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if [ x$feature_platform_search_hint = xy ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint=&amp;apos;hd0,msdos1&amp;apos;  cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        linux16 /vmlinuz-3.10.0-957.5.1.el7.x86_64 root=/dev/mapper/cl-root ro crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap ifname=enp0s3:08:00:27:37:8e:ba rhgb elevator=deadline systemd.unit=graphical.target&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;paste menuentry in 40_custom, then change name to “my centOS”  and config it to fit your requirement, creating a new menu.&lt;br&gt;Don’t forget mkconfig, after doing that, the new menu can be created.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;grub2-mkconfig -o /boot/grub2/grub.cfg&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;The new menu will be created at the bottom of  /boot/grub.d/grub.cfg, when booting linux, it will show on the menu.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
+    
+  </entry>
+  
+</feed>
