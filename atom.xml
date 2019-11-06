@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2019-11-04T06:37:13.492Z</updated>
+  <updated>2019-11-06T07:00:55.035Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -17,11 +17,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>npm analyzer project: part 2</title>
+    <link href="https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-2/"/>
+    <id>https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-2/</id>
+    <published>2019-11-06T04:23:36.000Z</published>
+    <updated>2019-11-06T07:00:55.035Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;CouchDB&quot;&gt;&lt;a href=&quot;#CouchDB&quot; class=&quot;headerlink&quot; title=&quot;CouchDB&quot;&gt;&lt;/a&gt;CouchDB&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://couchdb.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Apache CouchDB&lt;/a&gt; lets you access your data where you need it. The Couch Replication Protocol is implemented in a variety of projects and products that span every imaginable computing environment from globally distributed server-clusters, over mobile phones to web browsers.&lt;br&gt;Since I am working in treehouses/cli vagrant in which CouchDB docker already installed, I need to run couchDB docker.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -d -p 5984:984 --name=vmnet8 treehouses/couchdb:2.3.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;then open localhost:5984 on my browser&lt;/p&gt;
+&lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/couch5984.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;It shows couchDB installed&lt;/p&gt;
+&lt;h4 id=&quot;Create-a-new-database-named-npms&quot;&gt;&lt;a href=&quot;#Create-a-new-database-named-npms&quot; class=&quot;headerlink&quot; title=&quot;Create a new database named npms&quot;&gt;&lt;/a&gt;Create a new database named npms&lt;/h4&gt;&lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/database_npms.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;visit localhost:5984/_utils, you can see the new database npms is created&lt;/p&gt;
+&lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/npms.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;h4 id=&quot;Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode&quot;&gt;&lt;a href=&quot;#Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode&quot; class=&quot;headerlink&quot; title=&quot;Setup npm replication from https://replicate.npmjs.com/registry to npm database in continuous mode&quot;&gt;&lt;/a&gt;Setup npm replication from &lt;a href=&quot;https://replicate.npmjs.com/registry&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://replicate.npmjs.com/registry&lt;/a&gt; to npm database in continuous mode&lt;/h4&gt;&lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/replication.jpg&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
+    
+      <category term="couchDB" scheme="https://vmnet8.github.io/tags/couchDB/"/>
+    
+      <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
+    
+      <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>npms analyzer project: part 1</title>
     <link href="https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/"/>
     <id>https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/</id>
     <published>2019-11-03T06:03:48.000Z</published>
-    <updated>2019-11-04T06:37:13.492Z</updated>
+    <updated>2019-11-06T06:40:28.189Z</updated>
     
     <summary type="html">
     
@@ -37,7 +74,13 @@
     
     
     
-      <category term="-npm couchDB rabbitMQ Elasticsearch" scheme="https://vmnet8.github.io/tags/npm-couchDB-rabbitMQ-Elasticsearch/"/>
+      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
+    
+      <category term="couchDB" scheme="https://vmnet8.github.io/tags/couchDB/"/>
+    
+      <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
+    
+      <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
     
   </entry>
   
@@ -508,35 +551,6 @@ Open the firewall:
 &lt;h4 id=&quot;Use-disk-partition&quot;&gt;&lt;a href=&quot;#Use-disk-partition&quot; class=&quot;headerlink&quot;
         
       
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux: config Grub2, adding more kernel menu, personality environment</title>
-    <link href="https://vmnet8.github.io/2018/03/08/Linux-Config-grub2/"/>
-    <id>https://vmnet8.github.io/2018/03/08/Linux-Config-grub2/</id>
-    <published>2018-03-09T01:33:18.000Z</published>
-    <updated>2019-07-11T23:39:53.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux provides a method to let users create personality boot menu.Doing as follows:&lt;/p&gt;
-&lt;h4 id=&quot;Config-document-location&quot;&gt;&lt;a href=&quot;#Config-document-location&quot; class=&quot;headerlink&quot; title=&quot;Config document location&quot;&gt;&lt;/a&gt;Config document location&lt;/h4&gt;&lt;p&gt;/boot/grub2/grub.cfg&lt;br&gt;/etc/default/grub&lt;br&gt;/etc/grub.d/*&lt;/p&gt;
-&lt;h4 id=&quot;Adding-more-than-one-kernel-boot-to-menu&quot;&gt;&lt;a href=&quot;#Adding-more-than-one-kernel-boot-to-menu&quot; class=&quot;headerlink&quot; title=&quot;Adding more than one kernel boot to menu&quot;&gt;&lt;/a&gt;Adding more than one kernel boot to menu&lt;/h4&gt;&lt;p&gt;Copy  first  menu from /boot/grub2/grub.cfg&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;menuentry &amp;apos;CentOS Linux (3.10.0-957.10.1.el7.x86_64) 7 (Core)&amp;apos; --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option &amp;apos;gnulinux-3.10.0-957.10.1.el7.x86_64-advanced-51497437-886c-472c-9c74-8ef2e459214b&amp;apos; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        load_video&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set gfxpayload=keep&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod gzio&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod part_msdos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod xfs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set root=&amp;apos;hd0,msdos1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if [ x$feature_platform_search_hint = xy ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint=&amp;apos;hd0,msdos1&amp;apos;  cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        linux16 /vmlinuz-3.10.0-957.10.1.el7.x86_64 root=/dev/mapper/cl-root ro crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap ifname=enp0s3:08:00:27:37:8e:ba  elevator=deadline elevator=deadline&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        initrd16 /initramfs-3.10.0-957.10.1.el7.x86_64.img&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;then&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /etc/grub.d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vim 40_custom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;menuentry &amp;apos;my CentOS Linux (3.10.0-957.5.1.el7.x86_64) 7 (Core)&amp;apos; --class centos --class gnu-linux --class gnu --class os --unrestricted --id &amp;apos;mygraphical&amp;apos; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        load_video&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set gfxpayload=keep&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod gzio&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod part_msdos&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        insmod xfs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        set root=&amp;apos;hd0,msdos1&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if [ x$feature_platform_search_hint = xy ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint=&amp;apos;hd0,msdos1&amp;apos;  cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          search --no-floppy --fs-uuid --set=root cdbb3f80-2c48-4c5c-bc72-0f40023061b9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        linux16 /vmlinuz-3.10.0-957.5.1.el7.x86_64 root=/dev/mapper/cl-root ro crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap ifname=enp0s3:08:00:27:37:8e:ba rhgb elevator=deadline systemd.unit=graphical.target&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;paste menuentry in 40_custom, then change name to “my centOS”  and config it to fit your requirement, creating a new menu.&lt;br&gt;Don’t forget mkconfig, after doing that, the new menu can be created.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;grub2-mkconfig -o /boot/grub2/grub.cfg&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;The new menu will be created at the bottom of  /boot/grub.d/grub.cfg, when booting linux, it will show on the menu.&lt;/p&gt;
     
     </summary>
     
