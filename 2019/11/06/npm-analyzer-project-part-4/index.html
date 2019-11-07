@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Install elasticsearchelasticsearch is a scalable and speedy search, analytics, and storage. import signing key (PGP key)12vagrant@cli:~&#x2F;npm_analyzer$ wget -qO - https:&#x2F;&#x2F;artifacts.elastic.co&#x2F;GPG-KEY-el">
+<meta name="keywords" content="npm elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm analyzer project: part 4">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;npm-analyzer-project-part-4&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="Install elasticsearchelasticsearch is a scalable and speedy search, analytics, and storage. import signing key (PGP key)12vagrant@cli:~&#x2F;npm_analyzer$ wget -qO - https:&#x2F;&#x2F;artifacts.elastic.co&#x2F;GPG-KEY-el">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;npm-analyzer-project-part-4&#x2F;elastic.png">
+<meta property="og:updated_time" content="2019-11-07T20:23:45.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;npm-analyzer-project-part-4&#x2F;elastic.png">
+  <link rel="canonical" href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>npm analyzer project: part 4 | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">13</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">28</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">npm analyzer project: part 4
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-06 10:00:25" itemprop="dateCreated datePublished" datetime="2019-11-06T10:00:25-08:00">2019-11-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-07 12:23:45" itemprop="dateModified" datetime="2019-11-07T12:23:45-08:00">2019-11-07</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/06/npm-analyzer-project-part-4/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/06/npm-analyzer-project-part-4/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Install-elasticsearch"><a href="#Install-elasticsearch" class="headerlink" title="Install elasticsearch"></a>Install elasticsearch</h2><p>elasticsearch is a scalable and speedy search, analytics, and storage.</p>
+<h4 id="import-signing-key-PGP-key"><a href="#import-signing-key-PGP-key" class="headerlink" title="import signing key (PGP key)"></a>import signing key (PGP key)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<h4 id="install-from-apt-repo"><a href="#install-from-apt-repo" class="headerlink" title="install from apt repo"></a>install from apt repo</h4><p>install the apt-transport-https package on Debian before proceeding.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get install apt-transport-https</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">apt-transport-https is already the newest version (1.8.2).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 11 not upgraded.</span><br></pre></td></tr></table></figure>
+<p>Save the repository definition to /etc/apt/sources.list.d/elastic-7.x.list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list</span><br><span class="line">deb https://artifacts.elastic.co/packages/7.x/apt stable main</span><br></pre></td></tr></table></figure>
+<p>check source list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:/etc/apt/sources.list.d$ ls -al</span><br><span class="line">total 24</span><br><span class="line">drwxr-xr-x 2 root root 4096 Nov  6 18:05 .</span><br><span class="line">drwxr-xr-x 7 root root 4096 Nov  6 18:02 ..</span><br><span class="line">-rw-r--r-- 1 root root  419 Nov  2 06:19 bintray.rabbitmq.list</span><br><span class="line">-rw-r--r-- 1 root root   62 Nov  6 18:05 elastic-7.x.list</span><br><span class="line">-rw-r--r-- 1 root root  189 Oct 17 04:04 google-chrome.list</span><br><span class="line">-rw-r--r-- 1 root root   55 Oct 17 04:01 google-chrome.list.save</span><br></pre></td></tr></table></figure>
+<h4 id="install-the-Elasticsearch-Debian-package"><a href="#install-the-Elasticsearch-Debian-package" class="headerlink" title="install the Elasticsearch Debian package"></a>install the Elasticsearch Debian package</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch</span><br><span class="line">Get:1 http://security.debian.org/debian-security buster/updates InRelease [39.1 kB]</span><br><span class="line">Hit:2 http://deb.debian.org/debian buster InRelease                                                                                          </span><br><span class="line">Get:3 https://download.docker.com/linux/debian buster InRelease [44.4 kB]                                                                    </span><br><span class="line">Get:4 https://artifacts.elastic.co/packages/7.x/apt stable InRelease [7,124 B]                                                               </span><br><span class="line">Ign:5 http://dl.google.com/linux/chrome/deb stable InRelease                                                                                 </span><br><span class="line">Hit:6 https://deb.nodesource.com/node_10.x buster InRelease                                                                                  </span><br><span class="line">Hit:7 http://dl.google.com/linux/chrome/deb stable Release                                                                                   </span><br><span class="line">Ign:8 https://dl.bintray.com/rabbitmq-erlang/debian bionic InRelease                                              </span><br><span class="line">Get:9 http://ftp.de.debian.org/debian buster-backports InRelease [46.7 kB]</span><br><span class="line">Ign:10 https://dl.bintray.com/rabbitmq/debian bionic InRelease</span><br><span class="line">Get:11 https://dl.bintray.com/rabbitmq-erlang/debian bionic Release [12.6 kB]</span><br><span class="line">Get:12 https://dl.bintray.com/rabbitmq/debian bionic Release [74.5 kB]</span><br><span class="line">Get:13 http://security.debian.org/debian-security buster/updates/main Sources [84.1 kB]</span><br><span class="line">Get:14 http://security.debian.org/debian-security buster/updates/main amd64 Packages [112 kB]</span><br><span class="line">Get:15 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 Packages [21.9 kB]</span><br><span class="line">Get:19 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages.diff/Index [27.8 kB]                                             </span><br><span class="line">Get:20 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-02-1415.02.pdiff [178 B]                                 </span><br><span class="line">Get:21 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0215.42.pdiff [276 B]                                 </span><br><span class="line">Get:22 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0818.43.pdiff [15.7 kB]                               </span><br><span class="line">Get:23 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-2017.32.pdiff [501 B]                                 </span><br><span class="line">Get:24 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-05-1414.24.pdiff [5,640 B]                               </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Fetched 493 kB in 7s (72.2 kB/s)                                                                                                             </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  elasticsearch</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 11 not upgraded.</span><br><span class="line">Need to get 289 MB of archives.</span><br><span class="line">After this operation, 488 MB of additional disk space will be used.</span><br><span class="line">Get:1 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 elasticsearch amd64 7.4.2 [289 MB]</span><br><span class="line">Fetched 289 MB in 29s (10.0 MB/s)                                                                                                            </span><br><span class="line">Selecting previously unselected package elasticsearch.</span><br><span class="line">(Reading database ... 57026 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../elasticsearch_7.4.2_amd64.deb ...</span><br><span class="line">Creating elasticsearch group... OK</span><br><span class="line">Creating elasticsearch user... OK</span><br><span class="line">Unpacking elasticsearch (7.4.2) ...</span><br><span class="line">Setting up elasticsearch (7.4.2) ...</span><br><span class="line">Created elasticsearch keystore in /etc/elasticsearch</span><br><span class="line">Processing triggers for systemd (241-7~deb10u1) ...</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h4 id="running-elasticsearch-with-systemd"><a href="#running-elasticsearch-with-systemd" class="headerlink" title="running elasticsearch with systemd"></a>running elasticsearch with systemd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo /bin/systemctl daemon-reload</span><br><span class="line">vagrant@cli:~/npm_analyzer$ sudo /bin/systemctl enable elasticsearch.service</span><br><span class="line">Synchronizing state of elasticsearch.service with SysV service script with /lib/systemd/systemd-sysv-install.</span><br><span class="line">Executing: /lib/systemd/systemd-sysv-install enable elasticsearch</span><br><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/elasticsearch.service → /lib/systemd/system/elasticsearch.service.</span><br></pre></td></tr></table></figure>
+<p>By default the Elasticsearch service doesn’t log information in the systemd journal. To enable journalctl logging, the –quiet option must be removed from the ExecStart command line in the elasticsearch.service file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:/lib/systemd/system$ vim elasticsearch.service</span><br><span class="line">ExecStart=/usr/share/elasticsearch/bin/elasticsearch -p $&#123;PID_DIR&#125;/elasticsearch.pid --quiet</span><br></pre></td></tr></table></figure>
+<p>delete the “–quiet”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/share/elasticsearch/bin/elasticsearch -p $&#123;PID_DIR&#125;/elasticsearch.pid</span><br></pre></td></tr></table></figure>
+<p>Note: do not forget to deamon-reload and restart elasticserch.service</p>
+<h4 id="check-the-journal"><a href="#check-the-journal" class="headerlink" title="check the journal"></a>check the journal</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:/lib/systemd/system$ sudo journalctl --unit elasticsearch</span><br><span class="line">-- Logs begin at Tue 2019-11-05 07:29:08 GMT, end at Wed 2019-11-06 18:25:17 GMT. --</span><br><span class="line">-- No entries --</span><br></pre></td></tr></table></figure>
+<h4 id="check-elasticsearch-is-running"><a href="#check-elasticsearch-is-running" class="headerlink" title="check elasticsearch is running"></a>check elasticsearch is running</h4><p>You can test that your Elasticsearch node is running by sending an HTTP request to port 9200 on localhost:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/home/vagrant/npm_analyzer# curl localhost:9200</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot; : &quot;cli&quot;,</span><br><span class="line">  &quot;cluster_name&quot; : &quot;elasticsearch&quot;,</span><br><span class="line">  &quot;cluster_uuid&quot; : &quot;S9dLNZ_rTpa30PX5UT3VJg&quot;,</span><br><span class="line">  &quot;version&quot; : &#123;</span><br><span class="line">    &quot;number&quot; : &quot;7.4.2&quot;,</span><br><span class="line">    &quot;build_flavor&quot; : &quot;default&quot;,</span><br><span class="line">    &quot;build_type&quot; : &quot;deb&quot;,</span><br><span class="line">    &quot;build_hash&quot; : &quot;2f90bbf7b93631e52bafb59b3b049cb44ec25e96&quot;,</span><br><span class="line">    &quot;build_date&quot; : &quot;2019-10-28T20:40:44.881551Z&quot;,</span><br><span class="line">    &quot;build_snapshot&quot; : false,</span><br><span class="line">    &quot;lucene_version&quot; : &quot;8.2.0&quot;,</span><br><span class="line">    &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;,</span><br><span class="line">    &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-these-configurations-to-the-elasticsearch-yml"><a href="#Add-these-configurations-to-the-elasticsearch-yml" class="headerlink" title="Add these configurations to the elasticsearch.yml"></a>Add these configurations to the elasticsearch.yml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/etc/elasticsearch# echo &quot;action.auto_create_index: -npms-current,-npms-new,+*&quot;  &gt;&gt; elasticsearch.yml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/etc/elasticsearch# ls</span><br><span class="line">elasticsearch.keystore	elasticsearch.yml  jvm.options	log4j2.properties  role_mapping.yml  roles.yml	users  users_roles</span><br><span class="line">root@cli:/etc/elasticsearch# cat elasticsearch.yml </span><br><span class="line"># ======================== Elasticsearch Configuration =========================</span><br><span class="line">#</span><br><span class="line"># NOTE: Elasticsearch comes with reasonable defaults for most settings.</span><br><span class="line">#       Before you set out to tweak and tune the configuration, make sure you</span><br><span class="line">#       understand what are you trying to accomplish and the consequences.</span><br><span class="line">#</span><br><span class="line"># The primary way of configuring a node is via this file. This template lists</span><br><span class="line"># the most important settings you may want to configure for a production cluster.</span><br><span class="line">#</span><br><span class="line"># Please consult the documentation for further information on configuration options:</span><br><span class="line"># https://www.elastic.co/guide/en/elasticsearch/reference/index.html</span><br><span class="line">#</span><br><span class="line"># ---------------------------------- Cluster -----------------------------------</span><br><span class="line">#</span><br><span class="line"># Use a descriptive name for your cluster:</span><br><span class="line">#</span><br><span class="line">#cluster.name: my-application</span><br><span class="line">#</span><br><span class="line"># ------------------------------------ Node ------------------------------------</span><br><span class="line">#</span><br><span class="line"># Use a descriptive name for the node:</span><br><span class="line">#</span><br><span class="line">#node.name: node-1</span><br><span class="line">#</span><br><span class="line"># Add custom attributes to the node:</span><br><span class="line">#</span><br><span class="line">#node.attr.rack: r1</span><br><span class="line">#</span><br><span class="line"># ----------------------------------- Paths ------------------------------------</span><br><span class="line">#</span><br><span class="line"># Path to directory where to store the data (separate multiple locations by comma):</span><br><span class="line">#</span><br><span class="line">path.data: /var/lib/elasticsearch</span><br><span class="line">#</span><br><span class="line"># Path to log files:</span><br><span class="line">#</span><br><span class="line">path.logs: /var/log/elasticsearch</span><br><span class="line">#</span><br><span class="line"># ----------------------------------- Memory -----------------------------------</span><br><span class="line">#</span><br><span class="line"># Lock the memory on startup:</span><br><span class="line">#</span><br><span class="line">#bootstrap.memory_lock: true</span><br><span class="line">#</span><br><span class="line"># Make sure that the heap size is set to about half the memory available</span><br><span class="line"># on the system and that the owner of the process is allowed to use this</span><br><span class="line"># limit.</span><br><span class="line">#</span><br><span class="line"># Elasticsearch performs poorly when the system is swapping the memory.</span><br><span class="line">#</span><br><span class="line"># ---------------------------------- Network -----------------------------------</span><br><span class="line">#</span><br><span class="line"># Set the bind address to a specific IP (IPv4 or IPv6):</span><br><span class="line">#</span><br><span class="line">#network.host: 192.168.0.1</span><br><span class="line">#</span><br><span class="line"># Set a custom port for HTTP:</span><br><span class="line">#</span><br><span class="line">#http.port: 9200</span><br><span class="line">#</span><br><span class="line"># For more information, consult the network module documentation.</span><br><span class="line">#</span><br><span class="line"># --------------------------------- Discovery ----------------------------------</span><br><span class="line">#</span><br><span class="line"># Pass an initial list of hosts to perform discovery when this node is started:</span><br><span class="line"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span><br><span class="line">#</span><br><span class="line">#discovery.seed_hosts: [&quot;host1&quot;, &quot;host2&quot;]</span><br><span class="line">#</span><br><span class="line"># Bootstrap the cluster using an initial set of master-eligible nodes:</span><br><span class="line">#</span><br><span class="line">#cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]</span><br><span class="line">#</span><br><span class="line"># For more information, consult the discovery and cluster formation module documentation.</span><br><span class="line">#</span><br><span class="line"># ---------------------------------- Gateway -----------------------------------</span><br><span class="line">#</span><br><span class="line"># Block initial recovery after a full cluster restart until N nodes are started:</span><br><span class="line">#</span><br><span class="line">#gateway.recover_after_nodes: 3</span><br><span class="line">#</span><br><span class="line"># For more information, consult the gateway module documentation.</span><br><span class="line">#</span><br><span class="line"># ---------------------------------- Various -----------------------------------</span><br><span class="line">#</span><br><span class="line"># Require explicit names when deleting indices:</span><br><span class="line">#</span><br><span class="line">#action.destructive_requires_name: true</span><br><span class="line">action.auto_create_index: -npms-current,-npms-new,+*</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Install-the-head-to-perform-various-manual-operations-in-a-web-GUI"><a href="#Install-the-head-to-perform-various-manual-operations-in-a-web-GUI" class="headerlink" title="Install the head to perform various manual operations in a web GUI"></a>Install the head to perform various manual operations in a web GUI</h2><p>elasticsearch-head is a web front end for an Elasticsearch cluster</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/home/vagrant/npm_analyzer# git clone git://github.com/mobz/elasticsearch-head.git</span><br><span class="line">Cloning into &apos;elasticsearch-head&apos;...</span><br><span class="line">remote: Enumerating objects: 77, done.</span><br><span class="line">remote: Counting objects: 100% (77/77), done.</span><br><span class="line">remote: Compressing objects: 100% (57/57), done.</span><br><span class="line">remote: Total 4337 (delta 38), reused 45 (delta 17), pack-reused 4260</span><br><span class="line">Receiving objects: 100% (4337/4337), 2.51 MiB | 3.80 MiB/s, done.</span><br><span class="line">Resolving deltas: 100% (2411/2411), done.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/home/vagrant/npm_analyzer# cd elasticsearch-head/</span><br><span class="line">root@cli:/home/vagrant/npm_analyzer/elasticsearch-head# npm install</span><br><span class="line">npm WARN deprecated coffee-script@1.10.0: CoffeeScript on NPM has moved to &quot;coffeescript&quot; (no hyphen)</span><br><span class="line">npm WARN deprecated http2@3.3.7: Use the built-in module in node 9.0.0 or newer, instead</span><br><span class="line">npm WARN deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated</span><br><span class="line">npm WARN deprecated json3@3.3.2: Please use the native JSON object instead of JSON 3</span><br><span class="line">npm WARN deprecated json3@3.2.6: Please use the native JSON object instead of JSON 3</span><br><span class="line"></span><br><span class="line">&gt; phantomjs-prebuilt@2.1.16 install /home/vagrant/npm_analyzer/elasticsearch-head/node_modules/phantomjs-prebuilt</span><br><span class="line">&gt; node install.js</span><br><span class="line"></span><br><span class="line">PhantomJS not found on PATH</span><br><span class="line">Downloading https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2</span><br><span class="line">Saving to /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2</span><br><span class="line">Receiving...</span><br><span class="line">  [======================================--] 96%</span><br><span class="line">Received 22866K total.</span><br><span class="line">Extracting tar contents (via spawned process)</span><br><span class="line">Removing /home/vagrant/npm_analyzer/elasticsearch-head/node_modules/phantomjs-prebuilt/lib/phantom</span><br><span class="line">Copying extracted folder /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2-extract-1573068758515/phantomjs-2.1.1-linux-x86_64 -&gt; /home/vagrant/npm_analyzer/elasticsearch-head/node_modules/phantomjs-prebuilt/lib/phantom</span><br><span class="line">Writing location.js file</span><br><span class="line">Done. Phantomjs binary available at /home/vagrant/npm_analyzer/elasticsearch-head/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs</span><br><span class="line"></span><br><span class="line">&gt; core-js@2.6.10 postinstall /home/vagrant/npm_analyzer/elasticsearch-head/node_modules/core-js</span><br><span class="line">&gt; node postinstall || echo &quot;ignore&quot;</span><br><span class="line"></span><br><span class="line">Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!</span><br><span class="line"></span><br><span class="line">The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: </span><br><span class="line">&gt; https://opencollective.com/core-js </span><br><span class="line">&gt; https://www.patreon.com/zloirock </span><br><span class="line"></span><br><span class="line">Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)</span><br><span class="line"></span><br><span class="line">npm notice created a lockfile as package-lock.json. You should commit this file.</span><br><span class="line">npm WARN elasticsearch-head@0.0.0 license should be a valid SPDX license expression</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.9 (node_modules/fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.9: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;linux&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br><span class="line"></span><br><span class="line">added 512 packages from 620 contributors and audited 1768 packages in 115.069s</span><br><span class="line">found 40 vulnerabilities (19 low, 2 moderate, 19 high)</span><br><span class="line">  run `npm audit fix` to fix them, or `npm audit` for details</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   ╭────────────────────────────────────────────────────────────────╮</span><br><span class="line">   │                                                                │</span><br><span class="line">   │       New minor version of npm available! 6.9.0 → 6.12.1       │</span><br><span class="line">   │   Changelog: https://github.com/npm/cli/releases/tag/v6.12.1   │</span><br><span class="line">   │               Run npm install -g npm to update!                │</span><br><span class="line">   │                                                                │</span><br><span class="line">   ╰────────────────────────────────────────────────────────────────╯</span><br></pre></td></tr></table></figure>
+<h4 id="start-a-local-webserver-running-on-port-9100-serving-elasticsearch-head"><a href="#start-a-local-webserver-running-on-port-9100-serving-elasticsearch-head" class="headerlink" title="start a local webserver running on port 9100 serving elasticsearch-head"></a>start a local webserver running on port 9100 serving elasticsearch-head</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">root@cli:/home/vagrant/npm_analyzer/elasticsearch-head# curl localhost:9100</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;elasticsearch-head&lt;/title&gt;</span><br><span class="line">		&lt;link rel=&quot;stylesheet&quot; href=&quot;_site/base/reset.css&quot;&gt;</span><br><span class="line">		&lt;link rel=&quot;stylesheet&quot; href=&quot;_site/vendor.css&quot;&gt;</span><br><span class="line">		&lt;link rel=&quot;stylesheet&quot; href=&quot;_site/app.css&quot;&gt;</span><br><span class="line">		&lt;script src=&quot;_site/i18n.js&quot; data-baseDir=&quot;_site/lang&quot; data-langs=&quot;en,fr,pt,zh,zh-TW,tr,ja&quot;&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script src=&quot;_site/vendor.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script src=&quot;_site/app.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script&gt;</span><br><span class="line">			window.onload = function() &#123;</span><br><span class="line">				if(location.href.contains(&quot;/_plugin/&quot;)) &#123;</span><br><span class="line">					var base_uri = location.href.replace(/_plugin\/.*/, &apos;&apos;);</span><br><span class="line">				&#125;</span><br><span class="line">				var args = location.search.substring(1).split(&quot;&amp;&quot;).reduce(function(r, p) &#123;</span><br><span class="line">					r[decodeURIComponent(p.split(&quot;=&quot;)[0])] = decodeURIComponent(p.split(&quot;=&quot;)[1]); return r;</span><br><span class="line">				&#125;, &#123;&#125;);</span><br><span class="line">				new app.App(&quot;body&quot;, &#123;</span><br><span class="line">					id: &quot;es&quot;,</span><br><span class="line">					base_uri: args[&quot;base_uri&quot;] || base_uri,</span><br><span class="line">					auth_user : args[&quot;auth_user&quot;] || &quot;&quot;,</span><br><span class="line">					auth_password : args[&quot;auth_password&quot;],</span><br><span class="line">					dashboard: args[&quot;dashboard&quot;]</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;;</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">		&lt;link rel=&quot;icon&quot; href=&quot;_site/base/favicon.png&quot; type=&quot;image/png&quot;&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>Note: In order to enable CORS in elasticsearch, so I add these commands to /etc/elasticsearch/elasticsearch.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
+<p>also need to modify the  network host in elasticsearch.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">network.host: 0.0.0.0</span><br><span class="line">discovery.seed_hosts: [&quot;0.0.0.0&quot;, &quot;127.0.0.1&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>then restart the elasticsearch</p>
+<p>go to localhost:9100, you can connect to elasticsearch</p>
+<img src="/2019/11/06/npm-analyzer-project-part-4/elastic.png" class="">
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/npm-elasticsearch/" rel="tag"># npm elasticsearch</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/05/npm-analyzer-project-part-3/" rel="next" title="npm analyzer project: part 3">
+                  <i class="fa fa-chevron-left"></i> npm analyzer project: part 3
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-elasticsearch"><span class="nav-number">1.</span> <span class="nav-text">Install elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#import-signing-key-PGP-key"><span class="nav-number">1.0.1.</span> <span class="nav-text">import signing key (PGP key)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#install-from-apt-repo"><span class="nav-number">1.0.2.</span> <span class="nav-text">install from apt repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#install-the-Elasticsearch-Debian-package"><span class="nav-number">1.0.3.</span> <span class="nav-text">install the Elasticsearch Debian package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#running-elasticsearch-with-systemd"><span class="nav-number">1.0.4.</span> <span class="nav-text">running elasticsearch with systemd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#check-the-journal"><span class="nav-number">1.0.5.</span> <span class="nav-text">check the journal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#check-elasticsearch-is-running"><span class="nav-number">1.0.6.</span> <span class="nav-text">check elasticsearch is running</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-these-configurations-to-the-elasticsearch-yml"><span class="nav-number">2.</span> <span class="nav-text">Add these configurations to the elasticsearch.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-the-head-to-perform-various-manual-operations-in-a-web-GUI"><span class="nav-number">3.</span> <span class="nav-text">Install the head to perform various manual operations in a web GUI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#start-a-local-webserver-running-on-port-9100-serving-elasticsearch-head"><span class="nav-number">3.0.1.</span> <span class="nav-text">start a local webserver running on port 9100 serving elasticsearch-head</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/";
+    this.page.identifier = "2019/11/06/npm-analyzer-project-part-4/";
+    this.page.title = 'npm analyzer project: part 4';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>

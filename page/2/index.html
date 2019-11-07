@@ -205,7 +205,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">13</span></a>
 
   </li>
       
@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">27</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">28</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,110 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/03/02/Linux-key-points-of-raid/" class="post-title-link" itemprop="url">Linux: key points of raid</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-03-02 12:01:53" itemprop="dateCreated datePublished" datetime="2019-03-02T12:01:53-08:00">2019-03-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-17 13:07:07" itemprop="dateModified" datetime="2019-07-17T13:07:07-07:00">2019-07-17</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/02/Linux-key-points-of-raid/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/02/Linux-key-points-of-raid/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>RAID stands for “Redundant Array of Independent Disks”.</p>
+<h4 id="The-RAID-levels"><a href="#The-RAID-levels" class="headerlink" title="The RAID levels"></a>The RAID levels</h4><p>Raid 0: stripe mode,no redundancy in this level,not safe for storage.<br>Raid 1: mirror mode,having redundancy and good at backup.<br>Raid 1+0:it is the combination of RAID-1 and RAID-0.<br>Raid 5: at least 3 disks, can stand max 1 disk broken<br>Raid 6:at least 4 disks, can stand max 2 disks broken</p>
+<h4 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a>config file</h4><p>/etc/mdadm.conf<br>/proc/mdstat </p>
+<h4 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# mdadm --create /dev/md0 --auto=yes --level=5 --raid-devices=3 --chunk=64 /dev/sdb&#123;2,3,4&#125;</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md0 started.</span><br><span class="line">[root@client ~]# mkfs.xfs /dev/md0</span><br><span class="line">meta-data=/dev/md0               isize=512    agcount=8, agsize=65456 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=523648, imaxpct=25</span><br><span class="line">         =                       sunit=16     swidth=32 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=16 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@client mnt]# mkdir raid_md0</span><br><span class="line">[root@client mnt]# mount /dev/md0 /mnt/raid_md0/</span><br><span class="line">[root@client mnt]# df -h /dev/md0</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/md0        2.0G   33M  2.0G   2% /mnt/raid_md0</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/03/02/Linux-key-points-of-raid/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1244,119 +1348,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2018/03/19/Linux-some-useful-command-of-yum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/03/19/Linux-some-useful-command-of-yum/" class="post-title-link" itemprop="url">Linux: some useful command of yum</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2018-03-19 13:10:36" itemprop="dateCreated datePublished" datetime="2018-03-19T13:10:36-07:00">2018-03-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-09 14:08:48" itemprop="dateModified" datetime="2019-07-09T14:08:48-07:00">2019-07-09</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/03/19/Linux-some-useful-command-of-yum/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/Linux-some-useful-command-of-yum/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Yum is a very powful tool in Redhat Linux, it can provide install and update software online.</p>
-<h4 id="Some-very-useful-commands"><a href="#Some-very-useful-commands" class="headerlink" title="Some very useful commands"></a>Some very useful commands</h4><p>Quiry</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list all</span><br></pre></td></tr></table></figure>
-<p>query all softwares in repository</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed</span><br></pre></td></tr></table></figure>
-<p>softwares already installed on host</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list available</span><br></pre></td></tr></table></figure>
-<p>softwares not installed yet, you can install right now</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list updates</span><br></pre></td></tr></table></figure>
-<p>show the software that can be updated at once</p>
-<p>The following two commands have same function</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum provides passwd</span><br><span class="line">rpm -qf /etc/passwd</span><br></pre></td></tr></table></figure>
-<p>Both will tell you what software this command belong to</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/19/Linux-some-useful-command-of-yum/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1409,7 +1400,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1422,7 +1413,7 @@
             <a href="/tags/%20%7C%7C%20tags">
           
         
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
