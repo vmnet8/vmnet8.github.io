@@ -205,7 +205,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">20</span></a>
 
   </li>
       
@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">29</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">33</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,428 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/23/Bettercap-project-install-on-raspberry-Pi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/" class="post-title-link" itemprop="url">Bettercap project: install on raspberry Pi</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-23 00:06:53 / Modified: 00:24:46" itemprop="dateCreated datePublished" datetime="2019-11-23T00:06:53-08:00">2019-11-23</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/23/Bettercap-project-install-on-raspberry-Pi/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="install-on-raspberry-Pi3B"><a href="#install-on-raspberry-Pi3B" class="headerlink" title="install on raspberry Pi3B+"></a>install on raspberry Pi3B+</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# sudo apt update</span><br><span class="line">Hit:1 https://download.docker.com/linux/raspbian stretch InRelease</span><br><span class="line">Get:2 http://archive.raspberrypi.org/debian buster InRelease [25.2 kB]                                                                       </span><br><span class="line">Hit:3 https://deb.nodesource.com/node_10.x buster InRelease                                                                                  </span><br><span class="line">Get:4 http://deb.torproject.org/torproject.org buster InRelease [4,964 B]                                                                    </span><br><span class="line">Get:5 http://raspbian.raspberrypi.org/raspbian buster InRelease [15.0 kB]                                    </span><br><span class="line">Get:6 https://packages.cloud.google.com/apt coral-cloud-stable InRelease [6,328 B]          </span><br><span class="line">Get:7 http://raspbian.raspberrypi.org/raspbian buster/main armhf Packages [13.0 MB]</span><br><span class="line">Get:8 http://archive.raspberrypi.org/debian buster/main armhf Packages [259 kB]</span><br><span class="line">Ign:9 https://packages.cloud.google.com/apt coral-cloud-stable/main armhf Packages</span><br><span class="line">Get:9 https://packages.cloud.google.com/apt coral-cloud-stable/main armhf Packages [3,358 B]</span><br><span class="line">Fetched 13.3 MB in 25s (539 kB/s)                                                                                                            </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">53 packages can be upgraded. Run &apos;apt list --upgradable&apos; to see them.</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# sudo apt install golang git build-essential libpcap-dev libusb-1.0-0-dev libnetfilter-queue-dev</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">build-essential is already the newest version (12.6).</span><br><span class="line">git is already the newest version (1:2.20.1-2).</span><br><span class="line">The following package was automatically installed and is no longer required:</span><br><span class="line">  point-rpi</span><br><span class="line">Use &apos;sudo apt autoremove&apos; to remove it.</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  golang-1.11 golang-1.11-doc golang-1.11-go golang-1.11-src golang-doc golang-go golang-src libnfnetlink-dev libpcap0.8-dev libusb-1.0-doc</span><br><span class="line">Suggested packages:</span><br><span class="line">  bzr | brz mercurial subversion</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  golang golang-1.11 golang-1.11-doc golang-1.11-go golang-1.11-src golang-doc golang-go golang-src libnetfilter-queue-dev libnfnetlink-dev</span><br><span class="line">  libpcap-dev libpcap0.8-dev libusb-1.0-0-dev libusb-1.0-doc</span><br><span class="line">0 upgraded, 14 newly installed, 0 to remove and 53 not upgraded.</span><br><span class="line">Need to get 52.4 MB of archives.</span><br><span class="line">After this operation, 260 MB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br><span class="line">Get:1 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-src armhf 1.11.6-1+rpi1+deb10u2 [13.0 MB]</span><br><span class="line">Get:2 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-go armhf 1.11.6-1+rpi1+deb10u2 [36.3 MB]               </span><br><span class="line">Get:3 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-doc all 1.11.6-1+rpi1+deb10u2 [2,517 kB]               </span><br><span class="line">Get:4 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11 all 1.11.6-1+rpi1+deb10u2 [24.1 kB]                    </span><br><span class="line">Get:5 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-src armhf 2:1.11~1+b6 [4,660 B]                             </span><br><span class="line">Get:6 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-go armhf 2:1.11~1+b6 [23.7 kB]                              </span><br><span class="line">Get:7 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-doc all 2:1.11~1 [4,392 B]                                  </span><br><span class="line">Get:8 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang armhf 2:1.11~1+b6 [4,612 B]                                 </span><br><span class="line">Get:9 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libnfnetlink-dev armhf 1.0.1-3 [7,928 B]                           </span><br><span class="line">Get:10 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libnetfilter-queue-dev armhf 1.0.3-1 [6,548 B]                    </span><br><span class="line">Get:11 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libpcap0.8-dev armhf 1.8.1-6 [220 kB]                             </span><br><span class="line">Get:12 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libpcap-dev armhf 1.8.1-6 [25.9 kB]                               </span><br><span class="line">Get:13 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libusb-1.0-0-dev armhf 2:1.0.22-2 [65.5 kB]                       </span><br><span class="line">Get:14 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libusb-1.0-doc all 2:1.0.22-2 [182 kB]                            </span><br><span class="line">Fetched 52.4 MB in 23s (2,250 kB/s)                                                                                                          </span><br><span class="line">Selecting previously unselected package golang-1.11-src.</span><br><span class="line">(Reading database ... 154643 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../00-golang-1.11-src_1.11.6-1+rpi1+deb10u2_armhf.deb ...</span><br><span class="line">Unpacking golang-1.11-src (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11-go.</span><br><span class="line">Preparing to unpack .../01-golang-1.11-go_1.11.6-1+rpi1+deb10u2_armhf.deb ...</span><br><span class="line">Unpacking golang-1.11-go (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11-doc.</span><br><span class="line">Preparing to unpack .../02-golang-1.11-doc_1.11.6-1+rpi1+deb10u2_all.deb ...</span><br><span class="line">Unpacking golang-1.11-doc (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11.</span><br><span class="line">Preparing to unpack .../03-golang-1.11_1.11.6-1+rpi1+deb10u2_all.deb ...</span><br><span class="line">Unpacking golang-1.11 (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-src.</span><br><span class="line">Preparing to unpack .../04-golang-src_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang-src (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package golang-go.</span><br><span class="line">Preparing to unpack .../05-golang-go_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang-go (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package golang-doc.</span><br><span class="line">Preparing to unpack .../06-golang-doc_2%3a1.11~1_all.deb ...</span><br><span class="line">Unpacking golang-doc (2:1.11~1) ...</span><br><span class="line">Selecting previously unselected package golang.</span><br><span class="line">Preparing to unpack .../07-golang_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package libnfnetlink-dev.</span><br><span class="line">Preparing to unpack .../08-libnfnetlink-dev_1.0.1-3_armhf.deb ...</span><br><span class="line">Unpacking libnfnetlink-dev (1.0.1-3) ...</span><br><span class="line">Selecting previously unselected package libnetfilter-queue-dev.</span><br><span class="line">Preparing to unpack .../09-libnetfilter-queue-dev_1.0.3-1_armhf.deb ...</span><br><span class="line">Unpacking libnetfilter-queue-dev (1.0.3-1) ...</span><br><span class="line">Selecting previously unselected package libpcap0.8-dev:armhf.</span><br><span class="line">Preparing to unpack .../10-libpcap0.8-dev_1.8.1-6_armhf.deb ...</span><br><span class="line">Unpacking libpcap0.8-dev:armhf (1.8.1-6) ...</span><br><span class="line">Selecting previously unselected package libpcap-dev:armhf.</span><br><span class="line">Preparing to unpack .../11-libpcap-dev_1.8.1-6_armhf.deb ...</span><br><span class="line">Unpacking libpcap-dev:armhf (1.8.1-6) ...</span><br><span class="line">Selecting previously unselected package libusb-1.0-0-dev:armhf.</span><br><span class="line">Preparing to unpack .../12-libusb-1.0-0-dev_2%3a1.0.22-2_armhf.deb ...</span><br><span class="line">Unpacking libusb-1.0-0-dev:armhf (2:1.0.22-2) ...</span><br><span class="line">Selecting previously unselected package libusb-1.0-doc.</span><br><span class="line">Preparing to unpack .../13-libusb-1.0-doc_2%3a1.0.22-2_all.deb ...</span><br><span class="line">Unpacking libusb-1.0-doc (2:1.0.22-2) ...</span><br><span class="line">Setting up libnfnetlink-dev (1.0.1-3) ...</span><br><span class="line">Setting up golang-1.11-src (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up libpcap0.8-dev:armhf (1.8.1-6) ...</span><br><span class="line">Setting up libusb-1.0-doc (2:1.0.22-2) ...</span><br><span class="line">Setting up libusb-1.0-0-dev:armhf (2:1.0.22-2) ...</span><br><span class="line">Setting up golang-1.11-go (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up libnetfilter-queue-dev (1.0.3-1) ...</span><br><span class="line">Setting up golang-src (2:1.11~1+b6) ...</span><br><span class="line">Setting up libpcap-dev:armhf (1.8.1-6) ...</span><br><span class="line">Setting up golang-1.11-doc (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up golang-go (2:1.11~1+b6) ...</span><br><span class="line">Setting up golang-1.11 (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up golang-doc (2:1.11~1) ...</span><br><span class="line">Setting up golang (2:1.11~1+b6) ...</span><br><span class="line">Processing triggers for man-db (2.8.5-2) ...</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# go get -u github.com/bettercap/bettercap</span><br></pre></td></tr></table></figure>
+<p>Once the build process is concluded, the binary will be located in go/bin/bettercap<br>I checked the go/bin/bettercap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# which go/bin/bettercap</span><br><span class="line">go/bin/bettercap</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/22/Bettercap-project_install_Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/22/Bettercap-project_install_Ubuntu/" class="post-title-link" itemprop="url">Bettercap project: install on local Ubuntu</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-22 17:41:33" itemprop="dateCreated datePublished" datetime="2019-11-22T17:41:33-08:00">2019-11-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-23 00:05:48" itemprop="dateModified" datetime="2019-11-23T00:05:48-08:00">2019-11-23</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/22/Bettercap-project_install_Ubuntu/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/22/Bettercap-project_install_Ubuntu/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="install-on-Ubuntu"><a href="#install-on-Ubuntu" class="headerlink" title="install on Ubuntu"></a>install on Ubuntu</h2><p>copy the shell script to install bettercap, then chmod +x, then run it</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~$ ./bettercap.sh </span><br><span class="line">--2019-11-20 19:48:44--  https://github.com/bettercap/bettercap/releases/download/v2.26/bettercap_linux_amd64_v2.26.zip</span><br><span class="line">Resolving github.com (github.com)... 192.30.255.113</span><br><span class="line">Connecting to github.com (github.com)|192.30.255.113|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 302 Found</span><br><span class="line">Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/116576783/09ae2a00-f1be-11e9-9887-8cb5e818dc9b?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20191121%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20191121T034844Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=622884cd807d933374563a875deaf3f0c5dd00788d6324e5b4fc5e07cc724198&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dbettercap_linux_amd64_v2.26.zip&amp;response-content-type=application%2Foctet-stream [following]</span><br><span class="line">--2019-11-20 19:48:44--  https://github-production-release-asset-2e65be.s3.amazonaws.com/116576783/09ae2a00-f1be-11e9-9887-8cb5e818dc9b?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20191121%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20191121T034844Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=622884cd807d933374563a875deaf3f0c5dd00788d6324e5b4fc5e07cc724198&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dbettercap_linux_amd64_v2.26.zip&amp;response-content-type=application%2Foctet-stream</span><br><span class="line">Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.216.25.140</span><br><span class="line">Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.25.140|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 14037021 (13M) [application/octet-stream]</span><br><span class="line">Saving to: ‘bettercap_linux_amd64_v2.26.zip’</span><br><span class="line"></span><br><span class="line">bettercap_linux_amd64_v2.26.zip     100%[=================================================================&gt;]  13.39M  1.39MB/s    in 9.9s    </span><br><span class="line"></span><br><span class="line">2019-11-20 19:48:55 (1.35 MB/s) - ‘bettercap_linux_amd64_v2.26.zip’ saved [14037021/14037021]</span><br><span class="line"></span><br><span class="line">Archive:  bettercap_linux_amd64_v2.26.zip</span><br><span class="line">  inflating: bettercap               </span><br><span class="line">  inflating: bettercap_linux_amd64_v2.26.sha256</span><br><span class="line">[sudo] password for anna: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bettercap: error while loading shared libraries: libnetfilter_queue.so.1: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>It shows something wrong during installation, so I try the last command</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~$ sudo bettercap -eval &quot;caplets.update; ui.update; quit&quot;</span><br><span class="line">bettercap: error while loading shared libraries: libnetfilter_queue.so.1: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>It shows I need to install libnetfilter-queue1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~$ sudo apt install libnetfilter-queue1</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libnetfilter-queue1</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 35 not upgraded.</span><br><span class="line">Need to get 11.4 kB of archives.</span><br><span class="line">After this operation, 61.4 kB of additional disk space will be used.</span><br><span class="line">Get:1 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 libnetfilter-queue1 amd64 1.0.2-2 [11.4 kB]</span><br><span class="line">Fetched 11.4 kB in 0s (42.2 kB/s)             </span><br><span class="line">Selecting previously unselected package libnetfilter-queue1.</span><br><span class="line">(Reading database ... 219919 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../libnetfilter-queue1_1.0.2-2_amd64.deb ...</span><br><span class="line">Unpacking libnetfilter-queue1 (1.0.2-2) ...</span><br><span class="line">Setting up libnetfilter-queue1 (1.0.2-2) ...</span><br><span class="line">Processing triggers for libc-bin (2.27-3ubuntu1) ...</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/22/Bettercap-project_install_Ubuntu/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/22/Pwnagotchi-using-docker-image/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/22/Pwnagotchi-using-docker-image/" class="post-title-link" itemprop="url">Pwnagotchi: using docker image to install bettercap</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-22 11:24:11 / Modified: 19:07:12" itemprop="dateCreated datePublished" datetime="2019-11-22T11:24:11-08:00">2019-11-22</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/22/Pwnagotchi-using-docker-image/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/22/Pwnagotchi-using-docker-image/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This time, I try to install bettercap docker image on raspberry Pi3B+.</p>
+<h2 id="Install-dependency-package-first"><a href="#Install-dependency-package-first" class="headerlink" title="Install dependency package first"></a>Install dependency package first</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# apt install libnetfilter-queue1</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following package was automatically installed and is no longer required:</span><br><span class="line">  point-rpi</span><br><span class="line">Use &apos;apt autoremove&apos; to remove it.</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libnetfilter-queue1</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.</span><br><span class="line">Need to get 10.7 kB of archives.</span><br><span class="line">After this operation, 36.9 kB of additional disk space will be used.</span><br><span class="line">Get:1 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libnetfilter-queue1 armhf 1.0.3-1 [10.7 kB]</span><br><span class="line">Fetched 10.7 kB in 1s (12.1 kB/s)               </span><br><span class="line">Selecting previously unselected package libnetfilter-queue1.</span><br><span class="line">(Reading database ... 154638 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../libnetfilter-queue1_1.0.3-1_armhf.deb ...</span><br><span class="line">Unpacking libnetfilter-queue1 (1.0.3-1) ...</span><br><span class="line">Setting up libnetfilter-queue1 (1.0.3-1) ...</span><br><span class="line">Processing triggers for libc-bin (2.28-10+rpi1) ...</span><br><span class="line">root@treehouses:~# apt show libnetfilter-queue1</span><br><span class="line"></span><br><span class="line">Package: libnetfilter-queue1</span><br><span class="line">Version: 1.0.3-1</span><br><span class="line">Priority: optional</span><br><span class="line">Section: libs</span><br><span class="line">Source: libnetfilter-queue</span><br><span class="line">Maintainer: Debian Netfilter Packaging Team &lt;pkg-netfilter-team@lists.alioth.debian.org&gt;</span><br><span class="line">Installed-Size: 36.9 kB</span><br><span class="line">Depends: libc6 (&gt;= 2.4), libmnl0 (&gt;= 1.0.3-4~), libnfnetlink0</span><br><span class="line">Homepage: http://www.netfilter.org/projects/libnetfilter_queue/</span><br><span class="line">Download-Size: 10.7 kB</span><br><span class="line">APT-Manual-Installed: yes</span><br><span class="line">APT-Sources: http://raspbian.raspberrypi.org/raspbian buster/main armhf Packages</span><br><span class="line">Description: Netfilter netlink-queue library</span><br><span class="line"> libnetfilter_queue is a userspace library providing an API to packets</span><br><span class="line"> that have been queued by the kernel packet filter. It is part of a</span><br><span class="line"> system that deprecates the old ip_queue / libipq mechanism.</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Install-bettercap-docker-image"><a href="#Install-bettercap-docker-image" class="headerlink" title="Install bettercap docker image"></a>Install bettercap docker image</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# docker pull bettercap/bettercap</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from bettercap/bettercap</span><br><span class="line">bdf0201b3a05: Pull complete </span><br><span class="line">1465d5cbc6a8: Pull complete </span><br><span class="line">59da5739fafc: Pull complete </span><br><span class="line">86a51d61314d: Pull complete </span><br><span class="line">544433dabf48: Pull complete </span><br><span class="line">Digest: sha256:c7497e0839238a0a0d4920e583e765d7b53f794dea70f85882baa42c06ad8cbd</span><br><span class="line">Status: Downloaded newer image for bettercap/bettercap:latest</span><br><span class="line">docker.io/bettercap/bettercap:latest</span><br><span class="line">root@treehouses:~# docker image ls</span><br><span class="line">REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">bettercap/bettercap   latest              c921a193dd94        6 months ago        51.1MB</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/22/Pwnagotchi-using-docker-image/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/19/Pwnagotchi-project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/19/Pwnagotchi-project/" class="post-title-link" itemprop="url">Pwnagotchi project: Using Pwnagotchi image</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-19 21:17:29" itemprop="dateCreated datePublished" datetime="2019-11-19T21:17:29-08:00">2019-11-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-23 00:28:30" itemprop="dateModified" datetime="2019-11-23T00:28:30-08:00">2019-11-23</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/19/Pwnagotchi-project/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/19/Pwnagotchi-project/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="what-is-Pwnagotchi"><a href="#what-is-Pwnagotchi" class="headerlink" title="what is Pwnagotchi"></a>what is Pwnagotchi</h2><p>Pwnagotchi is an A2C-based “AI” powered by bettercap that learns from its surrounding WiFi environment in order to maximize the crackable WPA key material it captures (either through passive sniffing or by performing deauthentication and association attacks). This material is collected on disk as PCAP files containing any form of crackable handshake supported by hashcat, including full and half WPA handshakes as well as PMKIDs.</p>
+<h2 id="falshing-an-image"><a href="#falshing-an-image" class="headerlink" title="falshing an image"></a>falshing an image</h2><p>download the <a href="https://github.com/evilsocket/pwnagotchi/releases" target="_blank" rel="noopener">the latest image</a><br>then unzip it into present directory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/Downloads$ dd if=pwnagotchi-raspbian-lite-v1.3.0.img of=/dev/sdcard</span><br></pre></td></tr></table></figure>
+<h2 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a>config file</h2><p>before boot this image on RPI 3B+, I need to config it first. I mount this device to /mnt/1.<br>then add config.yml to it.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">main:</span><br><span class="line">  name: &apos;pwnagotchi&apos;</span><br><span class="line">  whitelist:</span><br><span class="line">    - &apos;YourHomeNetworkMaybe&apos;</span><br><span class="line">  plugins:</span><br><span class="line">    grid:</span><br><span class="line">      enabled: true</span><br><span class="line">      report: true</span><br><span class="line">      exclude:</span><br><span class="line">        - &apos;YourHomeNetworkMaybe&apos;</span><br></pre></td></tr></table></figure>
+<p>Because I dont have RPi 0w, so I try to use web UI (instead of an e-ink display attached to RPi0W) to see your Pwnagotchi’s face.</p>
+<p>I add these to my config.yml file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ui:</span><br><span class="line">    web:</span><br><span class="line">        username: my_new_username</span><br><span class="line">        password: my_new_password</span><br></pre></td></tr></table></figure>
+<p>In order to reduce power requirements I can lower cpu frequency (underclocking). Edit my /boot/config.txt and uncomment the arm_freq=800.</p>
+<h2 id="First-boot"><a href="#First-boot" class="headerlink" title="First boot"></a>First boot</h2><p>It shows like following.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Linux pwnagotchi 4.19.81-Re4son-v7+ #1 SMP Wed Nov 6 10:16:47 AEDT 2019 armv7l</span><br><span class="line">(◕‿‿◕) pwnagotchi</span><br><span class="line"></span><br><span class="line">Hi! I&apos;m a pwnagotchi, please take good care of me!</span><br><span class="line">Here are some basic things you need to know to raise me properly!</span><br><span class="line"></span><br><span class="line">If you want to change my configuration, use /etc/pwnagotchi/config.yml</span><br><span class="line"></span><br><span class="line">All the configuration options can be found on /etc/pwnagotchi/default.yml,</span><br><span class="line">but don&apos;t change this file because I will recreate it every time I&apos;m restarted!</span><br><span class="line"></span><br><span class="line">I&apos;m managed by systemd. Here are some basic commands.</span><br><span class="line"></span><br><span class="line">If you want to know what I&apos;m doing, you can check my logs with the command</span><br><span class="line">journalctl -fu pwnagotchi</span><br><span class="line"></span><br><span class="line">If you want to know if I&apos;m running, you can use</span><br><span class="line">systemctl status pwnagotchi</span><br><span class="line"></span><br><span class="line">You can restart me using</span><br><span class="line">systemctl restart pwnagotchi</span><br><span class="line"></span><br><span class="line">But be aware I will go into MANUAL mode when restarted!</span><br><span class="line">You can put me back into AUTO mode using</span><br><span class="line">touch /root/.pwnagotchi-auto &amp;&amp; systemctl restart pwnagotchi</span><br><span class="line"></span><br><span class="line">You learn more about me at https://pwnagotchi.ai/</span><br><span class="line">Last login: Wed Jul 10 01:30:38 2019 from 192.168.0.26</span><br><span class="line"></span><br><span class="line">SSH is enabled and the default password for the &apos;pi&apos; user has not been changed.</span><br><span class="line">This is a security risk - please login as the &apos;pi&apos; user and type &apos;passwd&apos; to set a new password.</span><br></pre></td></tr></table></figure>
+
+<p>check the service </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pi@pwnagotchi:~ $ systemctl status pwnagotchi.service </span><br><span class="line">● pwnagotchi.service - pwnagotchi Deep Reinforcement Learning instrumenting bettercap for WiFI pwning.</span><br><span class="line">   Loaded: loaded (/etc/systemd/system/pwnagotchi.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Wed 2019-07-10 02:17:04 BST; 2min 45s ago</span><br><span class="line">     Docs: https://pwnagotchi.ai</span><br><span class="line"> Main PID: 406 (bash)</span><br><span class="line">    Tasks: 24 (limit: 2319)</span><br><span class="line">   CGroup: /system.slice/pwnagotchi.service</span><br><span class="line">           ├─406 bash /usr/bin/pwnagotchi-launcher</span><br><span class="line">           ├─468 /usr/bin/python3 /usr/local/bin/pwnagotchi</span><br><span class="line">           └─811 orted --hnp --set-sid --report-uri 14 --singleton-died-pipe 15 -mca state_novm_select 1 -mca ess hnp -mca pmix ^s1,s2,cray,is</span><br><span class="line"></span><br><span class="line">Jul 10 02:18:06 pwnagotchi pwnagotchi-launcher[406]: Instructions for updating:</span><br><span class="line">Jul 10 02:18:06 pwnagotchi pwnagotchi-launcher[406]: Please use `layer.__call__` method instead.</span><br><span class="line">Jul 10 02:18:06 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:18:06,735] [WARNING] From /usr/local/lib/python3.7/dist-packages/tensorflo</span><br><span class="line">Jul 10 02:19:33 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:33,331] [WARNING] From /usr/local/lib/python3.7/dist-packages/stable_ba</span><br><span class="line">Jul 10 02:19:36 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:36,093] [ERROR] got data on channel 149, we can store 140 channels</span><br><span class="line">Jul 10 02:19:36 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:36,112] [ERROR] got data on channel 149, we can store 140 channels</span><br><span class="line">Jul 10 02:19:36 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:36,116] [ERROR] got data on channel 149, we can store 140 channels</span><br><span class="line">Jul 10 02:19:36 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:36,118] [ERROR] got data on channel 149, we can store 140 channels</span><br><span class="line">Jul 10 02:19:36 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:36,129] [ERROR] got data on channel 149, we can store 140 channels</span><br><span class="line">Jul 10 02:19:41 pwnagotchi pwnagotchi-launcher[406]: [2019-07-10 02:19:41,825] [INFO] sending association frame to clarkwifi (b0:2a:43:e6:6f:f</span><br></pre></td></tr></table></figure>
+
+
+<p>all the handshake eaten by pwnagotchi can be found under /root/handshake</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@pwnagotchi:~/handshakes# ls -al</span><br><span class="line">total 52</span><br><span class="line">drwxr-xr-x 2 root root 4096 Jul 10 02:28 .</span><br><span class="line">drwx------ 9 root root 4096 Jul 10 02:17 ..</span><br><span class="line">-rw-r--r-- 1 root root 1780 Jul 10 02:28 abfguest_d66e0e3131a4.pcap</span><br><span class="line">-rw-r--r-- 1 root root 4824 Jul 10 02:20 ATTtpcaygs_f82dc0d869e0.pcap</span><br><span class="line">-rw-r--r-- 1 root root 6264 Jul 10 02:21 ATTvmtPDGs_2c9569519550.pcap</span><br><span class="line">-rw-r--r-- 1 root root 2544 Jul 10 02:22 DIRECT19HPOfficeJet3830_10e7c694ba1a.pcap</span><br><span class="line">-rw-r--r-- 1 root root 1892 Jul 10 02:25 Hailey716_b02a43ec8ab0.pcap</span><br><span class="line">-rw-r--r-- 1 root root 2812 Jul 10 02:23 hidden_963badcbb2be.pcap</span><br><span class="line">-rw-r--r-- 1 root root 2476 Jul 10 02:23 NETGEARORBIhidden86_963badcbb2be.pcap</span><br><span class="line">-rw-r--r-- 1 root root 2283 Jul 10 02:27 ngHub319444NG01912_dcef09d5a816.pcap</span><br><span class="line">-rw-r--r-- 1 root root 2484 Jul 10 02:21 PeakyBlinders24G_9c3dcf98b8b3.pcap</span><br></pre></td></tr></table></figure>
+<img src="/2019/11/19/Pwnagotchi-project/image_login.png" class="">
+
+
+
+<img src="/2019/11/19/Pwnagotchi-project/make_0_friend.png" class="">
+<img src="/2019/11/19/Pwnagotchi-project/bettercap.png" class="">
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -913,439 +1335,11 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/14/Convert-markdown-file-to-PDF-file/" class="post-title-link" itemprop="url">Convert markdown file to PDF file</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-14 23:36:34" itemprop="dateCreated datePublished" datetime="2019-10-14T23:36:34-07:00">2019-10-14</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-15 00:23:07" itemprop="dateModified" datetime="2019-10-15T00:23:07-07:00">2019-10-15</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/14/Convert-markdown-file-to-PDF-file/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/14/Convert-markdown-file-to-PDF-file/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>I keep my resume on github, and is going to update it with my working experience changing.Since resume is written in markdown format on github, I need a PDF format when applying job on line. How to convert markdown file to PDF file easily?</p>
-<h2 id="Convert-markdown-file-to-html-format-first"><a href="#Convert-markdown-file-to-html-format-first" class="headerlink" title="Convert markdown file to html format first"></a>Convert markdown file to html format first</h2><p>You need to check markdown is already installed or not. If not, you need use <code>apt install markdown</code> to install it.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~$ which markdown</span><br><span class="line">/usr/bin/markdown</span><br></pre></td></tr></table></figure>
-<p>Go to directory where your markdown file lies, run</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/git_repo/resume$ markdown resume.md resume.html</span><br></pre></td></tr></table></figure>
-<p>you will convert resume.md markdown file to resume.html</p>
-<p>then you can go to webbrowser to see this html file, to make sure it works.</p>
-<h2 id="Convert-html-file-to-PDF-file"><a href="#Convert-html-file-to-PDF-file" class="headerlink" title="Convert html file to PDF file"></a>Convert html file to PDF file</h2><p>To convert PDF file, you need to use wkhtmltopdf tool</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install wkhtmltopdf</span><br><span class="line">anna@ubuntu1804:~$ which wkhtmltopdf</span><br><span class="line">/usr/bin/wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<p>go to the same directory where the resume.md and resume.html lie, run</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wkhtmltopdf -s letter  -B 25mm -T 25mm -L 25mm -R 25mm resume.html resume.pdf</span><br></pre></td></tr></table></figure>
-<p>then you can get the PDF format resume file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/git_repo/resume$ ll</span><br><span class="line">-rw-r--r-- 1 anna anna  4493 Oct 14 22:46 resume.html</span><br><span class="line">-rw-r--r-- 1 anna anna  3728 Oct 14 22:45 resume.md</span><br><span class="line">-rw-r--r-- 1 anna anna 34985 Oct 14 22:46 resume.pdf</span><br></pre></td></tr></table></figure>
-<h2 id="Write-a-script-to-execute-convert-automaticly"><a href="#Write-a-script-to-execute-convert-automaticly" class="headerlink" title="Write a script to execute convert automaticly"></a>Write a script to execute convert automaticly</h2>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/14/Convert-markdown-file-to-PDF-file/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/10/04/Ovirt-configuring-storage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/04/Ovirt-configuring-storage/" class="post-title-link" itemprop="url">Ovirt-configuring-storage</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-04 09:14:08 / Modified: 15:05:04" itemprop="dateCreated datePublished" datetime="2019-10-04T09:14:08-07:00">2019-10-04</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/04/Ovirt-configuring-storage/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/04/Ovirt-configuring-storage/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Last time we talked about adding a host to oVirt engine, it looks like following:</p>
-<img src="/2019/10/04/Ovirt-configuring-storage/first.jpg" class="">
-
-<h2 id="configure-storage"><a href="#configure-storage" class="headerlink" title="configure storage"></a>configure storage</h2><p>Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.<br>A storage domain is a collection of images that have a common storage domain contains complete images of templates and virtual machots), ISO files, and metadata about themselves. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).</p>
-<h2 id="configure-NFS-storage"><a href="#configure-NFS-storage" class="headerlink" title="configure NFS storage"></a>configure NFS storage</h2><p>First I use another centOS as a nfs server,then attached it to storage domain.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@cube4200 ~]# showmount -e</span><br><span class="line">Export list for cube4200:</span><br><span class="line">/export/hosted_vm 192.168.0.0/24</span><br></pre></td></tr></table></figure>
-<img src="/2019/10/04/Ovirt-configuring-storage/create_nfs.jpg" class="">
-<p>It is attached successfully.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/04/Ovirt-configuring-storage/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/09/14/Ovirt-installation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/14/Ovirt-installation/" class="post-title-link" itemprop="url">Ovirt: installation -- using cockpit wizard</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-09-14 22:25:21" itemprop="dateCreated datePublished" datetime="2019-09-14T22:25:21-07:00">2019-09-14</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-04 07:56:56" itemprop="dateModified" datetime="2019-10-04T07:56:56-07:00">2019-10-04</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/09/14/Ovirt-installation/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/14/Ovirt-installation/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Ovirt"><a href="#Ovirt" class="headerlink" title="Ovirt"></a>Ovirt</h2><p>oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure. oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.<br>Go to <a href="https://www.ovirt.org/download/" target="_blank" rel="noopener">Ovirt</a>to see how to install Ovirt.<br>oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.I use cockpit wizard to install Ovirt on CentOS.<br>Two types hosts</p>
-<ul>
-<li>oVirt node, other name ‘thin host’, it is a minimal OS, contains the only packagesrequired for the machine to act as a host. </li>
-<li>centOS or RHEL host<br>I use centOS 7 as a host.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
-Add the official oVirt repository:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm</span><br></pre></td></tr></table></figure>
-I use cockpit wizard to install Ovirt on CentOS.<br>Install Cockpit and the cockpit-ovirt-dashboard plugin:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cockpit cockpit-ovirt-dashboard -y</span><br></pre></td></tr></table></figure>
-Enable Cockpit:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable --now cockpit.socket</span><br></pre></td></tr></table></figure>
-Open the firewall:
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/09/14/Ovirt-installation/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/09/09/git-and-github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/git-and-github/" class="post-title-link" itemprop="url">git and github</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-09-09 11:52:33 / Modified: 16:00:02" itemprop="dateCreated datePublished" datetime="2019-09-09T11:52:33-07:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/09/09/git-and-github/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/09/git-and-github/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website"><a href="#Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website" class="headerlink" title="Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website."></a>Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.</h4><h5 id="on-Github"><a href="#on-Github" class="headerlink" title="on  Github"></a>on  Github</h5><p>Create a repository<br>Create a new file<br>Commit (same as save)<br>Issue (like comments)<br>Create an organization<br>Create branch<br>Pull request<br>Merge</p>
-<h4 id="Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github"><a href="#Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github" class="headerlink" title="Most of the time, you need to work on your local machine to use git. You can clone your repo from github."></a>Most of the time, you need to work on your local machine to use git. You can clone your repo from github.</h4><h5 id="On-local-computer"><a href="#On-local-computer" class="headerlink" title="On local computer"></a>On local computer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:vmnet8/Hello-World.git</span><br><span class="line">Cloning into &apos;Hello-World&apos;...</span><br><span class="line">remote: Enumerating objects: 4, done.</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (3/3), done.</span><br><span class="line">remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 10</span><br><span class="line">Receiving objects: 100% (14/14), done.</span><br><span class="line">Resolving deltas: 100% (1/1), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
-<p>make this a repo located on your local OS<br>compare with github repo you clone</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &apos;origin/master&apos;.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
-
-<h5 id="After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”"><a href="#After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”" class="headerlink" title="After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”"></a>After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &apos;origin/master&apos;.</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   README.md</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README.md</span><br></pre></td></tr></table></figure>
-<p>put this changed file to a stage to wait to be saved in the future.<br>any changes if want to be saved should be added to this stage first!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit README.md -m &quot;add new line under bottom&quot;</span><br><span class="line">[master 37c5b60] add new line under bottom</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
-<p>only done this, the changed can be “saved” into repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line">origin  git@github.com:vmnet8/Hello-World.git (fetch)</span><br><span class="line">origin  git@github.com:vmnet8/Hello-World.git (push)</span><br></pre></td></tr></table></figure>
-<p>Then you can make the changes you made on your local computer to sync to github repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Delta compression using up to 2 threads.</span><br><span class="line">Compressing objects: 100% (2/2), done.</span><br><span class="line">Writing objects: 100% (3/3), 302 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</span><br><span class="line">To git@github.com:vmnet8/Hello-World.git</span><br><span class="line">   efdcef9..37c5b60  master -&gt; master</span><br></pre></td></tr></table></figure>
-<p>If you made changes on github first, how to get your local to sync to github repo?</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/09/09/git-and-github/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1393,7 +1387,7 @@ Open the firewall:
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1406,7 +1400,7 @@ Open the firewall:
             <a href="/tags/%20%7C%7C%20tags">
           
         
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

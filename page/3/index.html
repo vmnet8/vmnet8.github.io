@@ -205,7 +205,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">20</span></a>
 
   </li>
       
@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">29</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">33</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,438 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/01/08/Python-using-repetition-structures-to-draw-mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/01/08/Python-using-repetition-structures-to-draw-mode/" class="post-title-link" itemprop="url">Python-using repetition structures nest loop to print patterns</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-01-08 23:46:42" itemprop="dateCreated datePublished" datetime="2019-01-08T23:46:42-08:00">2019-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-09 09:17:05" itemprop="dateModified" datetime="2019-09-09T09:17:05-07:00">2019-09-09</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/01/08/Python-using-repetition-structures-to-draw-mode/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/08/Python-using-repetition-structures-to-draw-mode/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Two-repetition-structures-in-python"><a href="#Two-repetition-structures-in-python" class="headerlink" title="Two repetition structures in python:"></a>Two repetition structures in python:</h4><ul>
+<li>while loop</li>
+<li>for loop<h4 id="Nest-loop"><a href="#Nest-loop" class="headerlink" title="Nest loop"></a>Nest loop</h4>For loop has a nest loop function. clock is a good example.<br>Nest loop can use to print some patterns.<br>Some examples:</li>
+</ul>
+<h6 id="pattern-1"><a href="#pattern-1" class="headerlink" title="pattern 1"></a>pattern 1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rows = int(input(&apos;how many rows?&apos;))</span><br><span class="line">cols = int(input(&apos;how many columns?&apos;))</span><br><span class="line">for r in range(rows):</span><br><span class="line">    for  c in range(cols):</span><br><span class="line">        print(&apos;*&apos;,end=&apos;&apos;)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+<p>after input rows and clos value 6, runing code, it will show</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">******</span><br><span class="line">******</span><br><span class="line">******</span><br><span class="line">******</span><br><span class="line">******</span><br><span class="line">******</span><br></pre></td></tr></table></figure>
+<h6 id="pattern-2"><a href="#pattern-2" class="headerlink" title="pattern 2"></a>pattern 2</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">**</span><br><span class="line">***</span><br><span class="line">****</span><br><span class="line">*****</span><br><span class="line">******</span><br><span class="line">*******</span><br></pre></td></tr></table></figure>
+<p>code as following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">base_size = 7</span><br><span class="line">for r in range(base_size):</span><br><span class="line">    for c in range(r+1):</span><br><span class="line">        print(&apos;*&apos;,end=&apos;&apos;)</span><br><span class="line">        print()</span><br></pre></td></tr></table></figure>
+<h6 id="pattern-3-up-side-down-triangle"><a href="#pattern-3-up-side-down-triangle" class="headerlink" title="pattern 3: up side down triangle:"></a>pattern 3: up side down triangle:</h6>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/01/08/Python-using-repetition-structures-to-draw-mode/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/" class="post-title-link" itemprop="url">Cyber Security: Security Audit Report about Computer System</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-07-20 10:25:09" itemprop="dateCreated datePublished" datetime="2018-07-20T10:25:09-07:00">2018-07-20</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-11 16:45:22" itemprop="dateModified" datetime="2019-07-11T16:45:22-07:00">2019-07-11</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h4><p>Using MBSA to audit computer to find 4 things need to be fixed, some missing update, some passwords are vulnerable. To fix these problems, update application and change the password policy to force users to change passwords.</p>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h3><p>Got MBSA App 2.1 from Microsoft website and install it.</p>
+<p>Get started to scam computer, it takes a little longer than expected to finish scan.</p>
+<h3 id="Finding-1"><a href="#Finding-1" class="headerlink" title="Finding 1:"></a>Finding 1:</h3><p>Description: The Automatic Updates system service is not configured to be started as Automatic.</p>
+<p>Mitigation: Since sometimes automatic updates is not always good to computer system and network, it is not necessary to update all the time. Keep this configuration not change, then   regularly check the system service to determine which needs to be updated.</p>
+<h3 id="Finding-2"><a href="#Finding-2" class="headerlink" title="Finding 2:"></a>Finding 2:</h3><p>Description: Some user accounts (4 of 6) have blank or simple passwords, or could not be analyzed.</p>
+<p>Mitigation: change password policy and inforce the password security, let the users change their passwords.</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/07/20/Cyber-Security-Security-Audit-Report-about-Computer-System/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/" class="post-title-link" itemprop="url">Cyber Security Policy Goals of Chabot College</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-07-11 15:46:50" itemprop="dateCreated datePublished" datetime="2018-07-11T15:46:50-07:00">2018-07-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-11 16:21:12" itemprop="dateModified" datetime="2019-07-11T16:21:12-07:00">2019-07-11</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Clean-Desk-Policy"><a href="#Clean-Desk-Policy" class="headerlink" title="Clean Desk Policy:"></a>Clean Desk Policy:</h4><h3 id="Goal"><a href="#Goal" class="headerlink" title="Goal:"></a>Goal:</h3><p>Establish the minimum requirements for maintaining a “clean desk” – where sensitive/critical information about  employees, intellectual property, students is secure in locked areas and out of site.</p>
+<h3 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure:"></a>Procedure:</h3><p>  a.Employees are required to ensure that all sensitive/confidential information in hardcopy or electronic form is secure in their work area at the end of the day and when they are expected to be gone for an extended period.<br>  b.Computer workstations must be locked when workspace is unoccupied.<br>  c.Computer workstations must be shut completely down at the end of the work day.<br>  d.Any Restricted or Sensitive information must be removed from the desk and locked in a drawer when the desk is unoccupied and at the end of the work day.<br>  e.File cabinets containing Restricted or Sensitive information must be kept closed and locked when not in use or when not attended.<br>  f.Keys used for access to Restricted or Sensitive information must not be left at an unattended desk.<br>  g.Laptops must be either locked with a locking cable or locked away in a drawer.<br>  h.Passwords may not be left on sticky notes posted on or under a computer, nor may they be left written down in an accessible location.<br>  i.Printouts containing Restricted or Sensitive information should be immediately removed from the printer.<br>  j.Upon disposal Restricted and/or Sensitive documents should be shredded in the official shredder bins or placed in the lock confidential disposal bins.<br>  k.Whiteboards containing Restricted and/or Sensitive information should be erased.<br>  l.Lock away portable computing devices such as laptops and tablets.<br>  m.Treat mass storage devices such as CDROM, DVD or USB drives as sensitive and secure them in a locked drawer.</p>
+<h4 id="Password-Policy"><a href="#Password-Policy" class="headerlink" title="Password Policy:"></a>Password Policy:</h4><h3 id="Goal-1"><a href="#Goal-1" class="headerlink" title="Goal:"></a>Goal:</h3><p> Passwords are a critical component of information security and serve to protect user accounts; however, a poorly constructed password may result in the compromise of individual systems, data, or network. This policy provides best practices for creating secure passwords.</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/07/11/Cyber-Security-Policy-Goals-of-Chabot-College/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2018/04/02/Linux-ACL-useradd-and-groupadd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/04/02/Linux-ACL-useradd-and-groupadd/" class="post-title-link" itemprop="url">Linux: ACL, useradd and groupadd</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-04-02 10:07:04" itemprop="dateCreated datePublished" datetime="2018-04-02T10:07:04-07:00">2018-04-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-09 21:58:24" itemprop="dateModified" datetime="2019-07-09T21:58:24-07:00">2019-07-09</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/02/Linux-ACL-useradd-and-groupadd/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/02/Linux-ACL-useradd-and-groupadd/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ACL means “access control list”.</p>
+<h4 id="Config-file"><a href="#Config-file" class="headerlink" title="Config file"></a>Config file</h4><p>/etc/default/useradd<br>/etc/skel<br>note:this config will add subdir under /etc/skel, it will automatically create the same dir when using useradd command to create  a username</p>
+<h4 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h4><p>-u    uid<br>-g    default group, initial login group<br>-a -G append extra group<br>-r    add a system users  (uid &lt; 100)<br>-s    shell     /bin/bash  or  /sbin/login  or /sbin/nologin<br>newgrp  username groupname        set the effective group for user</p>
+<h4 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel   anna</span><br></pre></td></tr></table></figure>
+<p>only delete the username, keep the home dir and all other files</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel -r anna</span><br></pre></td></tr></table></figure>
+<p>delete completely all the username’s file and dir, use “-r”</p>
+<h4 id="gpasswd"><a href="#gpasswd" class="headerlink" title="gpasswd"></a>gpasswd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd group name</span><br></pre></td></tr></table></figure>
+<p>create  a passwd for this group</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -A username groupname</span><br></pre></td></tr></table></figure>
+<p>Let username to be the administrator of groupname<br>Then user can use  gpasswd to add new user to this group</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/04/02/Linux-ACL-useradd-and-groupadd/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -919,327 +1351,11 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/" class="post-title-link" itemprop="url">Decorating my blog with Hexo - theme, features, tips</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2017-12-21 18:39:37" itemprop="dateCreated datePublished" datetime="2017-12-21T18:39:37-08:00">2017-12-21</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-11 16:41:57" itemprop="dateModified" datetime="2019-07-11T16:41:57-07:00">2019-07-11</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Change-hexo-blog-theme-NexT"><a href="#Change-hexo-blog-theme-NexT" class="headerlink" title="Change hexo blog theme - NexT"></a>Change hexo blog theme - NexT</h3><p>Change to hexo blog theme <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a> which has neat look and supports a lot cool features.<br>Download the theme</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>Edit blog configuration file _config.yml, change to theme from the default langscape to next</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-<p>Edit theme configuration file themes/next/_config.yml, change list scheme from default Muse to Pisces, see more about <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT theme scheme</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
-<p>I prefer the scheme Pisces because it has menu and links and other stuff showing on left side of the blog content.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/12/21/Decorating-my-blog-with-Hexo-theme-and-more-featurs/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/" class="post-title-link" itemprop="url">First blog - Setting up my github pages blog with Hexo</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2017-12-21 18:33:18" itemprop="dateCreated datePublished" datetime="2017-12-21T18:33:18-08:00">2017-12-21</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-11 16:41:41" itemprop="dateModified" datetime="2019-07-11T16:41:41-07:00">2019-07-11</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h4><p><a href="https://pages.github.com/" target="_blank" rel="noopener">Github pages</a> is a github service that can host personal or project web pages directly from a github repository. This is ideal place to host my blog site because it is fast, and I will have a <username>github.io domain, and there are some really cool blog frameworks that support deploying blog site to Github Pages.</p>
-<h4 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h4><p>The most popular blog framework that supports github pages is Jekyll It seems, because it is officially recommended by github.  But I found another framework <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>, which compared to Jekyll, is similar but much easier to use, I only need to know 4 commands,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n # new post</span><br><span class="line">hexo g # generate</span><br><span class="line">hexo s # server</span><br><span class="line">hexo d # deploy</span><br></pre></td></tr></table></figure>
-<p>After I checked out some Hexo built blog sites, I decied to go with Hexo.  Hexo is wirtten in node.js, and it supports a lot powerfull plugins and has cool themes.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2017/12/21/First-blog-Setting-up-my-github-pages-blog-with-Hexo/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2017/12/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/12/19/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2017-12-19 14:04:22" itemprop="dateCreated datePublished" datetime="2017-12-19T14:04:22-08:00">2017-12-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-11 16:42:18" itemprop="dateModified" datetime="2019-07-11T16:42:18-07:00">2019-07-11</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/19/hello-world/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/19/hello-world/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1287,7 +1403,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1300,7 +1416,7 @@
             <a href="/tags/%20%7C%7C%20tags">
           
         
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
