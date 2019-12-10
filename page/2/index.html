@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">33</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">34</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,113 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/10/19/Create-npm-repo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/19/Create-npm-repo/" class="post-title-link" itemprop="url">Create npm repo</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-19 09:12:43" itemprop="dateCreated datePublished" datetime="2019-10-19T09:12:43-07:00">2019-10-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-23 14:26:31" itemprop="dateModified" datetime="2019-10-23T14:26:31-07:00">2019-10-23</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/10/19/Create-npm-repo/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/19/Create-npm-repo/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>I need to simulate a npm repo to test codes. The following steps are how to create a npm repo.</p>
+<h4 id="Create-a-npm-account"><a href="#Create-a-npm-account" class="headerlink" title="Create a npm account"></a>Create a npm account</h4><p>Go to <a href="npmjs.com">npmjs.com</a>, click “join for free”, then create your account. The weird thing is the password needs at least 10 characters!</p>
+<h4 id="Create-a-npm-repo-on-your-local-terminal"><a href="#Create-a-npm-repo-on-your-local-terminal" class="headerlink" title="Create a npm repo on your local terminal"></a>Create a npm repo on your local terminal</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir npm_own</span><br></pre></td></tr></table></figure>
+<h4 id="Copy-github-com-treehouses-cli-package-json-url-to-local"><a href="#Copy-github-com-treehouses-cli-package-json-url-to-local" class="headerlink" title="Copy github.com/treehouses/cli package.json url to local"></a>Copy github.com/treehouses/cli package.json url to local</h4><p>Because I want to test the code on github.com/treehouses/cli and don’t want to mess up the current repo, I copy the url to my local</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/treehouses/cli/blob/master/package.json</span><br></pre></td></tr></table></figure>
+<h4 id="Create-your-own-package-json"><a href="#Create-your-own-package-json" class="headerlink" title="Create your own package.json"></a>Create your own package.json</h4><p>I try to create a repo named “flyingsaucer8”.<br>Using vim to make my own package.json based on treehouses package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;flyingsaucer8&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.6&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;flyingsaucer&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;cli.sh&quot;,</span><br><span class="line">  &quot;bin&quot;: &#123;</span><br><span class="line">    &quot;flyingsaucer&quot;: &quot;cli.sh&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;publishConfig&quot;: &#123;</span><br><span class="line">    &quot;access&quot;: &quot;public&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/vmnet8/flyingsaucer.git&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;postinstall&quot;: &quot;if [ $(id -u) = 0 ]; then ln -sr _flyingsaucer /etc/bash_completion.d/_flyingsaucer; fi &amp;&amp; exit 0&quot;,</span><br><span class="line">    &quot;postuninstall&quot;: &quot;if [ $(id -u) = 0 ]; then rm /etc/bash_completion.d/_flyingsaucer; fi &amp;&amp; exit 0&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;keywords&quot;: [</span><br><span class="line">    &quot;flyingsaucer&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;author&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;flyingsaucer team&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;alien@flyingsaucer.io&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://flyingsaucer.io&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;license&quot;: &quot;AGPL-3.0&quot;,</span><br><span class="line">  &quot;bugs&quot;: &#123;</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/vmnet8/flyingsaucer/issues&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;alien@flyingsaucer.io&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;homepage&quot;: &quot;https://github.com/vmnet8/flyingsaucer&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/19/Create-npm-repo/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1247,109 +1354,6 @@ Open the firewall:
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/02/09/Cyber-Security-Risk-Management-Report/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/02/09/Cyber-Security-Risk-Management-Report/" class="post-title-link" itemprop="url">Cyber Security: Risk Management Report</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-02-09 17:26:44" itemprop="dateCreated datePublished" datetime="2019-02-09T17:26:44-08:00">2019-02-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-09 17:29:54" itemprop="dateModified" datetime="2019-07-09T17:29:54-07:00">2019-07-09</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/02/09/Cyber-Security-Risk-Management-Report/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/09/Cyber-Security-Risk-Management-Report/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Identify the potential risk or threat on computer\iPad\Phone, decide how the impact and likely of threat, deal the threat with the mitigation, using the risk chart to record the steps.</p>
-<h4 id="Item-1-name-ThinkPad-laptop-2017"><a href="#Item-1-name-ThinkPad-laptop-2017" class="headerlink" title="Item 1 name: ThinkPad laptop 2017"></a>Item 1 name: ThinkPad laptop 2017</h4><p>Description: This is a laptop with a lot of important files on it.<br>Threat 1: Virus Attacks that can damage computer systems and data.<br>Mitigation: Install the anti-virus software, such as McAfee.</p>
-<h4 id="Item-2-name-laptop-hard-drive"><a href="#Item-2-name-laptop-hard-drive" class="headerlink" title="Item 2 name: laptop hard drive"></a>Item 2 name: laptop hard drive</h4><p>Description: Hard drive is the most important part in laptop. With the damage hard drive, the laptop can’t even start.<br>Threat 2: HDD has unrecoverable failure and lost all data on laptop<br>Mitigation: Make extra copy on other computer or buy extra HDD for storing important files.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/02/09/Cyber-Security-Risk-Management-Report/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1402,7 +1406,7 @@ Open the firewall:
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
