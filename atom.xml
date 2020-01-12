@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2019-12-10T06:22:49.949Z</updated>
+  <updated>2019-12-11T07:04:39.174Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build multi-arch docker image</title>
+    <link href="https://vmnet8.github.io/2019/12/09/Build-multi-arch-docker-image/"/>
+    <id>https://vmnet8.github.io/2019/12/09/Build-multi-arch-docker-image/</id>
+    <published>2019-12-10T06:31:51.000Z</published>
+    <updated>2019-12-11T07:04:39.174Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;In this article I am trying to build a multi-arch image  that supports arm and amd64, then I will push it to Docker Hub.&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a docker image: bettercap</title>
@@ -549,28 +575,6 @@ Open the firewall:
     
     
       <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux: LVM thin volume and snapshot</title>
-    <link href="https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/"/>
-    <id>https://vmnet8.github.io/2019/02/12/Linux-LVM-thin-volume-and-snapshot/</id>
-    <published>2019-02-12T20:09:20.000Z</published>
-    <updated>2019-07-15T07:55:05.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;LVM: logical volume manager&lt;/p&gt;
-&lt;p&gt;Advantage: give more flexible of space&lt;/p&gt;
-&lt;h4 id=&quot;LVM-thin-volume&quot;&gt;&lt;a href=&quot;#LVM-thin-volume&quot; class=&quot;headerlink&quot; title=&quot;LVM thin volume&quot;&gt;&lt;/a&gt;LVM thin volume&lt;/h4&gt;&lt;p&gt;Create thin pool first&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# lvcreate -L 1G -T thin_vg/thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Using default stripesize 64.00 KiB.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Logical volume &amp;quot;thinpool&amp;quot; created.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# lvdisplay thin_vg/thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --- Logical volume ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Name                thinpool&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  VG Name                thin_vg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV UUID                ncc3Kh-eZgD-WLQn-F4cq-pPJJ-rYjD-XsTx34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Write Access        read/write&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Creation host, time client.centos7.study, 2019-07-12 13:02:42 -0700&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Pool metadata       thinpool_tmeta&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Pool data           thinpool_tdata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Status              available&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  # open                 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  LV Size                1.00 GiB&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocated pool data    0.00%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocated metadata     0.98%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Current LE             256&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Segments               1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Allocation             inherit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Read ahead sectors     auto&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  - currently set to     8192&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Block device           253:6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
     
   </entry>
   
