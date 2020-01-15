@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2019-12-11T07:04:39.174Z</updated>
+  <updated>2020-01-13T19:23:21.419Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Modify a Dockerfile</title>
+    <link href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/"/>
+    <id>https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/</id>
+    <published>2020-01-13T19:00:14.000Z</published>
+    <updated>2020-01-13T19:23:21.419Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;I need to rewrite a Dockerfile to create my own Dockerfile.&lt;br&gt;I pull a docker image base from dockerhub first.&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
+    
+      <category term="Dockerfile" scheme="https://vmnet8.github.io/tags/Dockerfile/"/>
+    
+  </entry>
   
   <entry>
     <title>Build multi-arch docker image</title>
@@ -544,31 +572,6 @@ Open the firewall:
 &lt;li&gt;&lt;p&gt;go back to Zenmap to input other IP address into “target” frame, do quick scan again.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;In Wireshark, select the source and destination IP address 192.168.0.1 to observe the captured packets, analyze the TCP handshake process.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cyber Security: using wireshark to trace packets</title>
-    <link href="https://vmnet8.github.io/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/"/>
-    <id>https://vmnet8.github.io/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/</id>
-    <published>2019-02-20T04:34:53.000Z</published>
-    <updated>2019-07-10T06:39:55.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Wireshark is a network packet analyzer. It will try to capture network packets and tries to display that packet data as detailed as possible.&lt;/p&gt;
-&lt;h4 id=&quot;Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address&quot;&gt;&lt;a href=&quot;#Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address&quot; class=&quot;headerlink&quot; title=&quot;Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address.&quot;&gt;&lt;/a&gt;Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address.&lt;/h4&gt;&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.wireshark.org&quot;&gt;wireshark pages&lt;/a&gt;, read some basic knowledge of wireshark, then download &lt;a href=&quot;https://1.na.dl.wireshark.org/win64/Wireshark-win64-3.0.2.exe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;wireshark Windows Installer(64-bit)&lt;/a&gt;, according to the instructions to install it on my windows operating system.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;go to desktop to open Wireshark up, double click “*Wi-Fi” link,it will show a “Capturing from my local area connection” to see the packets captured here.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Open a browser and input a website, such as &lt;a href=&quot;http://www.qwerty.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;www.qwerty.com&lt;/a&gt; to generate the traffic.&lt;/p&gt;
     
     </summary>
     

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="I need to rewrite a Dockerfile to create my own Dockerfile.I pull a docker image base from dockerhub first. 1234567891011121314151617181920212223242526272829303132FROM balenalib&#x2F;raspberry-pi-alpine:3.">
+<meta name="keywords" content="Docker,Dockerfile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modify a Dockerfile">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;01&#x2F;13&#x2F;Modify-a-Dockerfile&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="I need to rewrite a Dockerfile to create my own Dockerfile.I pull a docker image base from dockerhub first. 1234567891011121314151617181920212223242526272829303132FROM balenalib&#x2F;raspberry-pi-alpine:3.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-13T19:23:21.419Z">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Modify a Dockerfile | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">22</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">36</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Modify a Dockerfile
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-13 11:00:14 / Modified: 11:23:21" itemprop="dateCreated datePublished" datetime="2020-01-13T11:00:14-08:00">2020-01-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/13/Modify-a-Dockerfile/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/13/Modify-a-Dockerfile/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>I need to rewrite a Dockerfile to create my own Dockerfile.<br>I pull a docker image base from dockerhub first.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">FROM balenalib/raspberry-pi-alpine:3.9</span><br><span class="line"></span><br><span class="line">LABEL org.opencontainers.image.authors=&quot;Tobias Hargesheimer &lt;docker@ison.ws&gt;&quot; \</span><br><span class="line">	org.opencontainers.image.title=&quot;NGINX&quot; \</span><br><span class="line">	org.opencontainers.image.description=&quot;AlpineLinux with NGINX on arm arch&quot; \</span><br><span class="line">	org.opencontainers.image.licenses=&quot;Apache-2.0&quot; \</span><br><span class="line">	org.opencontainers.image.url=&quot;https://hub.docker.com/r/tobi312/rpi-nginx/&quot; \</span><br><span class="line">	org.opencontainers.image.source=&quot;https://github.com/Tob1asDocker/rpi-nginx&quot;</span><br><span class="line"></span><br><span class="line">ARG CROSS_BUILD_START=&quot;:&quot;</span><br><span class="line">ARG CROSS_BUILD_END=&quot;:&quot;</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_START&#125; ]</span><br><span class="line"></span><br><span class="line">ENV NGINX_VERSION 1.14</span><br><span class="line"></span><br><span class="line">RUN apk --no-cache add nginx&gt;$&#123;NGINX_VERSION&#125; \</span><br><span class="line">	&amp;&amp; mkdir -p /run/nginx \</span><br><span class="line">	&amp;&amp; sed -i &quot;s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"># forward request and error logs to docker log collector</span><br><span class="line">RUN ln -sf /dev/stdout /var/log/nginx/access.log \</span><br><span class="line">	&amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log</span><br><span class="line">	</span><br><span class="line"># fix: *** stack smashing detected ***: nginx: worker process terminated / [alert] 9#9: worker process *process-id* exited on signal 6</span><br><span class="line">#RUN sed -i &quot;s/worker_processes auto;/worker_processes 1;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line">	</span><br><span class="line">EXPOSE 80 443</span><br><span class="line"></span><br><span class="line">CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_END&#125; ]</span><br></pre></td></tr></table></figure>
+
+<p>For this image, its base is balenalib/raspberry-pi-alpine:3.9. when I am going to build my own docker image, it has the newest version, but I still use the old one, because it will be more stable for me.</p>
+<p>I add some new command unders this docker base Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">FROM balenalib/raspberry-pi-alpine:3.9</span><br><span class="line"></span><br><span class="line">LABEL org.opencontainers.image.authors=&quot;Tobias Hargesheimer &lt;docker@ison.ws&gt;&quot; \</span><br><span class="line">	org.opencontainers.image.title=&quot;NGINX&quot; \</span><br><span class="line">	org.opencontainers.image.description=&quot;AlpineLinux with NGINX on arm arch&quot; \</span><br><span class="line">	org.opencontainers.image.licenses=&quot;Apache-2.0&quot; \</span><br><span class="line">	org.opencontainers.image.url=&quot;https://hub.docker.com/r/tobi312/rpi-nginx/&quot; \</span><br><span class="line">	org.opencontainers.image.source=&quot;https://github.com/Tob1asDocker/rpi-nginx&quot;</span><br><span class="line"></span><br><span class="line">ARG CROSS_BUILD_START=&quot;:&quot;</span><br><span class="line">ARG CROSS_BUILD_END=&quot;:&quot;</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_START&#125; ]</span><br><span class="line"></span><br><span class="line">ENV NGINX_VERSION 1.14</span><br><span class="line"></span><br><span class="line">RUN apk --no-cache add nginx&gt;$&#123;NGINX_VERSION&#125; \</span><br><span class="line">	&amp;&amp; mkdir -p /run/nginx \</span><br><span class="line">	&amp;&amp; sed -i &quot;s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"># forward request and error logs to docker log collector</span><br><span class="line">RUN ln -sf /dev/stdout /var/log/nginx/access.log \</span><br><span class="line">	&amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log</span><br><span class="line">	</span><br><span class="line"># fix: *** stack smashing detected ***: nginx: worker process terminated / [alert] 9#9: worker process *process-id* exited on signal 6</span><br><span class="line">#RUN sed -i &quot;s/worker_processes auto;/worker_processes 1;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line">	</span><br><span class="line">EXPOSE 80 443</span><br><span class="line"></span><br><span class="line">CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_END&#125; ]</span><br><span class="line">RUN apk add --no-cache \</span><br><span class="line"> fcgi=2.4.0-r8 \</span><br><span class="line">    fcgiwrap=1.1.0-r3 \</span><br><span class="line">    spawn-fcgi=1.6.4-r3 \</span><br><span class="line">      ca-certificates=20190108-r0 \</span><br><span class="line">      nghttp2-libs=1.35.1-r0 \</span><br><span class="line">      libssh2=1.8.2-r0 \</span><br><span class="line">      libcurl=7.64.0-r2 \</span><br><span class="line">    curl=7.64.0-r2 \</span><br><span class="line">      oniguruma=6.9.4-r0 \</span><br><span class="line">    jq=1.6-r0</span><br></pre></td></tr></table></figure>
+<p>Notice: the packages need to be installed all have version numbers which will cause the error in the following.</p>
+<p>After modify the Dockerfile, I am going to build my docker image.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">root@vmnet8cloud:~/git_repo/preplanet/docker/planet# docker build -t vmnet8/preplanet:rpi-1 .</span><br><span class="line">Sending build context to Docker daemon  4.096kB</span><br><span class="line">Step 1/12 : FROM balenalib/raspberry-pi-alpine:3.9</span><br><span class="line"> ---&gt; d6c5aebf964a</span><br><span class="line">Step 2/12 : LABEL org.opencontainers.image.authors=&quot;Tobias Hargesheimer &lt;docker@ison.ws&gt;&quot; 	org.opencontainers.image.title=&quot;NGINX&quot; 	org.opencontainers.image.description=&quot;AlpineLinux with NGINX on arm arch&quot; 	org.opencontainers.image.licenses=&quot;Apache-2.0&quot; 	org.opencontainers.image.url=&quot;https://hub.docker.com/r/tobi312/rpi-nginx/&quot; 	org.opencontainers.image.source=&quot;https://github.com/Tob1asDocker/rpi-nginx&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 1a8a69474af2</span><br><span class="line">Step 3/12 : ARG CROSS_BUILD_START=&quot;:&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 2ea7d76cc571</span><br><span class="line">Step 4/12 : ARG CROSS_BUILD_END=&quot;:&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 9dac95067f17</span><br><span class="line">Step 5/12 : RUN [ $&#123;CROSS_BUILD_START&#125; ]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; e1d8ae03657f</span><br><span class="line">Step 6/12 : ENV NGINX_VERSION 1.14</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 684896377216</span><br><span class="line">Step 7/12 : RUN apk --no-cache add nginx&gt;$&#123;NGINX_VERSION&#125; 	&amp;&amp; mkdir -p /run/nginx 	&amp;&amp; sed -i &quot;s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; ef20e56136c1</span><br><span class="line">Step 8/12 : RUN ln -sf /dev/stdout /var/log/nginx/access.log 	&amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 8d95b6ad6846</span><br><span class="line">Step 9/12 : EXPOSE 80 443</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; a12bf17fcaea</span><br><span class="line">Step 10/12 : CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 1f6e9eb85851</span><br><span class="line">Step 11/12 : RUN [ $&#123;CROSS_BUILD_END&#125; ]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 969cc49b4faf</span><br><span class="line">Step 12/12 : RUN apk add --no-cache       fcgi=2.4.0-r8     fcgiwrap=1.1.0-r3     spawn-fcgi=1.6.4-r3       ca-certificates=20190108-r0       nghttp2-libs=1.35.1-r0       libssh2=1.8.2-r0       libcurl=7.64.0-r2     curl=7.64.0-r2       oniguruma=6.9.4-r0     jq=1.6-r0</span><br><span class="line"> ---&gt; Running in 910227bcece4</span><br><span class="line">fetch http://dl-cdn.alpinelinux.org/alpine/v3.9/main/armhf/APKINDEX.tar.gz</span><br><span class="line">fetch http://dl-cdn.alpinelinux.org/alpine/v3.9/community/armhf/APKINDEX.tar.gz</span><br><span class="line">ERROR: unsatisfiable constraints:</span><br><span class="line">  nghttp2-libs-1.35.1-r1:</span><br><span class="line">    breaks: world[nghttp2-libs=1.35.1-r0]</span><br><span class="line">    satisfies: libcurl-7.64.0-r3[so:libnghttp2.so.14]</span><br><span class="line">  libssh2-1.9.0-r1:</span><br><span class="line">    breaks: world[libssh2=1.8.2-r0]</span><br><span class="line">    satisfies: libcurl-7.64.0-r3[so:libssh2.so.1]</span><br><span class="line">  libcurl-7.64.0-r3:</span><br><span class="line">    breaks: world[libcurl=7.64.0-r2]</span><br><span class="line">    satisfies: curl-7.64.0-r3[so:libcurl.so.4]</span><br><span class="line">  curl-7.64.0-r3:</span><br><span class="line">    breaks: world[curl=7.64.0-r2]</span><br><span class="line">The command &apos;/bin/sh -c apk add --no-cache       fcgi=2.4.0-r8     fcgiwrap=1.1.0-r3     spawn-fcgi=1.6.4-r3       ca-certificates=20190108-r0       nghttp2-libs=1.35.1-r0       libssh2=1.8.2-r0       libcurl=7.64.0-r2     curl=7.64.0-r2       oniguruma=6.9.4-r0     jq=1.6-r0&apos; returned a non-zero code: 4</span><br></pre></td></tr></table></figure>
+
+<p>It shows error.</p>
+<p>I modified the Dockerfile again and move off all packages versions like following</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">FROM balenalib/raspberry-pi-alpine:3.9</span><br><span class="line"></span><br><span class="line">LABEL org.opencontainers.image.authors=&quot;Tobias Hargesheimer &lt;docker@ison.ws&gt;&quot; \</span><br><span class="line">	org.opencontainers.image.title=&quot;NGINX&quot; \</span><br><span class="line">	org.opencontainers.image.description=&quot;AlpineLinux with NGINX on arm arch&quot; \</span><br><span class="line">	org.opencontainers.image.licenses=&quot;Apache-2.0&quot; \</span><br><span class="line">	org.opencontainers.image.url=&quot;https://hub.docker.com/r/tobi312/rpi-nginx/&quot; \</span><br><span class="line">	org.opencontainers.image.source=&quot;https://github.com/Tob1asDocker/rpi-nginx&quot;</span><br><span class="line"></span><br><span class="line">ARG CROSS_BUILD_START=&quot;:&quot;</span><br><span class="line">ARG CROSS_BUILD_END=&quot;:&quot;</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_START&#125; ]</span><br><span class="line"></span><br><span class="line">ENV NGINX_VERSION 1.14</span><br><span class="line"></span><br><span class="line">RUN apk --no-cache add nginx&gt;$&#123;NGINX_VERSION&#125; \</span><br><span class="line">	&amp;&amp; mkdir -p /run/nginx \</span><br><span class="line">	&amp;&amp; sed -i &quot;s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"># forward request and error logs to docker log collector</span><br><span class="line">RUN ln -sf /dev/stdout /var/log/nginx/access.log \</span><br><span class="line">	&amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log</span><br><span class="line">	</span><br><span class="line"># fix: *** stack smashing detected ***: nginx: worker process terminated / [alert] 9#9: worker process *process-id* exited on signal 6</span><br><span class="line">#RUN sed -i &quot;s/worker_processes auto;/worker_processes 1;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line">	</span><br><span class="line">EXPOSE 80 443</span><br><span class="line"></span><br><span class="line">CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span><br><span class="line"></span><br><span class="line">RUN [ $&#123;CROSS_BUILD_END&#125; ]</span><br><span class="line">RUN apk add --no-cache \</span><br><span class="line">      fcgi \</span><br><span class="line">    fcgiwrap \</span><br><span class="line">    spawn-fcgi \</span><br><span class="line">      ca-certificates \</span><br><span class="line">      nghttp2-libs \</span><br><span class="line">      libssh2 \</span><br><span class="line">      libcurl \</span><br><span class="line">    curl \</span><br><span class="line">      oniguruma \</span><br><span class="line">    jq</span><br></pre></td></tr></table></figure>
+
+<p>then build docker image again</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">root@vmnet8cloud:~/git_repo/preplanet/docker/planet# docker build -t vmnet8/preplanet:rpi-1 .</span><br><span class="line">Sending build context to Docker daemon  6.144kB</span><br><span class="line">Step 1/12 : FROM balenalib/raspberry-pi-alpine:3.9</span><br><span class="line"> ---&gt; d6c5aebf964a</span><br><span class="line">Step 2/12 : LABEL org.opencontainers.image.authors=&quot;Tobias Hargesheimer &lt;docker@ison.ws&gt;&quot; 	org.opencontainers.image.title=&quot;NGINX&quot; 	org.opencontainers.image.description=&quot;AlpineLinux with NGINX on arm arch&quot; 	org.opencontainers.image.licenses=&quot;Apache-2.0&quot; 	org.opencontainers.image.url=&quot;https://hub.docker.com/r/tobi312/rpi-nginx/&quot; 	org.opencontainers.image.source=&quot;https://github.com/Tob1asDocker/rpi-nginx&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 1a8a69474af2</span><br><span class="line">Step 3/12 : ARG CROSS_BUILD_START=&quot;:&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 2ea7d76cc571</span><br><span class="line">Step 4/12 : ARG CROSS_BUILD_END=&quot;:&quot;</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 9dac95067f17</span><br><span class="line">Step 5/12 : RUN [ $&#123;CROSS_BUILD_START&#125; ]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; e1d8ae03657f</span><br><span class="line">Step 6/12 : ENV NGINX_VERSION 1.14</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 684896377216</span><br><span class="line">Step 7/12 : RUN apk --no-cache add nginx&gt;$&#123;NGINX_VERSION&#125; 	&amp;&amp; mkdir -p /run/nginx 	&amp;&amp; sed -i &quot;s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g&quot; /etc/nginx/nginx.conf</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; ef20e56136c1</span><br><span class="line">Step 8/12 : RUN ln -sf /dev/stdout /var/log/nginx/access.log 	&amp;&amp; ln -sf /dev/stderr /var/log/nginx/error.log</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 8d95b6ad6846</span><br><span class="line">Step 9/12 : EXPOSE 80 443</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; a12bf17fcaea</span><br><span class="line">Step 10/12 : CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 1f6e9eb85851</span><br><span class="line">Step 11/12 : RUN [ $&#123;CROSS_BUILD_END&#125; ]</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 969cc49b4faf</span><br><span class="line">Step 12/12 : RUN apk add --no-cache       fcgi     fcgiwrap     spawn-fcgi       ca-certificates       nghttp2-libs       libssh2       libcurl     curl       oniguruma     jq</span><br><span class="line"> ---&gt; Running in 95d22279f720</span><br><span class="line">fetch http://dl-cdn.alpinelinux.org/alpine/v3.9/main/armhf/APKINDEX.tar.gz</span><br><span class="line">fetch http://dl-cdn.alpinelinux.org/alpine/v3.9/community/armhf/APKINDEX.tar.gz</span><br><span class="line">(1/5) Installing fcgi (2.4.0-r8)</span><br><span class="line">(2/5) Installing fcgiwrap (1.1.0-r3)</span><br><span class="line">Executing fcgiwrap-1.1.0-r3.pre-install</span><br><span class="line">(3/5) Installing oniguruma (6.9.4-r0)</span><br><span class="line">(4/5) Installing jq (1.6-r0)</span><br><span class="line">(5/5) Installing spawn-fcgi (1.6.4-r3)</span><br><span class="line">Executing busybox-1.29.3-r10.trigger</span><br><span class="line">OK: 52 MiB in 77 packages</span><br><span class="line">Removing intermediate container 95d22279f720</span><br><span class="line"> ---&gt; 7ee7b73f89ee</span><br><span class="line">Successfully built 7ee7b73f89ee</span><br><span class="line">Successfully tagged vmnet8/preplanet:rpi-1</span><br></pre></td></tr></table></figure>
+<p>After building, test the running container</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">run docer image vmnet8/preplanet:rpi-1</span><br><span class="line">root@vmnet8cloud:~/git_repo/preplanet/docker/planet# docker run -d vmnet8/preplanet:rpi-1</span><br><span class="line">b974aee9b9bb0d6242dcbab12e975585ff1e2d4b887860523b6d0b261863d562</span><br><span class="line">root@vmnet8cloud:~/git_repo/preplanet/docker/planet# docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                          PORTS                            NAMES</span><br><span class="line">b974aee9b9bb        vmnet8/preplanet:rpi-1   &quot;/usr/bin/entry.sh n…&quot;   9 seconds ago       Up 7 seconds                    80/tcp, 443/tcp                  goofy_banach</span><br><span class="line">270cf6e3e185        vmnet8/preplanet:rpi-1   &quot;/usr/bin/entry.sh n…&quot;   2 minutes ago       Exited (0) About a minute ago                                    cranky_wing</span><br><span class="line">7259cecd0e74        969cc49b4faf             &quot;/bin/sh -c &apos;apk add…&quot;   11 hours ago        Exited (99) 11 hours ago                                         dreamy_brown</span><br><span class="line">910227bcece4        969cc49b4faf             &quot;/bin/sh -c &apos;apk add…&quot;   11 hours ago        Exited (4) 11 hours ago                                          modest_wu</span><br><span class="line">d4f32b1bc836        68513e2e4bce             &quot;/bin/sh -c &apos;apk add…&quot;   14 hours ago        Exited (6) 14 hours ago                                          frosty_herschel</span><br><span class="line">baa0a10c37a7        324ab2e7954e             &quot;/bin/sh -c &apos;bash ./…&quot;   4 weeks ago         Exited (127) 4 weeks ago                                         cranky_herschel</span><br><span class="line">b5ba36510956        vmnet8/preplanet:rpi     &quot;/usr/bin/entry.sh n…&quot;   4 weeks ago         Up 4 weeks                      443/tcp, 0.0.0.0:20006-&gt;80/tcp   heuristic_chaplygin</span><br><span class="line"></span><br><span class="line">                                                                                                                            201,0-1       Bot</span><br></pre></td></tr></table></figure>
+<p>It shows it works.</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+            
+              <a href="/tags/Dockerfile/" rel="tag"># Dockerfile</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/09/Build-multi-arch-docker-image/" rel="next" title="Build multi-arch docker image">
+                  <i class="fa fa-chevron-left"></i> Build multi-arch docker image
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/";
+    this.page.identifier = "2020/01/13/Modify-a-Dockerfile/";
+    this.page.title = 'Modify a Dockerfile';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>
