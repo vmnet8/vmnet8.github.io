@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-01-13T19:23:21.419Z</updated>
+  <updated>2020-02-12T20:53:55.015Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Using docker compose yml to run netdata</title>
+    <link href="https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/"/>
+    <id>https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/</id>
+    <published>2020-02-12T20:25:41.000Z</published>
+    <updated>2020-02-12T20:53:55.015Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Want to monitor your system and applications, Netdata is distributed, real-time performance and health monitoring for these. It is a highly-optimized monitoring agent you install on all your systems and containers.&lt;/p&gt;
+&lt;p&gt;I tried to use docker image to use netdata.&lt;/p&gt;
+&lt;h2 id=&quot;Install-netdata-docker-image-and-run-it&quot;&gt;&lt;a href=&quot;#Install-netdata-docker-image-and-run-it&quot; class=&quot;headerlink&quot; title=&quot;Install netdata docker image and run it&quot;&gt;&lt;/a&gt;Install netdata docker image and run it&lt;/h2&gt;&lt;p&gt;It simply straightforward, just run docker command:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -d --name=netdata \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -p 19999:19999 \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -v /etc/passwd:/host/etc/passwd:ro \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -v /etc/group:/host/etc/group:ro \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -v /proc:/host/proc:ro \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -v /sys:/host/sys:ro \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -v /etc/os-release:/host/etc/os-release:ro \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --cap-add SYS_PTRACE \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  --security-opt apparmor=unconfined \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  netdata/netdata&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;then go to your browser, &lt;a href=&quot;http://yourip:19999&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://yourip:19999&lt;/a&gt;, you can see netdata works.&lt;/p&gt;
+&lt;h2 id=&quot;use-docker-compose-yml-file-to-run-netdata-service&quot;&gt;&lt;a href=&quot;#use-docker-compose-yml-file-to-run-netdata-service&quot; class=&quot;headerlink&quot; title=&quot;use docker compose yml file to run netdata service&quot;&gt;&lt;/a&gt;use docker compose yml file to run netdata service&lt;/h2&gt;&lt;h3 id=&quot;write-a-shell-script-to-create-a-docker-yml-file-under-srv&quot;&gt;&lt;a href=&quot;#write-a-shell-script-to-create-a-docker-yml-file-under-srv&quot; class=&quot;headerlink&quot; title=&quot;write a shell script to create  a docker yml file under /srv&quot;&gt;&lt;/a&gt;write a shell script to create  a docker yml file under /srv&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#create netdata.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir -p /srv/netdata/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;version: &amp;apos;3&amp;apos;&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;services:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;  netdata:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;    image: netdata/netdata&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;    ports:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - 19999:19999&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;    cap_add:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - SYS_PTRACE&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;    security_opt:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - apparmor:unconfined&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;    volumes:&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - /etc/passwd:/host/etc/passwd:ro&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - /etc/os-release:/host/etc/os-release:ro&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - /etc/group:/host/etc/group:ro&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - /proc:/host/proc:ro&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  echo &amp;quot;      - /sys:/host/sys:ro&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; &amp;gt; /srv/netdata/netdata.yml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;run it, then go to /srv/netdata to check if it exists&lt;/p&gt;
+&lt;p&gt;at the same dir to  create an autorun file, named netdata_auto&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;netdata_autorun=true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if [ &amp;quot;$netdata_autorun&amp;quot; = true ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  docker-compose -f /srv/netdata/netdata.yml -p netdata up -d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;let me test&lt;/p&gt;
+&lt;p&gt;run shell script first&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# ./netdata_yml.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;go to /srv to verify it created the docker compose yml file&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# cat /srv/netdata/netdata.yml &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;version: &amp;apos;3&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;services:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  netdata:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    image: netdata/netdata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ports:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - 19999:19999&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    cap_add:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - SYS_PTRACE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    security_opt:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - apparmor:unconfined&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    volumes:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - /etc/passwd:/host/etc/passwd:ro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - /etc/os-release:/host/etc/os-release:ro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - /etc/group:/host/etc/group:ro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - /proc:/host/proc:ro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      - /sys:/host/sys:ro&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;then run docker-compose&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# docker-compose -f /srv/netdata/netdata.yml -p netdata up -d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Creating network &amp;quot;netdata_default&amp;quot; with the default driver&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Pulling netdata (netdata/netdata:)...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;latest: Pulling from netdata/netdata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2aa204966f9a: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8dde373fbef5: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;042f66a41d56: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3526782612f0: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c2b930d703fa: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9b859bae4175: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f3e46298693e: Pull complete&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Digest: sha256:b49e1901fd8aae43d950c171c14449b5080a5550faa97594e2d4ccee7ed3aac8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Status: Downloaded newer image for netdata/netdata:latest&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Creating netdata_netdata_1 ... done&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;check if the docker image is pulled and run&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# docker images&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;netdata/netdata       latest              d170142fbe20        19 hours ago        249MB&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;it worked well&lt;/p&gt;
+&lt;p&gt;go to browser &lt;a href=&quot;http://myip:19999&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://myip:19999&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="-docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker manifest to create multi-arch docker image</title>
+    <link href="https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/"/>
+    <id>https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/</id>
+    <published>2020-01-16T05:26:57.000Z</published>
+    <updated>2020-01-16T05:29:29.918Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;go to github.com/treehouses/rpi-nginx  dir&lt;br&gt;modifid Dockerfile&lt;/p&gt;
+&lt;p&gt;run docker
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker multi-arch" scheme="https://vmnet8.github.io/tags/docker-multi-arch/"/>
+    
+  </entry>
   
   <entry>
     <title>Modify a Dockerfile</title>
@@ -518,60 +585,6 @@ Open the firewall:
 &lt;li&gt;&lt;p&gt;Select the “OS Redhat 64 bit”, choose all other items  as defaults, such as sound card, network adapter card etc, then click “import”. Waiting a couple minutes to finish installing. After installation, you can see “kali 2018.3” icon on the Virtualbox panel.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Double click the “kali 2018.3”, it will start to boot, just taking defaults. Input the username “root” and password “toor” to log in Kali.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux: key points of raid</title>
-    <link href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/"/>
-    <id>https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/</id>
-    <published>2019-03-02T20:01:53.000Z</published>
-    <updated>2019-07-17T20:07:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;RAID stands for “Redundant Array of Independent Disks”.&lt;/p&gt;
-&lt;h4 id=&quot;The-RAID-levels&quot;&gt;&lt;a href=&quot;#The-RAID-levels&quot; class=&quot;headerlink&quot; title=&quot;The RAID levels&quot;&gt;&lt;/a&gt;The RAID levels&lt;/h4&gt;&lt;p&gt;Raid 0: stripe mode,no redundancy in this level,not safe for storage.&lt;br&gt;Raid 1: mirror mode,having redundancy and good at backup.&lt;br&gt;Raid 1+0:it is the combination of RAID-1 and RAID-0.&lt;br&gt;Raid 5: at least 3 disks, can stand max 1 disk broken&lt;br&gt;Raid 6:at least 4 disks, can stand max 2 disks broken&lt;/p&gt;
-&lt;h4 id=&quot;config-file&quot;&gt;&lt;a href=&quot;#config-file&quot; class=&quot;headerlink&quot; title=&quot;config file&quot;&gt;&lt;/a&gt;config file&lt;/h4&gt;&lt;p&gt;/etc/mdadm.conf&lt;br&gt;/proc/mdstat &lt;/p&gt;
-&lt;h4 id=&quot;Create&quot;&gt;&lt;a href=&quot;#Create&quot; class=&quot;headerlink&quot; title=&quot;Create&quot;&gt;&lt;/a&gt;Create&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# mdadm --create /dev/md0 --auto=yes --level=5 --raid-devices=3 --chunk=64 /dev/sdb&amp;#123;2,3,4&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mdadm: Defaulting to version 1.2 metadata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mdadm: array /dev/md0 started.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client ~]# mkfs.xfs /dev/md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;meta-data=/dev/md0               isize=512    agcount=8, agsize=65456 blks&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sectsz=512   attr=2, projid32bit=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       crc=1        finobt=0, sparse=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;data     =                       bsize=4096   blocks=523648, imaxpct=25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sunit=16     swidth=32 blks&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;naming   =version 2              bsize=4096   ascii-ci=0 ftype=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log      =internal log           bsize=4096   blocks=2560, version=2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         =                       sectsz=512   sunit=16 blks, lazy-count=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;realtime =none                   extsz=4096   blocks=0, rtextents=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# mkdir raid_md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# mount /dev/md0 /mnt/raid_md0/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@client mnt]# df -h /dev/md0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Filesystem      Size  Used Avail Use% Mounted on&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/dev/md0        2.0G   33M  2.0G   2% /mnt/raid_md0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="https://vmnet8.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cyber Security: Using Nmap-zenmap and Wireshark to do pen test</title>
-    <link href="https://vmnet8.github.io/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/"/>
-    <id>https://vmnet8.github.io/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/</id>
-    <published>2019-02-28T07:54:19.000Z</published>
-    <updated>2019-07-10T07:16:32.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract:&quot;&gt;&lt;/a&gt;Abstract:&lt;/h4&gt;&lt;p&gt;Using Zenmap, enumerating 2 IP address to scan, Using Wireshark to observe the TCP handshake process when enumerating 2 IP addresses with Zenmap.&lt;/p&gt;
-&lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction:&quot;&gt;&lt;/a&gt;Introduction:&lt;/h4&gt;&lt;p&gt;Scan 2 IP with Zenmap and use Wireshark to observe the TCP handshake.&lt;/p&gt;
-&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.nmap.org&quot;&gt;nmap page&lt;/a&gt; to download zenmap application.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Open Wireshark to see the Wi_Fi wiggling wave, it shows capturing the packets, then click it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Open Zenmap, input first IP address 192.168.227.187 into “target” frame, then select “quick scan” to see what will happen.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;go to Wireshark to stop and save it for first IP scan.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;go back to Zenmap to input other IP address into “target” frame, do quick scan again.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;In Wireshark, select the source and destination IP address 192.168.0.1 to observe the captured packets, analyze the TCP handshake process.&lt;/p&gt;
     
     </summary>
     

@@ -205,7 +205,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">22</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">24</span></a>
 
   </li>
       
@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">36</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">38</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,213 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/06/npm-analyzer-project-part-4/" class="post-title-link" itemprop="url">npm analyzer project: part 4</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-06 10:00:25" itemprop="dateCreated datePublished" datetime="2019-11-06T10:00:25-08:00">2019-11-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-07 12:23:45" itemprop="dateModified" datetime="2019-11-07T12:23:45-08:00">2019-11-07</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/06/npm-analyzer-project-part-4/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/06/npm-analyzer-project-part-4/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Install-elasticsearch"><a href="#Install-elasticsearch" class="headerlink" title="Install elasticsearch"></a>Install elasticsearch</h2><p>elasticsearch is a scalable and speedy search, analytics, and storage.</p>
+<h4 id="import-signing-key-PGP-key"><a href="#import-signing-key-PGP-key" class="headerlink" title="import signing key (PGP key)"></a>import signing key (PGP key)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<h4 id="install-from-apt-repo"><a href="#install-from-apt-repo" class="headerlink" title="install from apt repo"></a>install from apt repo</h4><p>install the apt-transport-https package on Debian before proceeding.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get install apt-transport-https</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">apt-transport-https is already the newest version (1.8.2).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 11 not upgraded.</span><br></pre></td></tr></table></figure>
+<p>Save the repository definition to /etc/apt/sources.list.d/elastic-7.x.list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list</span><br><span class="line">deb https://artifacts.elastic.co/packages/7.x/apt stable main</span><br></pre></td></tr></table></figure>
+<p>check source list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:/etc/apt/sources.list.d$ ls -al</span><br><span class="line">total 24</span><br><span class="line">drwxr-xr-x 2 root root 4096 Nov  6 18:05 .</span><br><span class="line">drwxr-xr-x 7 root root 4096 Nov  6 18:02 ..</span><br><span class="line">-rw-r--r-- 1 root root  419 Nov  2 06:19 bintray.rabbitmq.list</span><br><span class="line">-rw-r--r-- 1 root root   62 Nov  6 18:05 elastic-7.x.list</span><br><span class="line">-rw-r--r-- 1 root root  189 Oct 17 04:04 google-chrome.list</span><br><span class="line">-rw-r--r-- 1 root root   55 Oct 17 04:01 google-chrome.list.save</span><br></pre></td></tr></table></figure>
+<h4 id="install-the-Elasticsearch-Debian-package"><a href="#install-the-Elasticsearch-Debian-package" class="headerlink" title="install the Elasticsearch Debian package"></a>install the Elasticsearch Debian package</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch</span><br><span class="line">Get:1 http://security.debian.org/debian-security buster/updates InRelease [39.1 kB]</span><br><span class="line">Hit:2 http://deb.debian.org/debian buster InRelease                                                                                          </span><br><span class="line">Get:3 https://download.docker.com/linux/debian buster InRelease [44.4 kB]                                                                    </span><br><span class="line">Get:4 https://artifacts.elastic.co/packages/7.x/apt stable InRelease [7,124 B]                                                               </span><br><span class="line">Ign:5 http://dl.google.com/linux/chrome/deb stable InRelease                                                                                 </span><br><span class="line">Hit:6 https://deb.nodesource.com/node_10.x buster InRelease                                                                                  </span><br><span class="line">Hit:7 http://dl.google.com/linux/chrome/deb stable Release                                                                                   </span><br><span class="line">Ign:8 https://dl.bintray.com/rabbitmq-erlang/debian bionic InRelease                                              </span><br><span class="line">Get:9 http://ftp.de.debian.org/debian buster-backports InRelease [46.7 kB]</span><br><span class="line">Ign:10 https://dl.bintray.com/rabbitmq/debian bionic InRelease</span><br><span class="line">Get:11 https://dl.bintray.com/rabbitmq-erlang/debian bionic Release [12.6 kB]</span><br><span class="line">Get:12 https://dl.bintray.com/rabbitmq/debian bionic Release [74.5 kB]</span><br><span class="line">Get:13 http://security.debian.org/debian-security buster/updates/main Sources [84.1 kB]</span><br><span class="line">Get:14 http://security.debian.org/debian-security buster/updates/main amd64 Packages [112 kB]</span><br><span class="line">Get:15 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 Packages [21.9 kB]</span><br><span class="line">Get:19 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages.diff/Index [27.8 kB]                                             </span><br><span class="line">Get:20 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-02-1415.02.pdiff [178 B]                                 </span><br><span class="line">Get:21 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0215.42.pdiff [276 B]                                 </span><br><span class="line">Get:22 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0818.43.pdiff [15.7 kB]                               </span><br><span class="line">Get:23 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-2017.32.pdiff [501 B]                                 </span><br><span class="line">Get:24 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-05-1414.24.pdiff [5,640 B]                               </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Fetched 493 kB in 7s (72.2 kB/s)                                                                                                             </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  elasticsearch</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 11 not upgraded.</span><br><span class="line">Need to get 289 MB of archives.</span><br><span class="line">After this operation, 488 MB of additional disk space will be used.</span><br><span class="line">Get:1 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 elasticsearch amd64 7.4.2 [289 MB]</span><br><span class="line">Fetched 289 MB in 29s (10.0 MB/s)                                                                                                            </span><br><span class="line">Selecting previously unselected package elasticsearch.</span><br><span class="line">(Reading database ... 57026 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../elasticsearch_7.4.2_amd64.deb ...</span><br><span class="line">Creating elasticsearch group... OK</span><br><span class="line">Creating elasticsearch user... OK</span><br><span class="line">Unpacking elasticsearch (7.4.2) ...</span><br><span class="line">Setting up elasticsearch (7.4.2) ...</span><br><span class="line">Created elasticsearch keystore in /etc/elasticsearch</span><br><span class="line">Processing triggers for systemd (241-7~deb10u1) ...</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/06/npm-analyzer-project-part-4/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/05/npm-analyzer-project-part-3/" class="post-title-link" itemprop="url">npm analyzer project: part 3</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-05 23:08:00 / Modified: 23:48:08" itemprop="dateCreated datePublished" datetime="2019-11-05T23:08:00-08:00">2019-11-05</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/05/npm-analyzer-project-part-3/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/05/npm-analyzer-project-part-3/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="RabbitMQ-is-the-most-widely-deployed-open-source-message-broker"><a href="#RabbitMQ-is-the-most-widely-deployed-open-source-message-broker" class="headerlink" title="RabbitMQ is the most widely deployed open source message broker."></a><a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a> is the most widely deployed open source message broker.</h2><p>At first I go to <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a> to download and install it.<br>I use the shell script to install rabbitMQ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">## If sudo is not available on the system,</span><br><span class="line">## uncomment the line below to install it</span><br><span class="line"># apt-get install -y sudo</span><br><span class="line"></span><br><span class="line">sudo apt-get update -y</span><br><span class="line"></span><br><span class="line">## Install prerequisites</span><br><span class="line">sudo apt-get install curl gnupg -y</span><br><span class="line"></span><br><span class="line">## Install RabbitMQ signing key</span><br><span class="line">curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">## Install apt HTTPS transport</span><br><span class="line">sudo apt-get install apt-transport-https</span><br><span class="line"></span><br><span class="line">## Add Bintray repositories that provision latest RabbitMQ and Erlang 21.x releases</span><br><span class="line">sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list &lt;&lt;EOF</span><br><span class="line">## Installs the latest Erlang 21.x release.</span><br><span class="line">## Change component to &quot;erlang&quot; to install the latest version (22.x or later).</span><br><span class="line">## &quot;bionic&quot; as distribution name should work for any later Ubuntu or Debian release.</span><br><span class="line">## See the release to distribution mapping table in RabbitMQ doc guides to learn more.</span><br><span class="line">deb https://dl.bintray.com/rabbitmq-erlang/debian bionic erlang-21.x</span><br><span class="line">deb https://dl.bintray.com/rabbitmq/debian bionic main</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">## Update package indices</span><br><span class="line">sudo apt-get update -y</span><br><span class="line"></span><br><span class="line">## Install rabbitmq-server and its dependencies</span><br><span class="line">sudo apt-get install rabbitmq-server -y --fix-missing</span><br></pre></td></tr></table></figure>
+
+<p>after run this instll shell script, it doesn’t work. I try docker image.</p>
+<h4 id="Install-rabbitMQ-docker-image"><a href="#Install-rabbitMQ-docker-image" class="headerlink" title="Install rabbitMQ docker image"></a>Install rabbitMQ docker image</h4><p>according to <a href="https://hub.docker.com/_/rabbitmq" target="_blank" rel="noopener">rabbitMQ</a>, run command</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 rabbitmq:3-management</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/05/npm-analyzer-project-part-3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1134,224 +1341,6 @@ Open the firewall:
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/03/02/Linux-key-points-of-raid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/03/02/Linux-key-points-of-raid/" class="post-title-link" itemprop="url">Linux: key points of raid</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-03-02 12:01:53" itemprop="dateCreated datePublished" datetime="2019-03-02T12:01:53-08:00">2019-03-02</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-17 13:07:07" itemprop="dateModified" datetime="2019-07-17T13:07:07-07:00">2019-07-17</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/03/02/Linux-key-points-of-raid/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/02/Linux-key-points-of-raid/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>RAID stands for “Redundant Array of Independent Disks”.</p>
-<h4 id="The-RAID-levels"><a href="#The-RAID-levels" class="headerlink" title="The RAID levels"></a>The RAID levels</h4><p>Raid 0: stripe mode,no redundancy in this level,not safe for storage.<br>Raid 1: mirror mode,having redundancy and good at backup.<br>Raid 1+0:it is the combination of RAID-1 and RAID-0.<br>Raid 5: at least 3 disks, can stand max 1 disk broken<br>Raid 6:at least 4 disks, can stand max 2 disks broken</p>
-<h4 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a>config file</h4><p>/etc/mdadm.conf<br>/proc/mdstat </p>
-<h4 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@client ~]# mdadm --create /dev/md0 --auto=yes --level=5 --raid-devices=3 --chunk=64 /dev/sdb&#123;2,3,4&#125;</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md0 started.</span><br><span class="line">[root@client ~]# mkfs.xfs /dev/md0</span><br><span class="line">meta-data=/dev/md0               isize=512    agcount=8, agsize=65456 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=523648, imaxpct=25</span><br><span class="line">         =                       sunit=16     swidth=32 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=16 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@client mnt]# mkdir raid_md0</span><br><span class="line">[root@client mnt]# mount /dev/md0 /mnt/raid_md0/</span><br><span class="line">[root@client mnt]# df -h /dev/md0</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/md0        2.0G   33M  2.0G   2% /mnt/raid_md0</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/03/02/Linux-key-points-of-raid/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/" class="post-title-link" itemprop="url">Cyber Security: Using Nmap-zenmap and Wireshark to do pen test</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-02-27 23:54:19" itemprop="dateCreated datePublished" datetime="2019-02-27T23:54:19-08:00">2019-02-27</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-10 00:16:32" itemprop="dateModified" datetime="2019-07-10T00:16:32-07:00">2019-07-10</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h4><p>Using Zenmap, enumerating 2 IP address to scan, Using Wireshark to observe the TCP handshake process when enumerating 2 IP addresses with Zenmap.</p>
-<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>Scan 2 IP with Zenmap and use Wireshark to observe the TCP handshake.</p>
-<h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h4><ol>
-<li><p>Go to <a href="www.nmap.org">nmap page</a> to download zenmap application.</p>
-</li>
-<li><p>Open Wireshark to see the Wi_Fi wiggling wave, it shows capturing the packets, then click it.</p>
-</li>
-<li><p>Open Zenmap, input first IP address 192.168.227.187 into “target” frame, then select “quick scan” to see what will happen.</p>
-</li>
-<li><p>go to Wireshark to stop and save it for first IP scan.</p>
-</li>
-<li><p>go back to Zenmap to input other IP address into “target” frame, do quick scan again.</p>
-</li>
-<li><p>In Wireshark, select the source and destination IP address 192.168.0.1 to observe the captured packets, analyze the TCP handshake process.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/02/27/Cyber-Security-Using-Nmap-zenmap-and-Wireshark-to-do-pen-test/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1404,7 +1393,7 @@ Open the firewall:
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1417,7 +1406,7 @@ Open the firewall:
             <a href="/tags/%20%7C%7C%20tags">
           
         
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
