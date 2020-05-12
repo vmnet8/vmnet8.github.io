@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-02-12T20:53:55.015Z</updated>
+  <updated>2020-05-12T04:14:25.219Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Travis CI: push docker manifest to dockerhub</title>
+    <link href="https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/"/>
+    <id>https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/</id>
+    <published>2020-05-12T01:01:57.000Z</published>
+    <updated>2020-05-12T04:14:25.219Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am going to use Travis to continue create docker multiarch images, then push back to dockerhub repo.&lt;/p&gt;
+&lt;h2 id=&quot;create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration&quot;&gt;&lt;a href=&quot;#create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration&quot; class=&quot;headerlink&quot; title=&quot;create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration&quot;&gt;&lt;/a&gt;create a repo in my github account named &lt;code&gt;travis-CICD&lt;/code&gt; and add it to &lt;a href=&quot;http://travis-ci.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Travis&lt;/a&gt; GitHub Apps Integration&lt;/h2&gt;&lt;img src=&quot;/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis1.png&quot; class=&quot;&quot;&gt;
+
+
+&lt;h2 id=&quot;under-the-travis-CICD-repo-create-a-travis-yml-file&quot;&gt;&lt;a href=&quot;#under-the-travis-CICD-repo-create-a-travis-yml-file&quot; class=&quot;headerlink&quot; title=&quot;under the travis-CICD repo, create a .travis.yml file&quot;&gt;&lt;/a&gt;under the travis-CICD repo, create a .travis.yml file&lt;/h2&gt;&lt;p&gt;Since github uses ruby, I don’t need to specify the language. For this project, I am going to work on docker, so I need to start docker.&lt;br&gt;I am going to use two docker images to create a multiarch using &lt;code&gt;docker manifest create&lt;/code&gt; command.&lt;br&gt;Note: Because manifest is an experimental feature, I need to add &lt;code&gt;DOCKER_CLI_EXPERIMENTAL=enabled&lt;/code&gt; in .travis.yml file.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo: required&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;addons:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  apt:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    update: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    packages:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - docker-ce&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;services:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- docker&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;before_install:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;script:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- docker pull treehouses/turtleblocksjs-tags:nginx-x86&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- docker pull treehouses/turtleblocksjs-tags:nginx-rpi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- export DOCKER_CLI_EXPERIMENTAL=enabled&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- docker manifest create vmnet8/turtleblocksjs:annarocks2 treehouses/turtleblocksjs-tags:nginx-x86&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  treehouses/turtleblocksjs-tags:nginx-rpi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- echo &amp;quot;$DOCKER_PASSWORD&amp;quot; | docker login -u &amp;quot;$DOCKER_USERNAME&amp;quot; --password-stdin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- docker manifest push vmnet8/turtleblocksjs:annarocks2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;env:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  global:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;Go-to-dockerhub-to-get-a-new-token&quot;&gt;&lt;a href=&quot;#Go-to-dockerhub-to-get-a-new-token&quot; class=&quot;headerlink&quot; title=&quot;Go to dockerhub to get a new token&quot;&gt;&lt;/a&gt;Go to dockerhub to get a new token&lt;/h2&gt;&lt;img src=&quot;/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis2.png&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+    
+      <category term="Travis" scheme="https://vmnet8.github.io/tags/Travis/"/>
+    
+  </entry>
   
   <entry>
     <title>Using docker compose yml to run netdata</title>
@@ -562,35 +590,6 @@ Open the firewall:
     
     
       <category term="git" scheme="https://vmnet8.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cyber Security: Some pen tests in Kali-Linux in Virtualbox</title>
-    <link href="https://vmnet8.github.io/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/"/>
-    <id>https://vmnet8.github.io/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/</id>
-    <published>2019-04-11T05:36:48.000Z</published>
-    <updated>2019-07-11T06:15:29.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract:&quot;&gt;&lt;/a&gt;Abstract:&lt;/h4&gt;&lt;p&gt;Install Virtualbox in computer system, in which to install Kali Linux, then try wireshark, nmap and crunch application. It shows a lot of security tools can be implemented correctly in Virtualbox.&lt;/p&gt;
-&lt;h4 id=&quot;Methods&quot;&gt;&lt;a href=&quot;#Methods&quot; class=&quot;headerlink&quot; title=&quot;Methods:&quot;&gt;&lt;/a&gt;Methods:&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;www.virtualbox.org&quot;&gt;virtualbox page&lt;/a&gt; to download the virtual 5.2.18 version, then install it based on wizard.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Search “kali OVA”, then go to official kali linux download page, select the “Kali Linux 64 bit Vbox”, click “offensive security download page” icon to select “Kali Linux 64 bit Ova” which is for Virtualbox, download it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Open Virtual box,click “file” button then select “import application”, input the “kali 2018.3 ova” into the frame, then select the fold where the “kali linux 64 bit” you have download before, then open it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Select the “OS Redhat 64 bit”, choose all other items  as defaults, such as sound card, network adapter card etc, then click “import”. Waiting a couple minutes to finish installing. After installation, you can see “kali 2018.3” icon on the Virtualbox panel.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Double click the “kali 2018.3”, it will start to boot, just taking defaults. Input the username “root” and password “toor” to log in Kali.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="cyber security" scheme="https://vmnet8.github.io/tags/cyber-security/"/>
     
   </entry>
   
