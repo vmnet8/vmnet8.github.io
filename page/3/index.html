@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">39</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">40</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,112 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/09/09/git-and-github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/09/git-and-github/" class="post-title-link" itemprop="url">git and github</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-09 11:52:33 / Modified: 16:00:02" itemprop="dateCreated datePublished" datetime="2019-09-09T11:52:33-07:00">2019-09-09</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/09/09/git-and-github/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/09/git-and-github/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website"><a href="#Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website" class="headerlink" title="Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website."></a>Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.</h4><h5 id="on-Github"><a href="#on-Github" class="headerlink" title="on  Github"></a>on  Github</h5><p>Create a repository<br>Create a new file<br>Commit (same as save)<br>Issue (like comments)<br>Create an organization<br>Create branch<br>Pull request<br>Merge</p>
+<h4 id="Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github"><a href="#Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github" class="headerlink" title="Most of the time, you need to work on your local machine to use git. You can clone your repo from github."></a>Most of the time, you need to work on your local machine to use git. You can clone your repo from github.</h4><h5 id="On-local-computer"><a href="#On-local-computer" class="headerlink" title="On local computer"></a>On local computer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:vmnet8/Hello-World.git</span><br><span class="line">Cloning into &apos;Hello-World&apos;...</span><br><span class="line">remote: Enumerating objects: 4, done.</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (3/3), done.</span><br><span class="line">remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 10</span><br><span class="line">Receiving objects: 100% (14/14), done.</span><br><span class="line">Resolving deltas: 100% (1/1), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
+<p>make this a repo located on your local OS<br>compare with github repo you clone</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &apos;origin/master&apos;.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+
+<h5 id="After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”"><a href="#After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”" class="headerlink" title="After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”"></a>After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &apos;origin/master&apos;.</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   README.md</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README.md</span><br></pre></td></tr></table></figure>
+<p>put this changed file to a stage to wait to be saved in the future.<br>any changes if want to be saved should be added to this stage first!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit README.md -m &quot;add new line under bottom&quot;</span><br><span class="line">[master 37c5b60] add new line under bottom</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+<p>only done this, the changed can be “saved” into repo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line">origin  git@github.com:vmnet8/Hello-World.git (fetch)</span><br><span class="line">origin  git@github.com:vmnet8/Hello-World.git (push)</span><br></pre></td></tr></table></figure>
+<p>Then you can make the changes you made on your local computer to sync to github repo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Delta compression using up to 2 threads.</span><br><span class="line">Compressing objects: 100% (2/2), done.</span><br><span class="line">Writing objects: 100% (3/3), 302 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</span><br><span class="line">To git@github.com:vmnet8/Hello-World.git</span><br><span class="line">   efdcef9..37c5b60  master -&gt; master</span><br></pre></td></tr></table></figure>
+<p>If you made changes on github first, how to get your local to sync to github repo?</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/09/09/git-and-github/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1243,117 +1349,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2018/04/02/Linux-ACL-useradd-and-groupadd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/04/02/Linux-ACL-useradd-and-groupadd/" class="post-title-link" itemprop="url">Linux: ACL, useradd and groupadd</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2018-04-02 10:07:04" itemprop="dateCreated datePublished" datetime="2018-04-02T10:07:04-07:00">2018-04-02</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-09 21:58:24" itemprop="dateModified" datetime="2019-07-09T21:58:24-07:00">2019-07-09</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/04/02/Linux-ACL-useradd-and-groupadd/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/02/Linux-ACL-useradd-and-groupadd/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ACL means “access control list”.</p>
-<h4 id="Config-file"><a href="#Config-file" class="headerlink" title="Config file"></a>Config file</h4><p>/etc/default/useradd<br>/etc/skel<br>note:this config will add subdir under /etc/skel, it will automatically create the same dir when using useradd command to create  a username</p>
-<h4 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h4><p>-u    uid<br>-g    default group, initial login group<br>-a -G append extra group<br>-r    add a system users  (uid &lt; 100)<br>-s    shell     /bin/bash  or  /sbin/login  or /sbin/nologin<br>newgrp  username groupname        set the effective group for user</p>
-<h4 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel   anna</span><br></pre></td></tr></table></figure>
-<p>only delete the username, keep the home dir and all other files</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel -r anna</span><br></pre></td></tr></table></figure>
-<p>delete completely all the username’s file and dir, use “-r”</p>
-<h4 id="gpasswd"><a href="#gpasswd" class="headerlink" title="gpasswd"></a>gpasswd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd group name</span><br></pre></td></tr></table></figure>
-<p>create  a passwd for this group</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -A username groupname</span><br></pre></td></tr></table></figure>
-<p>Let username to be the administrator of groupname<br>Then user can use  gpasswd to add new user to this group</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/04/02/Linux-ACL-useradd-and-groupadd/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1406,7 +1401,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

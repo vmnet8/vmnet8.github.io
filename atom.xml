@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-05-12T04:14:25.219Z</updated>
+  <updated>2020-05-24T05:57:45.312Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible part 1: deploy enviroment and most important concepts</title>
+    <link href="https://vmnet8.github.io/2020/05/21/Ansible-deploy-enviroment-and-concept/"/>
+    <id>https://vmnet8.github.io/2020/05/21/Ansible-deploy-enviroment-and-concept/</id>
+    <published>2020-05-22T00:31:05.000Z</published>
+    <updated>2020-05-24T05:57:45.312Z</updated>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;- Ansible&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;what-is-Ansible&quot;&gt;&lt;a href=&quot;#what-is-Ansible&quot; class=&quot;headerlink&quot; title=&quot;what is Ansible&quot;&gt;&lt;/a&gt;what is Ansible&lt;/h2&gt;&lt;p&gt;Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.&lt;/p&gt;
+&lt;p&gt;There are three main parts in Ansible: inventory, playbook and modules.&lt;/p&gt;
+&lt;h3 id=&quot;Inventory&quot;&gt;&lt;a href=&quot;#Inventory&quot; class=&quot;headerlink&quot; title=&quot;Inventory&quot;&gt;&lt;/a&gt;Inventory&lt;/h3&gt;&lt;p&gt;Inventory is a list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling.&lt;/p&gt;
+&lt;p&gt;For my enviroment, there are two nodes:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[web1]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-node1 ansible_connection=ssh ansible_user=pi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[web2]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cube4200 ansible_connection=ssh ansible_user=anna&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;h3 id=&quot;Playbooks&quot;&gt;&lt;a href=&quot;#Playbooks&quot; class=&quot;headerlink&quot; title=&quot;Playbooks&quot;&gt;&lt;/a&gt;Playbooks&lt;/h3&gt;&lt;p&gt;Playbooks are Ansible’s configuration, deployment and orchestration language. Each playbook is composed of one or more ‘plays’ in a list.&lt;/p&gt;
+&lt;p&gt;Playsbook is yaml file. there are listed tasks you want ansible to work.&lt;br&gt;Playbook is the most important file in ansible.&lt;/p&gt;
+&lt;p&gt;In playbooks, there are some important concepts, such as variables, variables files, loops.&lt;/p&gt;
+&lt;h4 id=&quot;variables&quot;&gt;&lt;a href=&quot;#variables&quot; class=&quot;headerlink&quot; title=&quot;variables&quot;&gt;&lt;/a&gt;variables&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;playbook variables&lt;/a&gt; can be wrote directly in playbook or in variable files. all kinds variabls have their precendence during playbook exectued. &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Travis CI: push docker manifest to dockerhub</title>
@@ -558,38 +585,6 @@ Open the firewall:
     
     
       <category term="Ovirt" scheme="https://vmnet8.github.io/tags/Ovirt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git and github</title>
-    <link href="https://vmnet8.github.io/2019/09/09/git-and-github/"/>
-    <id>https://vmnet8.github.io/2019/09/09/git-and-github/</id>
-    <published>2019-09-09T18:52:33.000Z</published>
-    <updated>2019-09-09T23:00:02.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website&quot;&gt;&lt;a href=&quot;#Git-is-a-software-and-be-installed-on-different-OS-such-as-Linux-Mac-Windows-Github-is-a-web-server-which-provide-a-tool-for-people-to-use-on-a-website&quot; class=&quot;headerlink&quot; title=&quot;Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.&quot;&gt;&lt;/a&gt;Git is a software and be installed on different OS, such as Linux, Mac, Windows. Github is a web server which provide a tool for people to use on a website.&lt;/h4&gt;&lt;h5 id=&quot;on-Github&quot;&gt;&lt;a href=&quot;#on-Github&quot; class=&quot;headerlink&quot; title=&quot;on  Github&quot;&gt;&lt;/a&gt;on  Github&lt;/h5&gt;&lt;p&gt;Create a repository&lt;br&gt;Create a new file&lt;br&gt;Commit (same as save)&lt;br&gt;Issue (like comments)&lt;br&gt;Create an organization&lt;br&gt;Create branch&lt;br&gt;Pull request&lt;br&gt;Merge&lt;/p&gt;
-&lt;h4 id=&quot;Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github&quot;&gt;&lt;a href=&quot;#Most-of-the-time-you-need-to-work-on-your-local-machine-to-use-git-You-can-clone-your-repo-from-github&quot; class=&quot;headerlink&quot; title=&quot;Most of the time, you need to work on your local machine to use git. You can clone your repo from github.&quot;&gt;&lt;/a&gt;Most of the time, you need to work on your local machine to use git. You can clone your repo from github.&lt;/h4&gt;&lt;h5 id=&quot;On-local-computer&quot;&gt;&lt;a href=&quot;#On-local-computer&quot; class=&quot;headerlink&quot; title=&quot;On local computer&quot;&gt;&lt;/a&gt;On local computer&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone git@github.com:vmnet8/Hello-World.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cloning into &amp;apos;Hello-World&amp;apos;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Enumerating objects: 4, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Counting objects: 100% (4/4), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Compressing objects: 100% (3/3), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Total 14 (delta 0), reused 0 (delta 0), pack-reused 10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Receiving objects: 100% (14/14), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Resolving deltas: 100% (1/1), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Checking connectivity... done.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;make this a repo located on your local OS&lt;br&gt;compare with github repo you clone&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;On branch master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Your branch is up-to-date with &amp;apos;origin/master&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nothing to commit, working directory clean&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h5 id=&quot;After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”&quot;&gt;&lt;a href=&quot;#After-you-make-some-changes-on-your-local-computer-you-need-to-save-it-into-repo-it-is-not-just-save-it-needs-two-steps-to-“save”-into-repo-for-example-add-a-new-line-in-“README”&quot; class=&quot;headerlink&quot; title=&quot;After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”&quot;&gt;&lt;/a&gt;After you make some changes on your local computer, you need to save it into repo, it is not just save, it needs two steps to “save” into repo.for example, add a new line in “README”&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;On branch master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Your branch is up-to-date with &amp;apos;origin/master&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Changes not staged for commit:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    modified:   README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add README.md&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;put this changed file to a stage to wait to be saved in the future.&lt;br&gt;any changes if want to be saved should be added to this stage first!&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git commit README.md -m &amp;quot;add new line under bottom&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[master 37c5b60] add new line under bottom&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 1 file changed, 1 insertion(+)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;only done this, the changed can be “saved” into repo&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;origin  git@github.com:vmnet8/Hello-World.git (fetch)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;origin  git@github.com:vmnet8/Hello-World.git (push)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Then you can make the changes you made on your local computer to sync to github repo&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git push origin master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Counting objects: 3, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Delta compression using up to 2 threads.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Compressing objects: 100% (2/2), done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Writing objects: 100% (3/3), 302 bytes | 0 bytes/s, done.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Total 3 (delta 1), reused 0 (delta 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Resolving deltas: 100% (1/1), completed with 1 local object.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;To git@github.com:vmnet8/Hello-World.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   efdcef9..37c5b60  master -&amp;gt; master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;If you made changes on github first, how to get your local to sync to github repo?&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="git" scheme="https://vmnet8.github.io/tags/git/"/>
     
   </entry>
   
