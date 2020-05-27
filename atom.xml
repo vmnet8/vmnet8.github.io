@@ -47,11 +47,11 @@
     <link href="https://vmnet8.github.io/2020/05/21/Ansible-deploy-enviroment-and-concept/"/>
     <id>https://vmnet8.github.io/2020/05/21/Ansible-deploy-enviroment-and-concept/</id>
     <published>2020-05-22T00:31:05.000Z</published>
-    <updated>2020-05-24T05:57:45.312Z</updated>
+    <updated>2020-05-27T06:11:34.096Z</updated>
     
     <summary type="html">
     
-      &lt;pre&gt;&lt;code&gt;- Ansible&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;what-is-Ansible&quot;&gt;&lt;a href=&quot;#what-is-Ansible&quot; class=&quot;headerlink&quot; title=&quot;what is Ansible&quot;&gt;&lt;/a&gt;what is Ansible&lt;/h2&gt;&lt;p&gt;Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.&lt;/p&gt;
+      &lt;h2 id=&quot;what-is-Ansible&quot;&gt;&lt;a href=&quot;#what-is-Ansible&quot; class=&quot;headerlink&quot; title=&quot;what is Ansible&quot;&gt;&lt;/a&gt;what is Ansible&lt;/h2&gt;&lt;p&gt;Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.&lt;/p&gt;
 &lt;p&gt;There are three main parts in Ansible: inventory, playbook and modules.&lt;/p&gt;
 &lt;h3 id=&quot;Inventory&quot;&gt;&lt;a href=&quot;#Inventory&quot; class=&quot;headerlink&quot; title=&quot;Inventory&quot;&gt;&lt;/a&gt;Inventory&lt;/h3&gt;&lt;p&gt;Inventory is a list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling.&lt;/p&gt;
 &lt;p&gt;For my enviroment, there are two nodes:&lt;/p&gt;
@@ -66,6 +66,8 @@
     </summary>
     
     
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
     
   </entry>
   
