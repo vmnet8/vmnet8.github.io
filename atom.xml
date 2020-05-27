@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-05-24T05:57:45.312Z</updated>
+  <updated>2020-05-27T06:09:00.173Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible part 2: how to use modules</title>
+    <link href="https://vmnet8.github.io/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/"/>
+    <id>https://vmnet8.github.io/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/</id>
+    <published>2020-05-24T06:04:19.000Z</published>
+    <updated>2020-05-27T06:09:00.173Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Ansible-configuration&quot;&gt;&lt;a href=&quot;#Ansible-configuration&quot; class=&quot;headerlink&quot; title=&quot;Ansible configuration&quot;&gt;&lt;/a&gt;Ansible configuration&lt;/h4&gt;&lt;p&gt;Before running ansible,I am going to write a default inventory which will be used when I am running site.yml.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[defaults]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;inventory = hosts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;Ansible-commands&quot;&gt;&lt;a href=&quot;#Ansible-commands&quot; class=&quot;headerlink&quot; title=&quot;Ansible commands&quot;&gt;&lt;/a&gt;Ansible commands&lt;/h4&gt;&lt;p&gt;Instead of using ansible playbook, I can also use ansible command to run automation, for example, I am going to check remote nodes directories, I can use ansible command to do that directly, no need to login romote node to check.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/files-modules/inventory$ ansible all -m shell -a &amp;quot;ls /etc/tmp&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-node1 | SUCCESS | rc=0 &amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-file-test.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-file-test.txt.16075.2020-05-24@22:58:43~&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cube4200 | SUCCESS | rc=0 &amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-file-test.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible-file-test.txt.11629.2020-05-24@15:58:44~&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;The command I used is  &lt;code&gt;ansible all -m shell -a &amp;quot;ls /etc/tmp&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;some-examples-of-how-to-use-modules&quot;&gt;&lt;a href=&quot;#some-examples-of-how-to-use-modules&quot; class=&quot;headerlink&quot; title=&quot;some examples of how to use modules&quot;&gt;&lt;/a&gt;some examples of how to use modules&lt;/h4&gt;&lt;h5 id=&quot;Utilities-modules-gt-debug-gt-print-statements-during-execution&quot;&gt;&lt;a href=&quot;#Utilities-modules-gt-debug-gt-print-statements-during-execution&quot; class=&quot;headerlink&quot; title=&quot;Utilities modules -&amp;gt; debug -&amp;gt; print statements during execution&quot;&gt;&lt;/a&gt;Utilities modules -&amp;gt; debug -&amp;gt; print statements during execution&lt;/h5&gt;&lt;p&gt;In this module, only three parameters.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- name: hello world&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hosts: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  tasks:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - name: hello world&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     debug:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      msg: &amp;quot;hello ansible&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      verbosity: 0     # 0 is default, 1-3 parameters will skip the message&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible part 1: deploy enviroment and most important concepts</title>
@@ -553,32 +579,6 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@cube4200 ~]# showmount -e&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Export list for cube4200:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/export/hosted_vm 192.168.0.0/24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;img src=&quot;/2019/10/04/Ovirt-configuring-storage/create_nfs.jpg&quot; class=&quot;&quot;&gt;
 &lt;p&gt;It is attached successfully.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Ovirt" scheme="https://vmnet8.github.io/tags/Ovirt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ovirt: installation -- using cockpit wizard</title>
-    <link href="https://vmnet8.github.io/2019/09/14/Ovirt-installation/"/>
-    <id>https://vmnet8.github.io/2019/09/14/Ovirt-installation/</id>
-    <published>2019-09-15T05:25:21.000Z</published>
-    <updated>2019-10-04T14:56:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Ovirt&quot;&gt;&lt;a href=&quot;#Ovirt&quot; class=&quot;headerlink&quot; title=&quot;Ovirt&quot;&gt;&lt;/a&gt;Ovirt&lt;/h2&gt;&lt;p&gt;oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure. oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.&lt;br&gt;Go to &lt;a href=&quot;https://www.ovirt.org/download/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ovirt&lt;/a&gt;to see how to install Ovirt.&lt;br&gt;oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.I use cockpit wizard to install Ovirt on CentOS.&lt;br&gt;Two types hosts&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;oVirt node, other name ‘thin host’, it is a minimal OS, contains the only packagesrequired for the machine to act as a host. &lt;/li&gt;
-&lt;li&gt;centOS or RHEL host&lt;br&gt;I use centOS 7 as a host.&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum update -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-Add the official oVirt repository:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-I use cockpit wizard to install Ovirt on CentOS.&lt;br&gt;Install Cockpit and the cockpit-ovirt-dashboard plugin:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install cockpit cockpit-ovirt-dashboard -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-Enable Cockpit:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;systemctl enable --now cockpit.socket&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-Open the firewall:
     
     </summary>
     
