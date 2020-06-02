@@ -56,17 +56,17 @@
   };
 </script>
 
-  <meta name="description" content="packaging module: yumyum is CentOS Linux package management tool. 123456789tasks:    - name: upgrade all packages      yum:        name: &amp;apos;*&amp;apos;   # update all packages        state: latest    -">
+  <meta name="description" content="If I am going to download an python archived file from python.org, I need to use net tools and file module to achieve my goal. Net tools module: get_urlplaybook: 123456789tasks:   - name: mkdir     fi">
 <meta name="keywords" content="Ansible">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ansible-part3: how to use modules - yum apt package">
-<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;27&#x2F;Ansible-part3-how-to-use-modules&#x2F;index.html">
+<meta property="og:title" content="Ansible part4: how to use modules - net tools get url">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;06&#x2F;02&#x2F;Ansible-part4-how-to-use-modules-net-tools&#x2F;index.html">
 <meta property="og:site_name" content="Anna X">
-<meta property="og:description" content="packaging module: yumyum is CentOS Linux package management tool. 123456789tasks:    - name: upgrade all packages      yum:        name: &amp;apos;*&amp;apos;   # update all packages        state: latest    -">
+<meta property="og:description" content="If I am going to download an python archived file from python.org, I need to use net tools and file module to achieve my goal. Net tools module: get_urlplaybook: 123456789tasks:   - name: mkdir     fi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-02T18:33:31.660Z">
+<meta property="og:updated_time" content="2020-06-02T20:53:23.773Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/">
+  <link rel="canonical" href="https://vmnet8.github.io/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Ansible-part3: how to use modules - yum apt package | Anna X</title>
+  <title>Ansible part4: how to use modules - net tools get url | Anna X</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Anna X">
@@ -297,7 +297,7 @@
       <meta itemprop="name" content="Anna X">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Ansible-part3: how to use modules - yum apt package
+        <h1 class="post-title" itemprop="name headline">Ansible part4: how to use modules - net tools get url
 
           
         </h1>
@@ -313,19 +313,11 @@
                 
               
 
-              <time title="Created: 2020-05-27 00:17:59" itemprop="dateCreated datePublished" datetime="2020-05-27T00:17:59-07:00">2020-05-27</time>
+              <time title="Created: 2020-06-02 11:53:29 / Modified: 13:53:23" itemprop="dateCreated datePublished" datetime="2020-06-02T11:53:29-07:00">2020-06-02</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-02 11:33:31" itemprop="dateModified" datetime="2020-06-02T11:33:31-07:00">2020-06-02</time>
-              </span>
             
           
 
@@ -348,7 +340,7 @@
       
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/05/27/Ansible-part3-how-to-use-modules/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/27/Ansible-part3-how-to-use-modules/" itemprop="commentCount"></span></a>
+    <a title="disqus" href="/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/02/Ansible-part4-how-to-use-modules-net-tools/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -362,22 +354,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="packaging-module-yum"><a href="#packaging-module-yum" class="headerlink" title="packaging module: yum"></a>packaging module: yum</h4><p>yum is CentOS Linux package management tool.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: upgrade all packages</span><br><span class="line">      yum:</span><br><span class="line">        name: &apos;*&apos;   # update all packages</span><br><span class="line">        state: latest</span><br><span class="line">    - name: install a package</span><br><span class="line">      yum:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br></pre></td></tr></table></figure>
+        <p>If I am going to download an python archived file from python.org, I need to use net tools and file module to achieve my goal.</p>
+<h4 id="Net-tools-module-get-url"><a href="#Net-tools-module-get-url" class="headerlink" title="Net tools module: get_url"></a>Net tools module: get_url</h4><p>playbook:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">   - name: mkdir</span><br><span class="line">     file:</span><br><span class="line">      path: /tmp/python-download/    # use file module to create directory name /tmp/python-download</span><br><span class="line">      state: directory</span><br><span class="line">   - name: get url</span><br><span class="line">     get_url:</span><br><span class="line">       url: https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz    # the download url</span><br><span class="line">       dest: /tmp/python-download/</span><br></pre></td></tr></table></figure>
+<p>output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/net-tools-modules$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test net tool get_url] ****************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] **********************************************************</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [mkdir] ********************************************************************</span><br><span class="line">changed: [ansible-node1]</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [get url] ******************************************************************</span><br><span class="line">changed: [ansible-node1]</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">PLAY RECAP **********************************************************************</span><br><span class="line">ansible-node1              : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line">cube4200                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<p>we can check if the python file  has been downloaded.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/net-tools-modules$ ansible all -m shell -a &quot;ls /tmp/python-download&quot;</span><br><span class="line">ansible-node1 | CHANGED | rc=0 &gt;&gt;</span><br><span class="line">Python-3.8.3.tgz</span><br><span class="line">cube4200 | CHANGED | rc=0 &gt;&gt;</span><br><span class="line">Python-3.8.3.tgz</span><br></pre></td></tr></table></figure>
+<p>It shows Python-3.8.3.tgz already downloaded.</p>
+<h4 id="file-modules-unarchive"><a href="#file-modules-unarchive" class="headerlink" title="file modules: unarchive"></a>file modules: unarchive</h4><p>In order to unarchive Python-3.8.3.tgz, I need to use unarchive module</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- name: unarchive compress file</span><br><span class="line">      unarchive:</span><br><span class="line">        src: /tmp/python-download/Python-3.8.3.tgz</span><br><span class="line">        dest: /etc/tmp</span><br><span class="line">        remote_src: yes   #indicate the archived file is already on the remote system and not local to the Ansible controller.</span><br></pre></td></tr></table></figure>
+<p>Notice: <code>remote_src</code> default is no, which means ansible is going to find Python-3.8.3.tgz at my local machine, but actually this file already is in remote, so I need to switch to yes.</p>
 <p>output is:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/packaging_modules/inventory$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test packageing modules] **************************************************</span><br><span class="line"></span><br><span class="line">TASK [upgrade all packages] *****************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [install a package] ********************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">PLAY RECAP **********************************************************************</span><br><span class="line">cube4200                   : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line">[anna@cube4200 ~]$ which git</span><br><span class="line">/usr/bin/git</span><br><span class="line">[anna@cube4200 ~]$ git --version</span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure>
-<p>Notice: the update task took long time to update  all packages.</p>
-<h4 id="packaging-module-apt"><a href="#packaging-module-apt" class="headerlink" title="packaging module: apt"></a>packaging module: apt</h4><p>apt is Ubuntu package management tool.</p>
-<p>In this example, I am going to install git in two different linux, one use yum on CentOS, anther one use apt on Debian. So I need to add some condition to let ansible know which node should use yum or apt.<br>Before running site.yml  I can use <code>ansible web1 -m gather_facts |grep distribution</code> to see the OS of nodes.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: test yum module</span><br><span class="line">      yum:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br><span class="line">      when: ansible_facts[&apos;distribution&apos;] == &quot;CentOS&quot;    # this is from gather_facts</span><br><span class="line">    - name: test apt module</span><br><span class="line">      apt:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br><span class="line">      when: ansible_facts[&apos;distribution&apos;] == &quot;Debian&quot;</span><br></pre></td></tr></table></figure>
-
-<p>During running, I can see ansible will judge which command (apt or yum) to use.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/packaging_modules/inventory$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test packageing modules] **************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] **********************************************************</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test yum module] **********************************************************</span><br><span class="line">skipping: [ansible-node1]</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test apt module] **********************************************************</span><br><span class="line">skipping: [cube4200]</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line"></span><br><span class="line">PLAY RECAP **********************************************************************</span><br><span class="line">ansible-node1              : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   </span><br><span class="line">cube4200                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
-<p>cube4200 uses CentOS, so when testing apt command, it is skipped; ansible_node1 uses Debian, which is skipped when testing yum.</p>
-<h4 id="packaging-module-package"><a href="#packaging-module-package" class="headerlink" title="packaging module: package"></a>packaging module: package</h4><p>package module is more general and simplify the installing packages</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: test package module</span><br><span class="line">      package:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br></pre></td></tr></table></figure>
-
-<p>Notice: sometime package will have different name in different OS, under this situation, package module will not work, I still need to use yum or apt with gather_facts conditon to install packages.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/net-tools-modules$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">TASK [unarchive compress file] *****************************************************************************************************************************************************************************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line">changed: [ansible-node1]</span><br><span class="line"></span><br><span class="line">PLAY RECAP *************************************************************************************************************************************************************************************************************************************</span><br><span class="line">ansible-node1              : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line">cube4200                   : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line"></span><br><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/net-tools-modules$ ansible all -m shell -a  &quot;ls /etc/tmp&quot;</span><br><span class="line">cube4200 | CHANGED | rc=0 &gt;&gt;</span><br><span class="line">Python-3.8.3</span><br><span class="line">ansible-node1 | CHANGED | rc=0 &gt;&gt;</span><br><span class="line">Python-3.8.3</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -403,8 +392,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/" rel="next" title="Ansible part 2: how to use modules - debug copy file template ping gather-facts user group">
-                  <i class="fa fa-chevron-left"></i> Ansible part 2: how to use modules - debug copy file template ping gather-facts user group
+                <a href="/2020/05/27/Ansible-part3-how-to-use-modules/" rel="next" title="Ansible-part3: how to use modules - yum apt package">
+                  <i class="fa fa-chevron-left"></i> Ansible-part3: how to use modules - yum apt package
                 </a>
               
             </div>
@@ -412,10 +401,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/" rel="prev" title="Ansible part4: how to use modules - net tools get url">
-                  Ansible part4: how to use modules - net tools get url <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -470,7 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-yum"><span class="nav-number">1.</span> <span class="nav-text">packaging module: yum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-apt"><span class="nav-number">2.</span> <span class="nav-text">packaging module: apt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-package"><span class="nav-number">3.</span> <span class="nav-text">packaging module: package</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Net-tools-module-get-url"><span class="nav-number">1.</span> <span class="nav-text">Net tools module: get_url</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file-modules-unarchive"><span class="nav-number">2.</span> <span class="nav-text">file modules: unarchive</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -667,9 +652,9 @@
 </script>
 <script>
   function disqus_config() {
-    this.page.url = "https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/";
-    this.page.identifier = "2020/05/27/Ansible-part3-how-to-use-modules/";
-    this.page.title = 'Ansible-part3: how to use modules - yum apt package';};
+    this.page.url = "https://vmnet8.github.io/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/";
+    this.page.identifier = "2020/06/02/Ansible-part4-how-to-use-modules-net-tools/";
+    this.page.title = 'Ansible part4: how to use modules - net tools get url';};
   function loadComments() {
     if (window.DISQUS) {
       DISQUS.reset({

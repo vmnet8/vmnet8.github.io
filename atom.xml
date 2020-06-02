@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-06-02T18:33:31.660Z</updated>
+  <updated>2020-06-02T20:53:23.773Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible part4: how to use modules - net tools get url</title>
+    <link href="https://vmnet8.github.io/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/"/>
+    <id>https://vmnet8.github.io/2020/06/02/Ansible-part4-how-to-use-modules-net-tools/</id>
+    <published>2020-06-02T18:53:29.000Z</published>
+    <updated>2020-06-02T20:53:23.773Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;If I am going to download an python archived file from python.org, I need to use net tools and file module to achieve my goal.&lt;/p&gt;
+&lt;h4
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible-part3: how to use modules - yum apt package</title>
@@ -554,38 +580,6 @@
     
     
       <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Convert markdown file to PDF file</title>
-    <link href="https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/"/>
-    <id>https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/</id>
-    <published>2019-10-15T06:36:34.000Z</published>
-    <updated>2019-10-15T07:23:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I keep my resume on github, and is going to update it with my working experience changing.Since resume is written in markdown format on github, I need a PDF format when applying job on line. How to convert markdown file to PDF file easily?&lt;/p&gt;
-&lt;h2 id=&quot;Convert-markdown-file-to-html-format-first&quot;&gt;&lt;a href=&quot;#Convert-markdown-file-to-html-format-first&quot; class=&quot;headerlink&quot; title=&quot;Convert markdown file to html format first&quot;&gt;&lt;/a&gt;Convert markdown file to html format first&lt;/h2&gt;&lt;p&gt;You need to check markdown is already installed or not. If not, you need use &lt;code&gt;apt install markdown&lt;/code&gt; to install it.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~$ which markdown&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/markdown&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Go to directory where your markdown file lies, run&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~/git_repo/resume$ markdown resume.md resume.html&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;you will convert resume.md markdown file to resume.html&lt;/p&gt;
-&lt;p&gt;then you can go to webbrowser to see this html file, to make sure it works.&lt;/p&gt;
-&lt;h2 id=&quot;Convert-html-file-to-PDF-file&quot;&gt;&lt;a href=&quot;#Convert-html-file-to-PDF-file&quot; class=&quot;headerlink&quot; title=&quot;Convert html file to PDF file&quot;&gt;&lt;/a&gt;Convert html file to PDF file&lt;/h2&gt;&lt;p&gt;To convert PDF file, you need to use wkhtmltopdf tool&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt install wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~$ which wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/wkhtmltopdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;go to the same directory where the resume.md and resume.html lie, run&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wkhtmltopdf -s letter  -B 25mm -T 25mm -L 25mm -R 25mm resume.html resume.pdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;then you can get the PDF format resume file.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;anna@ubuntu1804:~/git_repo/resume$ ll&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna  4493 Oct 14 22:46 resume.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna  3728 Oct 14 22:45 resume.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-rw-r--r-- 1 anna anna 34985 Oct 14 22:46 resume.pdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Write-a-script-to-execute-convert-automaticly&quot;&gt;&lt;a href=&quot;#Write-a-script-to-execute-convert-automaticly&quot; class=&quot;headerlink&quot; title=&quot;Write a script to execute convert automaticly&quot;&gt;&lt;/a&gt;Write a script to execute convert automaticly&lt;/h2&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="shell script" scheme="https://vmnet8.github.io/tags/shell-script/"/>
     
   </entry>
   

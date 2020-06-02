@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">42</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">43</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,107 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/23/Bettercap-project-install-on-raspberry-Pi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/" class="post-title-link" itemprop="url">Bettercap project: install on raspberry Pi</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-23 00:06:53 / Modified: 00:24:46" itemprop="dateCreated datePublished" datetime="2019-11-23T00:06:53-08:00">2019-11-23</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/23/Bettercap-project-install-on-raspberry-Pi/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="install-on-raspberry-Pi3B"><a href="#install-on-raspberry-Pi3B" class="headerlink" title="install on raspberry Pi3B+"></a>install on raspberry Pi3B+</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# sudo apt update</span><br><span class="line">Hit:1 https://download.docker.com/linux/raspbian stretch InRelease</span><br><span class="line">Get:2 http://archive.raspberrypi.org/debian buster InRelease [25.2 kB]                                                                       </span><br><span class="line">Hit:3 https://deb.nodesource.com/node_10.x buster InRelease                                                                                  </span><br><span class="line">Get:4 http://deb.torproject.org/torproject.org buster InRelease [4,964 B]                                                                    </span><br><span class="line">Get:5 http://raspbian.raspberrypi.org/raspbian buster InRelease [15.0 kB]                                    </span><br><span class="line">Get:6 https://packages.cloud.google.com/apt coral-cloud-stable InRelease [6,328 B]          </span><br><span class="line">Get:7 http://raspbian.raspberrypi.org/raspbian buster/main armhf Packages [13.0 MB]</span><br><span class="line">Get:8 http://archive.raspberrypi.org/debian buster/main armhf Packages [259 kB]</span><br><span class="line">Ign:9 https://packages.cloud.google.com/apt coral-cloud-stable/main armhf Packages</span><br><span class="line">Get:9 https://packages.cloud.google.com/apt coral-cloud-stable/main armhf Packages [3,358 B]</span><br><span class="line">Fetched 13.3 MB in 25s (539 kB/s)                                                                                                            </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">53 packages can be upgraded. Run &apos;apt list --upgradable&apos; to see them.</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# sudo apt install golang git build-essential libpcap-dev libusb-1.0-0-dev libnetfilter-queue-dev</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">build-essential is already the newest version (12.6).</span><br><span class="line">git is already the newest version (1:2.20.1-2).</span><br><span class="line">The following package was automatically installed and is no longer required:</span><br><span class="line">  point-rpi</span><br><span class="line">Use &apos;sudo apt autoremove&apos; to remove it.</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  golang-1.11 golang-1.11-doc golang-1.11-go golang-1.11-src golang-doc golang-go golang-src libnfnetlink-dev libpcap0.8-dev libusb-1.0-doc</span><br><span class="line">Suggested packages:</span><br><span class="line">  bzr | brz mercurial subversion</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  golang golang-1.11 golang-1.11-doc golang-1.11-go golang-1.11-src golang-doc golang-go golang-src libnetfilter-queue-dev libnfnetlink-dev</span><br><span class="line">  libpcap-dev libpcap0.8-dev libusb-1.0-0-dev libusb-1.0-doc</span><br><span class="line">0 upgraded, 14 newly installed, 0 to remove and 53 not upgraded.</span><br><span class="line">Need to get 52.4 MB of archives.</span><br><span class="line">After this operation, 260 MB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br><span class="line">Get:1 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-src armhf 1.11.6-1+rpi1+deb10u2 [13.0 MB]</span><br><span class="line">Get:2 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-go armhf 1.11.6-1+rpi1+deb10u2 [36.3 MB]               </span><br><span class="line">Get:3 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11-doc all 1.11.6-1+rpi1+deb10u2 [2,517 kB]               </span><br><span class="line">Get:4 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-1.11 all 1.11.6-1+rpi1+deb10u2 [24.1 kB]                    </span><br><span class="line">Get:5 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-src armhf 2:1.11~1+b6 [4,660 B]                             </span><br><span class="line">Get:6 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-go armhf 2:1.11~1+b6 [23.7 kB]                              </span><br><span class="line">Get:7 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang-doc all 2:1.11~1 [4,392 B]                                  </span><br><span class="line">Get:8 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf golang armhf 2:1.11~1+b6 [4,612 B]                                 </span><br><span class="line">Get:9 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libnfnetlink-dev armhf 1.0.1-3 [7,928 B]                           </span><br><span class="line">Get:10 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libnetfilter-queue-dev armhf 1.0.3-1 [6,548 B]                    </span><br><span class="line">Get:11 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libpcap0.8-dev armhf 1.8.1-6 [220 kB]                             </span><br><span class="line">Get:12 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libpcap-dev armhf 1.8.1-6 [25.9 kB]                               </span><br><span class="line">Get:13 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libusb-1.0-0-dev armhf 2:1.0.22-2 [65.5 kB]                       </span><br><span class="line">Get:14 http://mirrors.ocf.berkeley.edu/raspbian/raspbian buster/main armhf libusb-1.0-doc all 2:1.0.22-2 [182 kB]                            </span><br><span class="line">Fetched 52.4 MB in 23s (2,250 kB/s)                                                                                                          </span><br><span class="line">Selecting previously unselected package golang-1.11-src.</span><br><span class="line">(Reading database ... 154643 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../00-golang-1.11-src_1.11.6-1+rpi1+deb10u2_armhf.deb ...</span><br><span class="line">Unpacking golang-1.11-src (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11-go.</span><br><span class="line">Preparing to unpack .../01-golang-1.11-go_1.11.6-1+rpi1+deb10u2_armhf.deb ...</span><br><span class="line">Unpacking golang-1.11-go (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11-doc.</span><br><span class="line">Preparing to unpack .../02-golang-1.11-doc_1.11.6-1+rpi1+deb10u2_all.deb ...</span><br><span class="line">Unpacking golang-1.11-doc (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-1.11.</span><br><span class="line">Preparing to unpack .../03-golang-1.11_1.11.6-1+rpi1+deb10u2_all.deb ...</span><br><span class="line">Unpacking golang-1.11 (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Selecting previously unselected package golang-src.</span><br><span class="line">Preparing to unpack .../04-golang-src_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang-src (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package golang-go.</span><br><span class="line">Preparing to unpack .../05-golang-go_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang-go (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package golang-doc.</span><br><span class="line">Preparing to unpack .../06-golang-doc_2%3a1.11~1_all.deb ...</span><br><span class="line">Unpacking golang-doc (2:1.11~1) ...</span><br><span class="line">Selecting previously unselected package golang.</span><br><span class="line">Preparing to unpack .../07-golang_2%3a1.11~1+b6_armhf.deb ...</span><br><span class="line">Unpacking golang (2:1.11~1+b6) ...</span><br><span class="line">Selecting previously unselected package libnfnetlink-dev.</span><br><span class="line">Preparing to unpack .../08-libnfnetlink-dev_1.0.1-3_armhf.deb ...</span><br><span class="line">Unpacking libnfnetlink-dev (1.0.1-3) ...</span><br><span class="line">Selecting previously unselected package libnetfilter-queue-dev.</span><br><span class="line">Preparing to unpack .../09-libnetfilter-queue-dev_1.0.3-1_armhf.deb ...</span><br><span class="line">Unpacking libnetfilter-queue-dev (1.0.3-1) ...</span><br><span class="line">Selecting previously unselected package libpcap0.8-dev:armhf.</span><br><span class="line">Preparing to unpack .../10-libpcap0.8-dev_1.8.1-6_armhf.deb ...</span><br><span class="line">Unpacking libpcap0.8-dev:armhf (1.8.1-6) ...</span><br><span class="line">Selecting previously unselected package libpcap-dev:armhf.</span><br><span class="line">Preparing to unpack .../11-libpcap-dev_1.8.1-6_armhf.deb ...</span><br><span class="line">Unpacking libpcap-dev:armhf (1.8.1-6) ...</span><br><span class="line">Selecting previously unselected package libusb-1.0-0-dev:armhf.</span><br><span class="line">Preparing to unpack .../12-libusb-1.0-0-dev_2%3a1.0.22-2_armhf.deb ...</span><br><span class="line">Unpacking libusb-1.0-0-dev:armhf (2:1.0.22-2) ...</span><br><span class="line">Selecting previously unselected package libusb-1.0-doc.</span><br><span class="line">Preparing to unpack .../13-libusb-1.0-doc_2%3a1.0.22-2_all.deb ...</span><br><span class="line">Unpacking libusb-1.0-doc (2:1.0.22-2) ...</span><br><span class="line">Setting up libnfnetlink-dev (1.0.1-3) ...</span><br><span class="line">Setting up golang-1.11-src (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up libpcap0.8-dev:armhf (1.8.1-6) ...</span><br><span class="line">Setting up libusb-1.0-doc (2:1.0.22-2) ...</span><br><span class="line">Setting up libusb-1.0-0-dev:armhf (2:1.0.22-2) ...</span><br><span class="line">Setting up golang-1.11-go (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up libnetfilter-queue-dev (1.0.3-1) ...</span><br><span class="line">Setting up golang-src (2:1.11~1+b6) ...</span><br><span class="line">Setting up libpcap-dev:armhf (1.8.1-6) ...</span><br><span class="line">Setting up golang-1.11-doc (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up golang-go (2:1.11~1+b6) ...</span><br><span class="line">Setting up golang-1.11 (1.11.6-1+rpi1+deb10u2) ...</span><br><span class="line">Setting up golang-doc (2:1.11~1) ...</span><br><span class="line">Setting up golang (2:1.11~1+b6) ...</span><br><span class="line">Processing triggers for man-db (2.8.5-2) ...</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# go get -u github.com/bettercap/bettercap</span><br></pre></td></tr></table></figure>
+<p>Once the build process is concluded, the binary will be located in go/bin/bettercap<br>I checked the go/bin/bettercap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@treehouses:~# which go/bin/bettercap</span><br><span class="line">go/bin/bettercap</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/23/Bettercap-project-install-on-raspberry-Pi/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1234,120 +1335,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/10/14/Convert-markdown-file-to-PDF-file/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/14/Convert-markdown-file-to-PDF-file/" class="post-title-link" itemprop="url">Convert markdown file to PDF file</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-14 23:36:34" itemprop="dateCreated datePublished" datetime="2019-10-14T23:36:34-07:00">2019-10-14</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-15 00:23:07" itemprop="dateModified" datetime="2019-10-15T00:23:07-07:00">2019-10-15</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/14/Convert-markdown-file-to-PDF-file/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/14/Convert-markdown-file-to-PDF-file/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>I keep my resume on github, and is going to update it with my working experience changing.Since resume is written in markdown format on github, I need a PDF format when applying job on line. How to convert markdown file to PDF file easily?</p>
-<h2 id="Convert-markdown-file-to-html-format-first"><a href="#Convert-markdown-file-to-html-format-first" class="headerlink" title="Convert markdown file to html format first"></a>Convert markdown file to html format first</h2><p>You need to check markdown is already installed or not. If not, you need use <code>apt install markdown</code> to install it.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~$ which markdown</span><br><span class="line">/usr/bin/markdown</span><br></pre></td></tr></table></figure>
-<p>Go to directory where your markdown file lies, run</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/git_repo/resume$ markdown resume.md resume.html</span><br></pre></td></tr></table></figure>
-<p>you will convert resume.md markdown file to resume.html</p>
-<p>then you can go to webbrowser to see this html file, to make sure it works.</p>
-<h2 id="Convert-html-file-to-PDF-file"><a href="#Convert-html-file-to-PDF-file" class="headerlink" title="Convert html file to PDF file"></a>Convert html file to PDF file</h2><p>To convert PDF file, you need to use wkhtmltopdf tool</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install wkhtmltopdf</span><br><span class="line">anna@ubuntu1804:~$ which wkhtmltopdf</span><br><span class="line">/usr/bin/wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<p>go to the same directory where the resume.md and resume.html lie, run</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wkhtmltopdf -s letter  -B 25mm -T 25mm -L 25mm -R 25mm resume.html resume.pdf</span><br></pre></td></tr></table></figure>
-<p>then you can get the PDF format resume file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/git_repo/resume$ ll</span><br><span class="line">-rw-r--r-- 1 anna anna  4493 Oct 14 22:46 resume.html</span><br><span class="line">-rw-r--r-- 1 anna anna  3728 Oct 14 22:45 resume.md</span><br><span class="line">-rw-r--r-- 1 anna anna 34985 Oct 14 22:46 resume.pdf</span><br></pre></td></tr></table></figure>
-<h2 id="Write-a-script-to-execute-convert-automaticly"><a href="#Write-a-script-to-execute-convert-automaticly" class="headerlink" title="Write a script to execute convert automaticly"></a>Write a script to execute convert automaticly</h2>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/14/Convert-markdown-file-to-PDF-file/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1400,7 +1387,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
