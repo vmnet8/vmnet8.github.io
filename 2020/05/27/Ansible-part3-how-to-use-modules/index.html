@@ -56,22 +56,17 @@
   };
 </script>
 
-  <meta name="description" content="I am going to use Travis to continue create docker multiarch images, then push back to dockerhub repo. create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration">
-<meta name="keywords" content="docker,Travis">
+  <meta name="description" content="packaging module: yumyum is CentOS Linux package management tool. 123456789tasks:    - name: upgrade all packages      yum:        name: &amp;apos;*&amp;apos;   # update all packages        state: latest    -">
+<meta name="keywords" content="Ansible">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Travis CI: push docker manifest to dockerhub">
-<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;index.html">
+<meta property="og:title" content="Ansible-part3: how to use modules - yum apt package">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;27&#x2F;Ansible-part3-how-to-use-modules&#x2F;index.html">
 <meta property="og:site_name" content="Anna X">
-<meta property="og:description" content="I am going to use Travis to continue create docker multiarch images, then push back to dockerhub repo. create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration">
+<meta property="og:description" content="packaging module: yumyum is CentOS Linux package management tool. 123456789tasks:    - name: upgrade all packages      yum:        name: &amp;apos;*&amp;apos;   # update all packages        state: latest    -">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;travis1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;travis2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;travis3.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;travis4.png">
-<meta property="og:updated_time" content="2020-05-12T04:14:25.219Z">
+<meta property="og:updated_time" content="2020-06-02T18:33:31.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;05&#x2F;11&#x2F;Travis-CI-push-docker-manifest-to-dockerhub&#x2F;travis1.png">
-  <link rel="canonical" href="https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/">
+  <link rel="canonical" href="https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/">
 
 
 <script id="page-configurations">
@@ -85,7 +80,7 @@
   };
 </script>
 
-  <title>Travis CI: push docker manifest to dockerhub | Anna X</title>
+  <title>Ansible-part3: how to use modules - yum apt package | Anna X</title>
   
 
 
@@ -290,7 +285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Anna X">
@@ -302,7 +297,7 @@
       <meta itemprop="name" content="Anna X">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Travis CI: push docker manifest to dockerhub
+        <h1 class="post-title" itemprop="name headline">Ansible-part3: how to use modules - yum apt package
 
           
         </h1>
@@ -318,11 +313,19 @@
                 
               
 
-              <time title="Created: 2020-05-11 18:01:57 / Modified: 21:14:25" itemprop="dateCreated datePublished" datetime="2020-05-11T18:01:57-07:00">2020-05-11</time>
+              <time title="Created: 2020-05-27 00:17:59" itemprop="dateCreated datePublished" datetime="2020-05-27T00:17:59-07:00">2020-05-27</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-02 11:33:31" itemprop="dateModified" datetime="2020-06-02T11:33:31-07:00">2020-06-02</time>
+              </span>
             
           
 
@@ -345,7 +348,7 @@
       
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/" itemprop="commentCount"></span></a>
+    <a title="disqus" href="/2020/05/27/Ansible-part3-how-to-use-modules/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/27/Ansible-part3-how-to-use-modules/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -359,33 +362,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>I am going to use Travis to continue create docker multiarch images, then push back to dockerhub repo.</p>
-<h2 id="create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration"><a href="#create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration" class="headerlink" title="create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration"></a>create a repo in my github account named <code>travis-CICD</code> and add it to <a href="http://travis-ci.com" target="_blank" rel="noopener">Travis</a> GitHub Apps Integration</h2><img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis1.png" class="">
+        <h4 id="packaging-module-yum"><a href="#packaging-module-yum" class="headerlink" title="packaging module: yum"></a>packaging module: yum</h4><p>yum is CentOS Linux package management tool.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: upgrade all packages</span><br><span class="line">      yum:</span><br><span class="line">        name: &apos;*&apos;   # update all packages</span><br><span class="line">        state: latest</span><br><span class="line">    - name: install a package</span><br><span class="line">      yum:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br></pre></td></tr></table></figure>
+<p>output is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/packaging_modules/inventory$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test packageing modules] **************************************************</span><br><span class="line"></span><br><span class="line">TASK [upgrade all packages] *****************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [install a package] ********************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">PLAY RECAP **********************************************************************</span><br><span class="line">cube4200                   : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line">[anna@cube4200 ~]$ which git</span><br><span class="line">/usr/bin/git</span><br><span class="line">[anna@cube4200 ~]$ git --version</span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure>
+<p>Notice: the update task took long time to update  all packages.</p>
+<h4 id="packaging-module-apt"><a href="#packaging-module-apt" class="headerlink" title="packaging module: apt"></a>packaging module: apt</h4><p>apt is Ubuntu package management tool.</p>
+<p>In this example, I am going to install git in two different linux, one use yum on CentOS, anther one use apt on Debian. So I need to add some condition to let ansible know which node should use yum or apt.<br>Before running site.yml  I can use <code>ansible web1 -m gather_facts |grep distribution</code> to see the OS of nodes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: test yum module</span><br><span class="line">      yum:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br><span class="line">      when: ansible_facts[&apos;distribution&apos;] == &quot;CentOS&quot;    # this is from gather_facts</span><br><span class="line">    - name: test apt module</span><br><span class="line">      apt:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br><span class="line">      when: ansible_facts[&apos;distribution&apos;] == &quot;Debian&quot;</span><br></pre></td></tr></table></figure>
 
+<p>During running, I can see ansible will judge which command (apt or yum) to use.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/packaging_modules/inventory$ ansible-playbook site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test packageing modules] **************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] **********************************************************</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test yum module] **********************************************************</span><br><span class="line">skipping: [ansible-node1]</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test apt module] **********************************************************</span><br><span class="line">skipping: [cube4200]</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line"></span><br><span class="line">PLAY RECAP **********************************************************************</span><br><span class="line">ansible-node1              : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   </span><br><span class="line">cube4200                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<p>cube4200 uses CentOS, so when testing apt command, it is skipped; ansible_node1 uses Debian, which is skipped when testing yum.</p>
+<h4 id="packaging-module-package"><a href="#packaging-module-package" class="headerlink" title="packaging module: package"></a>packaging module: package</h4><p>package module is more general and simplify the installing packages</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: test package module</span><br><span class="line">      package:</span><br><span class="line">        name: git</span><br><span class="line">        state: latest</span><br></pre></td></tr></table></figure>
 
-<h2 id="under-the-travis-CICD-repo-create-a-travis-yml-file"><a href="#under-the-travis-CICD-repo-create-a-travis-yml-file" class="headerlink" title="under the travis-CICD repo, create a .travis.yml file"></a>under the travis-CICD repo, create a .travis.yml file</h2><p>Since github uses ruby, I don’t need to specify the language. For this project, I am going to work on docker, so I need to start docker.<br>I am going to use two docker images to create a multiarch using <code>docker manifest create</code> command.<br>Note: Because manifest is an experimental feature, I need to add <code>DOCKER_CLI_EXPERIMENTAL=enabled</code> in .travis.yml file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo: required</span><br><span class="line">addons:</span><br><span class="line">  apt:</span><br><span class="line">    update: true</span><br><span class="line">    packages:</span><br><span class="line">    - docker-ce</span><br><span class="line">services:</span><br><span class="line">- docker</span><br><span class="line">before_install:</span><br><span class="line">script:</span><br><span class="line">- docker pull treehouses/turtleblocksjs-tags:nginx-x86</span><br><span class="line">- docker pull treehouses/turtleblocksjs-tags:nginx-rpi</span><br><span class="line">- export DOCKER_CLI_EXPERIMENTAL=enabled</span><br><span class="line">- docker manifest create vmnet8/turtleblocksjs:annarocks2 treehouses/turtleblocksjs-tags:nginx-x86</span><br><span class="line">  treehouses/turtleblocksjs-tags:nginx-rpi</span><br><span class="line">- echo &quot;$DOCKER_PASSWORD&quot; | docker login -u &quot;$DOCKER_USERNAME&quot; --password-stdin</span><br><span class="line">- docker manifest push vmnet8/turtleblocksjs:annarocks2</span><br><span class="line">env:</span><br><span class="line">  global:</span><br></pre></td></tr></table></figure>
-
-<h2 id="Go-to-dockerhub-to-get-a-new-token"><a href="#Go-to-dockerhub-to-get-a-new-token" class="headerlink" title="Go to dockerhub to get a new token"></a>Go to dockerhub to get a new token</h2><img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis2.png" class="">
-<a id="more"></a>
-
-<h2 id="install-travis-cli-on-my-local"><a href="#install-travis-cli-on-my-local" class="headerlink" title="install travis cli on my local"></a>install travis cli on my local</h2><p>before install travis, I need to solove dependencies.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ruby-dev libffi-dev make gcc</span><br><span class="line">sudo gem install travis</span><br></pre></td></tr></table></figure>
-<p>to verify it</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">anna@ubuntu1804:~/OLE_intern/travis/travis-CICD$ which travis</span><br><span class="line">/usr/local/bin/travis</span><br><span class="line">anna@ubuntu1804:~$ travis login --com</span><br><span class="line">Shell completion not installed. Would you like to install it now? |y| y</span><br><span class="line">We need your GitHub login to identify you.</span><br><span class="line">This information will not be sent to Travis CI, only to api.github.com.</span><br><span class="line">The password will not be displayed.</span><br><span class="line"></span><br><span class="line">Try running with --github-token or --auto if you don&apos;t want to enter your password anyway.</span><br><span class="line"></span><br><span class="line">Username: vmnet8</span><br><span class="line">Password for vmnet8: ********</span><br><span class="line">Successfully logged in as vmnet8!</span><br></pre></td></tr></table></figure>
-
-<h2 id="create-env-variable-for-travis"><a href="#create-env-variable-for-travis" class="headerlink" title="create env variable for travis"></a>create env variable for travis</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">travis env set DOCKER_USERNAME vmnet8</span><br><span class="line">travis env set DOCKER_PASSWORD   &quot;******&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Use-travis-CLI-to-encrypt-data-wiht-the-public-key"><a href="#Use-travis-CLI-to-encrypt-data-wiht-the-public-key" class="headerlink" title="Use travis CLI to encrypt data wiht the public key."></a>Use travis CLI to encrypt data wiht the public key.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt --pro SOMEVAR=&quot;secretvalue&quot;</span><br></pre></td></tr></table></figure>
-<p>It will output a string, I can add it to .travis.yml file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt SOMEVAR=&quot;secretvalue&quot; --add</span><br></pre></td></tr></table></figure>
-<p>It will automaticlly add encrpted data to .travis.yml file</p>
-<h2 id="git-add-travis-yml-file-commit-and-push-to-github"><a href="#git-add-travis-yml-file-commit-and-push-to-github" class="headerlink" title="git add .travis.yml file, commit and push to github"></a>git add .travis.yml file, commit and push to github</h2><p>after the pull request, the travis will build automatic</p>
-<img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis3.png" class="">
-
-<p>exited with 0.<br>Go to dockerhub to verify, it pushed to dockerhub successfully.</p>
-<img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis4.png" class="">
-
+<p>Notice: sometime package will have different name in different OS, under this situation, package module will not work, I still need to use yum or apt with gather_facts conditon to install packages.</p>
 
     </div>
 
@@ -401,9 +393,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/docker/" rel="tag"># docker</a>
-            
-              <a href="/tags/Travis/" rel="tag"># Travis</a>
+              <a href="/tags/Ansible/" rel="tag"># Ansible</a>
             
           </div>
         
@@ -413,8 +403,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/02/12/Using-docker-compose-yml-to-run-netdata/" rel="next" title="Using docker compose yml to run netdata">
-                  <i class="fa fa-chevron-left"></i> Using docker compose yml to run netdata
+                <a href="/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/" rel="next" title="Ansible part 2: how to use modules - debug copy file template ping gather-facts user group">
+                  <i class="fa fa-chevron-left"></i> Ansible part 2: how to use modules - debug copy file template ping gather-facts user group
                 </a>
               
             </div>
@@ -422,10 +412,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/05/21/Ansible-deploy-enviroment-and-concept/" rel="prev" title="Ansible part 1: deploy enviroment and most important concepts">
-                  Ansible part 1: deploy enviroment and most important concepts <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -480,7 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration"><span class="nav-number">1.</span> <span class="nav-text">create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#under-the-travis-CICD-repo-create-a-travis-yml-file"><span class="nav-number">2.</span> <span class="nav-text">under the travis-CICD repo, create a .travis.yml file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go-to-dockerhub-to-get-a-new-token"><span class="nav-number">3.</span> <span class="nav-text">Go to dockerhub to get a new token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-travis-cli-on-my-local"><span class="nav-number">4.</span> <span class="nav-text">install travis cli on my local</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-env-variable-for-travis"><span class="nav-number">5.</span> <span class="nav-text">create env variable for travis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-travis-CLI-to-encrypt-data-wiht-the-public-key"><span class="nav-number">6.</span> <span class="nav-text">Use travis CLI to encrypt data wiht the public key.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-add-travis-yml-file-commit-and-push-to-github"><span class="nav-number">7.</span> <span class="nav-text">git add .travis.yml file, commit and push to github</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-yum"><span class="nav-number">1.</span> <span class="nav-text">packaging module: yum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-apt"><span class="nav-number">2.</span> <span class="nav-text">packaging module: apt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#packaging-module-package"><span class="nav-number">3.</span> <span class="nav-text">packaging module: package</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -677,9 +663,9 @@
 </script>
 <script>
   function disqus_config() {
-    this.page.url = "https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/";
-    this.page.identifier = "2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/";
-    this.page.title = 'Travis CI: push docker manifest to dockerhub';};
+    this.page.url = "https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/";
+    this.page.identifier = "2020/05/27/Ansible-part3-how-to-use-modules/";
+    this.page.title = 'Ansible-part3: how to use modules - yum apt package';};
   function loadComments() {
     if (window.DISQUS) {
       DISQUS.reset({

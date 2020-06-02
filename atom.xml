@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-05-27T06:09:00.173Z</updated>
+  <updated>2020-06-02T18:33:31.660Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Ansible part 2: how to use modules</title>
+    <title>Ansible-part3: how to use modules - yum apt package</title>
+    <link href="https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/"/>
+    <id>https://vmnet8.github.io/2020/05/27/Ansible-part3-how-to-use-modules/</id>
+    <published>2020-05-27T07:17:59.000Z</published>
+    <updated>2020-06-02T18:33:31.660Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;packaging-module-yum&quot;&gt;&lt;a href=&quot;#packaging-module-yum&quot; class=&quot;headerlink&quot; title=&quot;packaging module: yum&quot;&gt;&lt;/a&gt;packaging module:
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible part 2: how to use modules - debug copy file template ping gather-facts user group</title>
     <link href="https://vmnet8.github.io/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/"/>
     <id>https://vmnet8.github.io/2020/05/23/Ansible-part-2-examples-of-how-to-use-modules/</id>
     <published>2020-05-24T06:04:19.000Z</published>
-    <updated>2020-05-27T06:09:00.173Z</updated>
+    <updated>2020-06-02T18:39:52.633Z</updated>
     
     <summary type="html">
     
@@ -561,32 +586,6 @@
     
     
       <category term="shell script" scheme="https://vmnet8.github.io/tags/shell-script/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ovirt-configuring-storage</title>
-    <link href="https://vmnet8.github.io/2019/10/04/Ovirt-configuring-storage/"/>
-    <id>https://vmnet8.github.io/2019/10/04/Ovirt-configuring-storage/</id>
-    <published>2019-10-04T16:14:08.000Z</published>
-    <updated>2019-10-04T22:05:04.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Last time we talked about adding a host to oVirt engine, it looks like following:&lt;/p&gt;
-&lt;img src=&quot;/2019/10/04/Ovirt-configuring-storage/first.jpg&quot; class=&quot;&quot;&gt;
-
-&lt;h2 id=&quot;configure-storage&quot;&gt;&lt;a href=&quot;#configure-storage&quot; class=&quot;headerlink&quot; title=&quot;configure storage&quot;&gt;&lt;/a&gt;configure storage&lt;/h2&gt;&lt;p&gt;Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.&lt;br&gt;A storage domain is a collection of images that have a common storage domain contains complete images of templates and virtual machots), ISO files, and metadata about themselves. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).&lt;/p&gt;
-&lt;h2 id=&quot;configure-NFS-storage&quot;&gt;&lt;a href=&quot;#configure-NFS-storage&quot; class=&quot;headerlink&quot; title=&quot;configure NFS storage&quot;&gt;&lt;/a&gt;configure NFS storage&lt;/h2&gt;&lt;p&gt;First I use another centOS as a nfs server,then attached it to storage domain.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@cube4200 ~]# showmount -e&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Export list for cube4200:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/export/hosted_vm 192.168.0.0/24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img src=&quot;/2019/10/04/Ovirt-configuring-storage/create_nfs.jpg&quot; class=&quot;&quot;&gt;
-&lt;p&gt;It is attached successfully.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Ovirt" scheme="https://vmnet8.github.io/tags/Ovirt/"/>
     
   </entry>
   
