@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-06-03T07:16:11.506Z</updated>
+  <updated>2020-06-03T21:47:15.889Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible part6: ansible vault encrypt file</title>
+    <link href="https://vmnet8.github.io/2020/06/03/Ansible-part6-ansible-vault-encrypt-file/"/>
+    <id>https://vmnet8.github.io/2020/06/03/Ansible-part6-ansible-vault-encrypt-file/</id>
+    <published>2020-06-03T07:24:34.000Z</published>
+    <updated>2020-06-03T21:47:15.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ansible Vault is a feature of ansible that allows you to keep sensitive data such as passwords or keys in encrypted files, rather than as plaintext in playbooks or roles. These vault files can then be distributed or placed in source control.&lt;/p&gt;
+&lt;h4 id=&quot;encrypt-a-file-using-ansible-vault&quot;&gt;&lt;a href=&quot;#encrypt-a-file-using-ansible-vault&quot; class=&quot;headerlink&quot; title=&quot;encrypt a file using ansible-vault&quot;&gt;&lt;/a&gt;encrypt a file using ansible-vault&lt;/h4&gt;&lt;p&gt;I created a vars file to test ansible-vault command&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;port: 443&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;greeting: &amp;quot;greeting from vars file&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ansible_user: pi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible part5: how to use module - command module and register and return value of module</title>
@@ -538,37 +559,6 @@
 &lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/npms.jpg&quot; class=&quot;&quot;&gt;
 
 &lt;h4 id=&quot;Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode&quot;&gt;&lt;a href=&quot;#Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode&quot; class=&quot;headerlink&quot; title=&quot;Setup npm replication from https://replicate.npmjs.com/registry to npm database in continuous mode&quot;&gt;&lt;/a&gt;Setup npm replication from &lt;a href=&quot;https://replicate.npmjs.com/registry&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://replicate.npmjs.com/registry&lt;/a&gt; to npm database in continuous mode&lt;/h4&gt;&lt;img src=&quot;/2019/11/05/npm-analyzer-project-part-2/replication.jpg&quot; class=&quot;&quot;&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
-    
-      <category term="couchDB" scheme="https://vmnet8.github.io/tags/couchDB/"/>
-    
-      <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
-    
-      <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npms analyzer project: part 1</title>
-    <link href="https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/"/>
-    <id>https://vmnet8.github.io/2019/11/02/npms-analyzer-project-part-1/</id>
-    <published>2019-11-03T06:03:48.000Z</published>
-    <updated>2019-11-06T06:40:28.189Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;The npms-analyzer analyzes the npm ecosystem, collecting info, evaluating and scoring each package.In this project, I am going to create
-        
-      
     
     </summary>
     
