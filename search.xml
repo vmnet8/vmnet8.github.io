@@ -149,7 +149,7 @@
       
         <tags>
             
-            <tag> -docker </tag>
+            <tag> docker </tag>
             
         </tags>
       
@@ -167,6 +167,8 @@
       
       
         <tags>
+            
+            <tag> docker </tag>
             
             <tag> docker multi-arch </tag>
             
@@ -186,6 +188,8 @@
       
       
         <tags>
+            
+            <tag> docker </tag>
             
             <tag> Docker </tag>
             
@@ -330,11 +334,11 @@
             
             <tag> npm </tag>
             
-            <tag> couchdb </tag>
+            <tag> couchDB </tag>
+            
+            <tag> rabbitMQ </tag>
             
             <tag> elasticsearch </tag>
-            
-            <tag> rabbitmq </tag>
             
         </tags>
       
@@ -353,7 +357,9 @@
       
         <tags>
             
-            <tag> npm elasticsearch </tag>
+            <tag> npm </tag>
+            
+            <tag> elasticsearch </tag>
             
         </tags>
       

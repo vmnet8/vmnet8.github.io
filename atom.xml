@@ -202,7 +202,7 @@
     <link href="https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/"/>
     <id>https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/</id>
     <published>2020-02-12T20:25:41.000Z</published>
-    <updated>2020-02-12T20:53:55.015Z</updated>
+    <updated>2020-06-03T21:53:49.212Z</updated>
     
     <summary type="html">
     
@@ -234,7 +234,7 @@
     
     
     
-      <category term="-docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
     
   </entry>
   
@@ -243,7 +243,7 @@
     <link href="https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/"/>
     <id>https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/</id>
     <published>2020-01-16T05:26:57.000Z</published>
-    <updated>2020-01-16T05:29:29.918Z</updated>
+    <updated>2020-06-03T22:02:11.176Z</updated>
     
     <summary type="html">
     
@@ -260,6 +260,8 @@
     
     
     
+      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+    
       <category term="docker multi-arch" scheme="https://vmnet8.github.io/tags/docker-multi-arch/"/>
     
   </entry>
@@ -269,7 +271,7 @@
     <link href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/"/>
     <id>https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/</id>
     <published>2020-01-13T19:00:14.000Z</published>
-    <updated>2020-01-13T19:23:21.419Z</updated>
+    <updated>2020-06-03T22:01:32.568Z</updated>
     
     <summary type="html">
     
@@ -285,6 +287,8 @@
     </summary>
     
     
+    
+      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
     
       <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
@@ -454,7 +458,7 @@
     <link href="https://vmnet8.github.io/2019/11/07/npm-analyzer-project-part-5/"/>
     <id>https://vmnet8.github.io/2019/11/07/npm-analyzer-project-part-5/</id>
     <published>2019-11-07T20:28:26.000Z</published>
-    <updated>2019-11-20T05:04:48.553Z</updated>
+    <updated>2020-06-03T22:05:18.826Z</updated>
     
     <summary type="html">
     
@@ -476,11 +480,11 @@
     
       <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
     
-      <category term="couchdb" scheme="https://vmnet8.github.io/tags/couchdb/"/>
+      <category term="couchDB" scheme="https://vmnet8.github.io/tags/couchDB/"/>
+    
+      <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
     
       <category term="elasticsearch" scheme="https://vmnet8.github.io/tags/elasticsearch/"/>
-    
-      <category term="rabbitmq" scheme="https://vmnet8.github.io/tags/rabbitmq/"/>
     
   </entry>
   
@@ -489,7 +493,7 @@
     <link href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/"/>
     <id>https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/</id>
     <published>2019-11-06T18:00:25.000Z</published>
-    <updated>2019-11-07T20:23:45.158Z</updated>
+    <updated>2020-06-03T22:04:25.261Z</updated>
     
     <summary type="html">
     
@@ -507,7 +511,9 @@
     
     
     
-      <category term="npm elasticsearch" scheme="https://vmnet8.github.io/tags/npm-elasticsearch/"/>
+      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
+    
+      <category term="elasticsearch" scheme="https://vmnet8.github.io/tags/elasticsearch/"/>
     
   </entry>
   
