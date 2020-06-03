@@ -170,8 +170,6 @@
             
             <tag> docker </tag>
             
-            <tag> docker multi-arch </tag>
-            
         </tags>
       
     </entry>
@@ -190,8 +188,6 @@
         <tags>
             
             <tag> docker </tag>
-            
-            <tag> Docker </tag>
             
             <tag> Dockerfile </tag>
             
@@ -338,7 +334,7 @@
             
             <tag> rabbitMQ </tag>
             
-            <tag> elasticsearch </tag>
+            <tag> Elasticsearch </tag>
             
         </tags>
       
@@ -359,7 +355,7 @@
             
             <tag> npm </tag>
             
-            <tag> elasticsearch </tag>
+            <tag> Elasticsearch </tag>
             
         </tags>
       

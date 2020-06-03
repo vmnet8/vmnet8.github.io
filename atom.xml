@@ -243,7 +243,7 @@
     <link href="https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/"/>
     <id>https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/</id>
     <published>2020-01-16T05:26:57.000Z</published>
-    <updated>2020-06-03T22:02:11.176Z</updated>
+    <updated>2020-06-03T22:07:46.575Z</updated>
     
     <summary type="html">
     
@@ -262,8 +262,6 @@
     
       <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
     
-      <category term="docker multi-arch" scheme="https://vmnet8.github.io/tags/docker-multi-arch/"/>
-    
   </entry>
   
   <entry>
@@ -271,7 +269,7 @@
     <link href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/"/>
     <id>https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/</id>
     <published>2020-01-13T19:00:14.000Z</published>
-    <updated>2020-06-03T22:01:32.568Z</updated>
+    <updated>2020-06-03T22:07:19.071Z</updated>
     
     <summary type="html">
     
@@ -289,8 +287,6 @@
     
     
       <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
-    
-      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
       <category term="Dockerfile" scheme="https://vmnet8.github.io/tags/Dockerfile/"/>
     
@@ -458,7 +454,7 @@
     <link href="https://vmnet8.github.io/2019/11/07/npm-analyzer-project-part-5/"/>
     <id>https://vmnet8.github.io/2019/11/07/npm-analyzer-project-part-5/</id>
     <published>2019-11-07T20:28:26.000Z</published>
-    <updated>2020-06-03T22:05:18.826Z</updated>
+    <updated>2020-06-03T22:08:53.980Z</updated>
     
     <summary type="html">
     
@@ -484,7 +480,7 @@
     
       <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
     
-      <category term="elasticsearch" scheme="https://vmnet8.github.io/tags/elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
     
   </entry>
   
@@ -493,7 +489,7 @@
     <link href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/"/>
     <id>https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/</id>
     <published>2019-11-06T18:00:25.000Z</published>
-    <updated>2020-06-03T22:04:25.261Z</updated>
+    <updated>2020-06-03T22:08:42.636Z</updated>
     
     <summary type="html">
     
@@ -513,7 +509,7 @@
     
       <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
     
-      <category term="elasticsearch" scheme="https://vmnet8.github.io/tags/elasticsearch/"/>
+      <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
     
   </entry>
   
