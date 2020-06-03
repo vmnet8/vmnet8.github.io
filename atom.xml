@@ -174,7 +174,7 @@
     <link href="https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/"/>
     <id>https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/</id>
     <published>2020-05-12T01:01:57.000Z</published>
-    <updated>2020-05-12T04:14:25.219Z</updated>
+    <updated>2020-06-03T22:12:35.647Z</updated>
     
     <summary type="html">
     
@@ -191,7 +191,7 @@
     
     
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
       <category term="Travis" scheme="https://vmnet8.github.io/tags/Travis/"/>
     
@@ -202,7 +202,7 @@
     <link href="https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/"/>
     <id>https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/</id>
     <published>2020-02-12T20:25:41.000Z</published>
-    <updated>2020-06-03T21:53:49.212Z</updated>
+    <updated>2020-06-03T22:12:50.755Z</updated>
     
     <summary type="html">
     
@@ -234,7 +234,7 @@
     
     
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
   </entry>
   
@@ -243,7 +243,7 @@
     <link href="https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/"/>
     <id>https://vmnet8.github.io/2020/01/15/Docker-manifest-to-create-multi-arch-docker-image/</id>
     <published>2020-01-16T05:26:57.000Z</published>
-    <updated>2020-06-03T22:07:46.575Z</updated>
+    <updated>2020-06-03T22:13:08.223Z</updated>
     
     <summary type="html">
     
@@ -260,7 +260,7 @@
     
     
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
   </entry>
   
@@ -269,7 +269,7 @@
     <link href="https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/"/>
     <id>https://vmnet8.github.io/2020/01/13/Modify-a-Dockerfile/</id>
     <published>2020-01-13T19:00:14.000Z</published>
-    <updated>2020-06-03T22:07:19.071Z</updated>
+    <updated>2020-06-03T22:11:59.438Z</updated>
     
     <summary type="html">
     
@@ -286,7 +286,7 @@
     
     
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
       <category term="Dockerfile" scheme="https://vmnet8.github.io/tags/Dockerfile/"/>
     
