@@ -297,7 +297,7 @@
     <link href="https://vmnet8.github.io/2019/12/09/Build-multi-arch-docker-image/"/>
     <id>https://vmnet8.github.io/2019/12/09/Build-multi-arch-docker-image/</id>
     <published>2019-12-10T06:31:51.000Z</published>
-    <updated>2019-12-11T07:04:39.174Z</updated>
+    <updated>2020-06-04T00:28:12.975Z</updated>
     
     <summary type="html">
     
@@ -314,7 +314,7 @@
     
     
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
   </entry>
   
@@ -323,7 +323,7 @@
     <link href="https://vmnet8.github.io/2019/12/06/Build-a-docker-image-bettercap/"/>
     <id>https://vmnet8.github.io/2019/12/06/Build-a-docker-image-bettercap/</id>
     <published>2019-12-07T00:54:53.000Z</published>
-    <updated>2019-12-10T06:22:49.949Z</updated>
+    <updated>2020-06-04T00:28:31.783Z</updated>
     
     <summary type="html">
     
@@ -341,7 +341,7 @@
     
       <category term="bettercap" scheme="https://vmnet8.github.io/tags/bettercap/"/>
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
   </entry>
   
@@ -402,7 +402,7 @@
     <link href="https://vmnet8.github.io/2019/11/22/Pwnagotchi-using-docker-image/"/>
     <id>https://vmnet8.github.io/2019/11/22/Pwnagotchi-using-docker-image/</id>
     <published>2019-11-22T19:24:11.000Z</published>
-    <updated>2019-11-23T03:07:12.057Z</updated>
+    <updated>2020-06-04T00:28:58.295Z</updated>
     
     <summary type="html">
     
@@ -418,7 +418,7 @@
     
       <category term="bettercap" scheme="https://vmnet8.github.io/tags/bettercap/"/>
     
-      <category term="docker" scheme="https://vmnet8.github.io/tags/docker/"/>
+      <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
     
   </entry>
   
