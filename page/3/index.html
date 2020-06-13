@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">45</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">46</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,111 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/05/npm-analyzer-project-part-2/" class="post-title-link" itemprop="url">npm analyzer project: part 2</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-05 20:23:36 / Modified: 23:00:55" itemprop="dateCreated datePublished" datetime="2019-11-05T20:23:36-08:00">2019-11-05</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/05/npm-analyzer-project-part-2/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/05/npm-analyzer-project-part-2/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="CouchDB"><a href="#CouchDB" class="headerlink" title="CouchDB"></a>CouchDB</h2><p><a href="https://couchdb.apache.org/" target="_blank" rel="noopener">Apache CouchDB</a> lets you access your data where you need it. The Couch Replication Protocol is implemented in a variety of projects and products that span every imaginable computing environment from globally distributed server-clusters, over mobile phones to web browsers.<br>Since I am working in treehouses/cli vagrant in which CouchDB docker already installed, I need to run couchDB docker.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5984:984 --name=vmnet8 treehouses/couchdb:2.3.1</span><br></pre></td></tr></table></figure>
+
+<p>then open localhost:5984 on my browser</p>
+<img src="/2019/11/05/npm-analyzer-project-part-2/couch5984.png" class="">
+
+<p>It shows couchDB installed</p>
+<h4 id="Create-a-new-database-named-npms"><a href="#Create-a-new-database-named-npms" class="headerlink" title="Create a new database named npms"></a>Create a new database named npms</h4><img src="/2019/11/05/npm-analyzer-project-part-2/database_npms.jpg" class="">
+
+<p>visit localhost:5984/_utils, you can see the new database npms is created</p>
+<img src="/2019/11/05/npm-analyzer-project-part-2/npms.jpg" class="">
+
+<h4 id="Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode"><a href="#Setup-npm-replication-from-https-replicate-npmjs-com-registry-to-npm-database-in-continuous-mode" class="headerlink" title="Setup npm replication from https://replicate.npmjs.com/registry to npm database in continuous mode"></a>Setup npm replication from <a href="https://replicate.npmjs.com/registry" target="_blank" rel="noopener">https://replicate.npmjs.com/registry</a> to npm database in continuous mode</h4><img src="/2019/11/05/npm-analyzer-project-part-2/replication.jpg" class="">
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/05/npm-analyzer-project-part-2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1247,113 +1352,6 @@ Open the firewall:
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/" class="post-title-link" itemprop="url">Cyber Security: using wireshark to trace packets</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-02-19 20:34:53" itemprop="dateCreated datePublished" datetime="2019-02-19T20:34:53-08:00">2019-02-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-09 23:39:55" itemprop="dateModified" datetime="2019-07-09T23:39:55-07:00">2019-07-09</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Wireshark is a network packet analyzer. It will try to capture network packets and tries to display that packet data as detailed as possible.</p>
-<h4 id="Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address"><a href="#Abstract-Install-Wireshark-and-use-it-to-trace-the-packet-I-generated-find-my-IP-address" class="headerlink" title="Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address."></a>Abstract: Install Wireshark and use it to trace the packet I generated, find my IP address.</h4><h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h4><ol>
-<li><p>Go to <a href="www.wireshark.org">wireshark pages</a>, read some basic knowledge of wireshark, then download <a href="https://1.na.dl.wireshark.org/win64/Wireshark-win64-3.0.2.exe" target="_blank" rel="noopener">wireshark Windows Installer(64-bit)</a>, according to the instructions to install it on my windows operating system.</p>
-</li>
-<li><p>go to desktop to open Wireshark up, double click “*Wi-Fi” link,it will show a “Capturing from my local area connection” to see the packets captured here.</p>
-</li>
-<li><p>Open a browser and input a website, such as <a href="http://www.qwerty.com" target="_blank" rel="noopener">www.qwerty.com</a> to generate the traffic.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/02/19/Cyber-Security-using-wireshark-to-trace-packets/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1406,7 +1404,7 @@ Open the firewall:
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
