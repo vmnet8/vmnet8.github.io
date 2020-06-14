@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-06-13T22:15:36.615Z</updated>
+  <updated>2020-06-14T06:48:42.691Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible-part8: Ansible lint</title>
+    <link href="https://vmnet8.github.io/2020/06/13/Ansible-part8-Ansible-lint/"/>
+    <id>https://vmnet8.github.io/2020/06/13/Ansible-part8-Ansible-lint/</id>
+    <published>2020-06-14T03:35:22.000Z</published>
+    <updated>2020-06-14T06:48:42.691Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Ansible lint: Ansible Lint is a commandline tool for linting playbooks. Use it to detect behaviors and practices that could potentially
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible-part7: set facts, set variable</title>
@@ -534,32 +559,6 @@
       <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
     
       <category term="Elasticsearch" scheme="https://vmnet8.github.io/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm analyzer project: part 3</title>
-    <link href="https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-3/"/>
-    <id>https://vmnet8.github.io/2019/11/05/npm-analyzer-project-part-3/</id>
-    <published>2019-11-06T07:08:00.000Z</published>
-    <updated>2019-11-06T07:48:08.071Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;RabbitMQ-is-the-most-widely-deployed-open-source-message-broker&quot;&gt;&lt;a href=&quot;#RabbitMQ-is-the-most-widely-deployed-open-source-message-broker&quot; class=&quot;headerlink&quot; title=&quot;RabbitMQ is the most widely deployed open source message broker.&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.rabbitmq.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RabbitMQ&lt;/a&gt; is the most widely deployed open source message broker.&lt;/h2&gt;&lt;p&gt;At first I go to &lt;a href=&quot;https://www.rabbitmq.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RabbitMQ&lt;/a&gt; to download and install it.&lt;br&gt;I use the shell script to install rabbitMQ&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#!/bin/sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## If sudo is not available on the system,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## uncomment the line below to install it&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# apt-get install -y sudo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Install prerequisites&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install curl gnupg -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Install RabbitMQ signing key&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | sudo apt-key add -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Install apt HTTPS transport&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install apt-transport-https&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Add Bintray repositories that provision latest RabbitMQ and Erlang 21.x releases&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list &amp;lt;&amp;lt;EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Installs the latest Erlang 21.x release.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Change component to &amp;quot;erlang&amp;quot; to install the latest version (22.x or later).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## &amp;quot;bionic&amp;quot; as distribution name should work for any later Ubuntu or Debian release.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## See the release to distribution mapping table in RabbitMQ doc guides to learn more.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;deb https://dl.bintray.com/rabbitmq-erlang/debian bionic erlang-21.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;deb https://dl.bintray.com/rabbitmq/debian bionic main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Update package indices&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Install rabbitmq-server and its dependencies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install rabbitmq-server -y --fix-missing&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;after run this instll shell script, it doesn’t work. I try docker image.&lt;/p&gt;
-&lt;h4 id=&quot;Install-rabbitMQ-docker-image&quot;&gt;&lt;a href=&quot;#Install-rabbitMQ-docker-image&quot; class=&quot;headerlink&quot; title=&quot;Install rabbitMQ docker image&quot;&gt;&lt;/a&gt;Install rabbitMQ docker image&lt;/h4&gt;&lt;p&gt;according to &lt;a href=&quot;https://hub.docker.com/_/rabbitmq&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;rabbitMQ&lt;/a&gt;, run command&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 rabbitmq:3-management&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="npm" scheme="https://vmnet8.github.io/tags/npm/"/>
-    
-      <category term="rabbitMQ" scheme="https://vmnet8.github.io/tags/rabbitMQ/"/>
     
   </entry>
   
