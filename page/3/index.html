@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">48</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">49</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,117 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/07/npm-analyzer-project-part-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/07/npm-analyzer-project-part-5/" class="post-title-link" itemprop="url">npm analyzer project: part 5</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-07 12:28:26" itemprop="dateCreated datePublished" datetime="2019-11-07T12:28:26-08:00">2019-11-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-03 15:08:53" itemprop="dateModified" datetime="2020-06-03T15:08:53-07:00">2020-06-03</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/07/npm-analyzer-project-part-5/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/07/npm-analyzer-project-part-5/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="config-the-npm-file"><a href="#config-the-npm-file" class="headerlink" title="config the npm file."></a>config the npm file.</h2><p>This project uses npm config for configuration. I need to create config/local.json5 file to override the configuration as necessary, especially to define githubTokens. After working a lot, I found I need to clone the npm-analyzer repo actuallya. I do not know whether the work before is worthable if I already clone the whole repo.</p>
+<h4 id="clone-the-github-npm-analyzer"><a href="#clone-the-github-npm-analyzer" class="headerlink" title="clone the github npm-analyzer"></a>clone the github npm-analyzer</h4><p>under my npm_analyzer dirctory, clone the repo to my local machine.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/npms-io/npms-analyzer.git</span><br></pre></td></tr></table></figure>
+<h4 id="copy-the-default-json-file-to-create-my-own-local-json5-file"><a href="#copy-the-default-json-file-to-create-my-own-local-json5-file" class="headerlink" title="copy the default.json file to create my own local.json5 file"></a>copy the default.json file to create my own local.json5 file</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp default.json local.json5</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer/npms-analyzer/config$ ls -al</span><br><span class="line">total 24</span><br><span class="line">drwxr-xr-x 4 vagrant vagrant 4096 Nov  7 07:19 .</span><br><span class="line">drwxr-xr-x 9 vagrant vagrant 4096 Nov  7 05:38 ..</span><br><span class="line">drwxr-xr-x 2 vagrant vagrant 4096 Nov  7 05:31 couchdb</span><br><span class="line">-rw-r--r-- 1 vagrant vagrant 1187 Nov  7 05:31 default.json5</span><br><span class="line">drwxr-xr-x 2 vagrant vagrant 4096 Nov  7 05:31 elasticsearch</span><br><span class="line">-rw-r--r-- 1 vagrant vagrant  116 Nov  7 05:47 local.json5</span><br></pre></td></tr></table></figure>
+<h4 id="create-my-githubtoken-write-it-to-local-json5-file"><a href="#create-my-githubtoken-write-it-to-local-json5-file" class="headerlink" title="create my githubtoken, write it to local.json5 file"></a>create my githubtoken, write it to local.json5 file</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // Github tokens to be used by token-dealer</span><br><span class="line">    githubTokens: [&apos;227dc6ab8270d13f5ac2134c466&apos;],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="check-default-json-file"><a href="#check-default-json-file" class="headerlink" title="check default.json file"></a>check default.json file</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // Databases &amp; similar stuff</span><br><span class="line">    couchdbNpm: &#123;</span><br><span class="line">        url: &apos;http://admin:admin@127.0.0.1:5984/npm&apos;,</span><br><span class="line">        requestDefaults: &#123; timeout: 15000 &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    couchdbNpms: &#123;</span><br><span class="line">        url: &apos;http://admin:admin@127.0.0.1:5984/npms&apos;,</span><br><span class="line">        requestDefaults: &#123; timeout: 15000 &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    elasticsearch: &#123;</span><br><span class="line">        host: &apos;http://127.0.0.1:9200&apos;,</span><br><span class="line">        requestTimeout: 15000,</span><br><span class="line">        apiVersion: &apos;6.3&apos;,</span><br><span class="line">        log: null,</span><br><span class="line">    &#125;,</span><br><span class="line">    queue: &#123;</span><br><span class="line">        name: &apos;npms&apos;,</span><br><span class="line">        addr: &apos;amqp://guest:guest@127.0.0.1&apos;,</span><br><span class="line">        options: &#123; maxPriority: 1 &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // List of packages that will be ignored by the CLI consume command (analysis process)</span><br><span class="line">    blacklist: &#123;</span><br><span class="line">        &apos;hownpm&apos;: &apos;Invalid version: 1.01&apos;,</span><br><span class="line">        &apos;zachtestproject1&apos;: &apos;Test project that makes registry return 500 internal&apos;,</span><br><span class="line">        &apos;zachtestproject2&apos;: &apos;Test project that makes registry return 500 internal&apos;,</span><br><span class="line">        &apos;zachtestproject3&apos;: &apos;Test project that makes registry return 500 internal&apos;,</span><br><span class="line">        &apos;zachtestproject4&apos;: &apos;Test project that makes registry return 500 internal&apos;,</span><br><span class="line">        &apos;broken-package-truncated-tar-header&apos;: &apos;Broken tarball&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // Github tokens to be used by token-dealer</span><br><span class="line">    githubTokens: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>after checking default.json file, I found there are two databases, one is couchdbNpms which is for queue, and another one is couchdbNpm which is for replication from <a href="https://replicate.npmjs.com/registry" target="_blank" rel="noopener">https://replicate.npmjs.com/registry</a>. I only created npms, so I need to go back couchdb to create npm database and redo the replication work. It takes long time to replication the couchdb and also shows “error” for replication funtion on couchdb website.</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/11/07/npm-analyzer-project-part-5/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1230,117 +1341,6 @@ Open the firewall:
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/" class="post-title-link" itemprop="url">Cyber Security: Some pen tests in Kali-Linux in Virtualbox</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-04-10 22:36:48" itemprop="dateCreated datePublished" datetime="2019-04-10T22:36:48-07:00">2019-04-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-10 23:15:29" itemprop="dateModified" datetime="2019-07-10T23:15:29-07:00">2019-07-10</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h4><p>Install Virtualbox in computer system, in which to install Kali Linux, then try wireshark, nmap and crunch application. It shows a lot of security tools can be implemented correctly in Virtualbox.</p>
-<h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h4><ol>
-<li><p>Go to <a href="www.virtualbox.org">virtualbox page</a> to download the virtual 5.2.18 version, then install it based on wizard.</p>
-</li>
-<li><p>Search “kali OVA”, then go to official kali linux download page, select the “Kali Linux 64 bit Vbox”, click “offensive security download page” icon to select “Kali Linux 64 bit Ova” which is for Virtualbox, download it.</p>
-</li>
-<li><p>Open Virtual box,click “file” button then select “import application”, input the “kali 2018.3 ova” into the frame, then select the fold where the “kali linux 64 bit” you have download before, then open it.</p>
-</li>
-<li><p>Select the “OS Redhat 64 bit”, choose all other items  as defaults, such as sound card, network adapter card etc, then click “import”. Waiting a couple minutes to finish installing. After installation, you can see “kali 2018.3” icon on the Virtualbox panel.</p>
-</li>
-<li><p>Double click the “kali 2018.3”, it will start to boot, just taking defaults. Input the username “root” and password “toor” to log in Kali.</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/04/10/Cyber-Security-Some-pen-tests-in-Kali-Linux-in-Virtualbox/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1393,7 +1393,7 @@ Open the firewall:
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

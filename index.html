@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">48</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">49</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,95 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/06/16/Ansible-part10-net-tool-module-uri/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/06/16/Ansible-part10-net-tool-module-uri/" class="post-title-link" itemprop="url">Ansible-part10: net tool module uri</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-06-16 19:40:45 / Modified: 19:50:38" itemprop="dateCreated datePublished" datetime="2020-06-16T19:40:45-07:00">2020-06-16</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/16/Ansible-part10-net-tool-module-uri/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/16/Ansible-part10-net-tool-module-uri/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>uri is a  net tool moudle, which interacts with HTTP and HTTPS web services and supports Digest, Basic and WSSE HTTP authentication mechanisms.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: Check that a page returns a status 200 </span><br><span class="line">      uri:</span><br><span class="line">        url: http://www.example.com</span><br><span class="line">        return_content: yes</span><br><span class="line">      register: this</span><br><span class="line">    - debug:</span><br><span class="line">        msg: &quot;&#123;&#123;this&#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>look at the output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/net-tools-modules$ ansible-playbook site1.yml </span><br><span class="line"></span><br><span class="line">PLAY [uri] ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line"></span><br><span class="line">TASK [Check that a page returns a status 200] *********************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line">ok: [ansible-node1]</span><br><span class="line"></span><br><span class="line">TASK [debug] ******************************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [ansible-node1] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &#123;</span><br><span class="line">        &quot;accept_ranges&quot;: &quot;bytes&quot;, </span><br><span class="line">        &quot;age&quot;: &quot;478999&quot;, </span><br><span class="line">        &quot;cache_control&quot;: &quot;max-age=604800&quot;, </span><br><span class="line">        &quot;changed&quot;: false, </span><br><span class="line">        &quot;connection&quot;: &quot;close&quot;, </span><br><span class="line">        &quot;content&quot;: &quot;&lt;!doctype html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;Example Domain&lt;/title&gt;\n\n    &lt;meta charset=\&quot;utf-8\&quot; /&gt;\n    &lt;meta http-equiv=\&quot;Content-type\&quot; content=\&quot;text/html; charset=utf-8\&quot; /&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1\&quot; /&gt;\n    &lt;style type=\&quot;text/css\&quot;&gt;\n    body &#123;\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, \&quot;Open Sans\&quot;, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;\n        \n    &#125;\n    div &#123;\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    &#125;\n    a:link, a:visited &#123;\n        color: #38488f;\n        text-decoration: none;\n    &#125;\n    @media (max-width: 700px) &#123;\n        div &#123;\n            margin: 0 auto;\n            width: auto;\n        &#125;\n    &#125;\n    &lt;/style&gt;    \n&lt;/head&gt;\n\n&lt;body&gt;\n&lt;div&gt;\n    &lt;h1&gt;Example Domain&lt;/h1&gt;\n    &lt;p&gt;This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.&lt;/p&gt;\n    &lt;p&gt;&lt;a href=\&quot;https://www.iana.org/domains/example\&quot;&gt;More information...&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;, </span><br><span class="line">        &quot;content_length&quot;: &quot;1256&quot;, </span><br><span class="line">        &quot;content_type&quot;: &quot;text/html; charset=UTF-8&quot;, </span><br><span class="line">        &quot;cookies&quot;: &#123;&#125;, </span><br><span class="line">        &quot;cookies_string&quot;: &quot;&quot;, </span><br><span class="line">        &quot;date&quot;: &quot;Wed, 17 Jun 2020 02:39:51 GMT&quot;, </span><br><span class="line">        &quot;elapsed&quot;: 0, </span><br><span class="line">        &quot;etag&quot;: &quot;\&quot;3147526947\&quot;&quot;, </span><br><span class="line">        &quot;expires&quot;: &quot;Wed, 24 Jun 2020 02:39:51 GMT&quot;, </span><br><span class="line">        &quot;failed&quot;: false, </span><br><span class="line">        &quot;last_modified&quot;: &quot;Thu, 17 Oct 2019 07:18:26 GMT&quot;, </span><br><span class="line">        &quot;msg&quot;: &quot;OK (1256 bytes)&quot;, </span><br><span class="line">        &quot;redirected&quot;: false, </span><br><span class="line">        &quot;server&quot;: &quot;ECS (sjc/4E44)&quot;, </span><br><span class="line">        &quot;status&quot;: 200, </span><br><span class="line">        &quot;url&quot;: &quot;http://www.example.com&quot;, </span><br><span class="line">        &quot;vary&quot;: &quot;Accept-Encoding&quot;, </span><br><span class="line">        &quot;x_cache&quot;: &quot;HIT&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &#123;</span><br><span class="line">        &quot;accept_ranges&quot;: &quot;bytes&quot;, </span><br><span class="line">        &quot;age&quot;: &quot;478426&quot;, </span><br><span class="line">        &quot;cache_control&quot;: &quot;max-age=604800&quot;, </span><br><span class="line">        &quot;changed&quot;: false, </span><br><span class="line">        &quot;connection&quot;: &quot;close&quot;, </span><br><span class="line">        &quot;content&quot;: &quot;&lt;!doctype html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;Example Domain&lt;/title&gt;\n\n    &lt;meta charset=\&quot;utf-8\&quot; /&gt;\n    &lt;meta http-equiv=\&quot;Content-type\&quot; content=\&quot;text/html; charset=utf-8\&quot; /&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1\&quot; /&gt;\n    &lt;style type=\&quot;text/css\&quot;&gt;\n    body &#123;\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \&quot;Segoe UI\&quot;, \&quot;Open Sans\&quot;, \&quot;Helvetica Neue\&quot;, Helvetica, Arial, sans-serif;\n        \n    &#125;\n    div &#123;\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    &#125;\n    a:link, a:visited &#123;\n        color: #38488f;\n        text-decoration: none;\n    &#125;\n    @media (max-width: 700px) &#123;\n        div &#123;\n            margin: 0 auto;\n            width: auto;\n        &#125;\n    &#125;\n    &lt;/style&gt;    \n&lt;/head&gt;\n\n&lt;body&gt;\n&lt;div&gt;\n    &lt;h1&gt;Example Domain&lt;/h1&gt;\n    &lt;p&gt;This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.&lt;/p&gt;\n    &lt;p&gt;&lt;a href=\&quot;https://www.iana.org/domains/example\&quot;&gt;More information...&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;, </span><br><span class="line">        &quot;content_length&quot;: &quot;1256&quot;, </span><br><span class="line">        &quot;content_type&quot;: &quot;text/html; charset=UTF-8&quot;, </span><br><span class="line">        &quot;cookies&quot;: &#123;&#125;, </span><br><span class="line">        &quot;cookies_string&quot;: &quot;&quot;, </span><br><span class="line">        &quot;date&quot;: &quot;Wed, 17 Jun 2020 02:39:50 GMT&quot;, </span><br><span class="line">        &quot;elapsed&quot;: 0, </span><br><span class="line">        &quot;etag&quot;: &quot;\&quot;3147526947\&quot;&quot;, </span><br><span class="line">        &quot;expires&quot;: &quot;Wed, 24 Jun 2020 02:39:50 GMT&quot;, </span><br><span class="line">        &quot;failed&quot;: false, </span><br><span class="line">        &quot;last_modified&quot;: &quot;Thu, 17 Oct 2019 07:18:26 GMT&quot;, </span><br><span class="line">        &quot;msg&quot;: &quot;OK (1256 bytes)&quot;, </span><br><span class="line">        &quot;redirected&quot;: false, </span><br><span class="line">        &quot;server&quot;: &quot;ECS (sjc/4E76)&quot;, </span><br><span class="line">        &quot;status&quot;: 200, </span><br><span class="line">        &quot;url&quot;: &quot;http://www.example.com&quot;, </span><br><span class="line">        &quot;vary&quot;: &quot;Accept-Encoding&quot;, </span><br><span class="line">        &quot;x_cache&quot;: &quot;HIT&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">ansible-node1              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span><br><span class="line">cube4200                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<p>Notice: if there is no <code>return_content: yes</code>, the output will only parts of above info.<br>the status is 200, which means it is normal.</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1192,114 +1281,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/" class="post-title-link" itemprop="url">Travis CI: push docker manifest to dockerhub</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-05-11 18:01:57" itemprop="dateCreated datePublished" datetime="2020-05-11T18:01:57-07:00">2020-05-11</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-03 15:12:35" itemprop="dateModified" datetime="2020-06-03T15:12:35-07:00">2020-06-03</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>I am going to use Travis to continue create docker multiarch images, then push back to dockerhub repo.</p>
-<h2 id="create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration"><a href="#create-a-repo-in-my-github-account-named-travis-CICD-and-add-it-to-Travis-GitHub-Apps-Integration" class="headerlink" title="create a repo in my github account named travis-CICD and add it to Travis GitHub Apps Integration"></a>create a repo in my github account named <code>travis-CICD</code> and add it to <a href="http://travis-ci.com" target="_blank" rel="noopener">Travis</a> GitHub Apps Integration</h2><img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis1.png" class="">
-
-
-<h2 id="under-the-travis-CICD-repo-create-a-travis-yml-file"><a href="#under-the-travis-CICD-repo-create-a-travis-yml-file" class="headerlink" title="under the travis-CICD repo, create a .travis.yml file"></a>under the travis-CICD repo, create a .travis.yml file</h2><p>Since github uses ruby, I don’t need to specify the language. For this project, I am going to work on docker, so I need to start docker.<br>I am going to use two docker images to create a multiarch using <code>docker manifest create</code> command.<br>Note: Because manifest is an experimental feature, I need to add <code>DOCKER_CLI_EXPERIMENTAL=enabled</code> in .travis.yml file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo: required</span><br><span class="line">addons:</span><br><span class="line">  apt:</span><br><span class="line">    update: true</span><br><span class="line">    packages:</span><br><span class="line">    - docker-ce</span><br><span class="line">services:</span><br><span class="line">- docker</span><br><span class="line">before_install:</span><br><span class="line">script:</span><br><span class="line">- docker pull treehouses/turtleblocksjs-tags:nginx-x86</span><br><span class="line">- docker pull treehouses/turtleblocksjs-tags:nginx-rpi</span><br><span class="line">- export DOCKER_CLI_EXPERIMENTAL=enabled</span><br><span class="line">- docker manifest create vmnet8/turtleblocksjs:annarocks2 treehouses/turtleblocksjs-tags:nginx-x86</span><br><span class="line">  treehouses/turtleblocksjs-tags:nginx-rpi</span><br><span class="line">- echo &quot;$DOCKER_PASSWORD&quot; | docker login -u &quot;$DOCKER_USERNAME&quot; --password-stdin</span><br><span class="line">- docker manifest push vmnet8/turtleblocksjs:annarocks2</span><br><span class="line">env:</span><br><span class="line">  global:</span><br></pre></td></tr></table></figure>
-
-<h2 id="Go-to-dockerhub-to-get-a-new-token"><a href="#Go-to-dockerhub-to-get-a-new-token" class="headerlink" title="Go to dockerhub to get a new token"></a>Go to dockerhub to get a new token</h2><img src="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/travis2.png" class="">
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/05/11/Travis-CI-push-docker-manifest-to-dockerhub/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1352,7 +1333,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
