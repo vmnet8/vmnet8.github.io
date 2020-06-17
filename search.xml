@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Ansible part9: fetch file from remote</title>
+      <link href="/2020/06/16/Ansible-part9-fetch-url-module/"/>
+      <url>/2020/06/16/Ansible-part9-fetch-url-module/</url>
+      
+        <content type="html"><![CDATA[<p>file module has a fetch module, which is the same as copy but in reverse.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: fetech</span><br><span class="line">      fetch: </span><br><span class="line">        src: /tmp/ansible-file-test.txt</span><br><span class="line">        dest: /tmp/</span><br><span class="line">        flat:</span><br></pre></td></tr></table></figure><p>go to my local machine to see /tmp directory</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/files-modules/inventory$ ll /tmp/ansible-node1/tmp/ansible-file-test.txt </span><br><span class="line">-rw-rw-r-- 1 anna anna 10 Jun 16 18:18 /tmp/ansible-node1/tmp/ansible-file-test.txt</span><br><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/files-modules/inventory$ ll /tmp/cube4200/tmp/ansible-file-test.txt </span><br><span class="line">-rw-rw-r-- 1 anna anna 0 Jun 16 18:18 /tmp/cube4200/tmp/ansible-file-test.txt</span><br></pre></td></tr></table></figure><p>there are two hosts directories which are relate to my two hosts.</p><p>for the <code>flat</code>, it means ansible will not distinct the files from different hosts, the latest file will overwrite the old one.<br>for example</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - name: fetech</span><br><span class="line">      fetch: </span><br><span class="line">        src: /tmp/ansible-file-test.txt</span><br><span class="line">        dest: /tmp/</span><br><span class="line">        flat: yes</span><br></pre></td></tr></table></figure><p>notice: the default of flat is no, I am turning on it here, it will let the new file overwrite old file</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/modules/files-modules/inventory$ ll /tmp</span><br><span class="line">total 76</span><br><span class="line">drwxrwxrwt 18 root root 4096 Jun 16 18:28  ./</span><br><span class="line">drwxr-xr-x 24 root root 4096 Jun  9 20:21  ../</span><br><span class="line">-rw-rw-r--  1 anna anna    0 Jun 16 18:28  ansible-file-test.txt</span><br></pre></td></tr></table></figure><p>from above, I can see there is only one <code>ansible-file-test.txt</code> file which is from cube4200, and there is no file from ansible-node1.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Ansible </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ansible-part8: Ansible lint</title>
       <link href="/2020/06/13/Ansible-part8-Ansible-lint/"/>
       <url>/2020/06/13/Ansible-part8-Ansible-lint/</url>

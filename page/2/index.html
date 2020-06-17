@@ -227,7 +227,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">47</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">48</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,6 +279,129 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/02/12/Using-docker-compose-yml-to-run-netdata/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/02/12/Using-docker-compose-yml-to-run-netdata/" class="post-title-link" itemprop="url">Using docker compose yml to run netdata</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-02-12 12:25:41" itemprop="dateCreated datePublished" datetime="2020-02-12T12:25:41-08:00">2020-02-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-03 15:12:50" itemprop="dateModified" datetime="2020-06-03T15:12:50-07:00">2020-06-03</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/12/Using-docker-compose-yml-to-run-netdata/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/12/Using-docker-compose-yml-to-run-netdata/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Want to monitor your system and applications, Netdata is distributed, real-time performance and health monitoring for these. It is a highly-optimized monitoring agent you install on all your systems and containers.</p>
+<p>I tried to use docker image to use netdata.</p>
+<h2 id="Install-netdata-docker-image-and-run-it"><a href="#Install-netdata-docker-image-and-run-it" class="headerlink" title="Install netdata docker image and run it"></a>Install netdata docker image and run it</h2><p>It simply straightforward, just run docker command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=netdata \</span><br><span class="line">  -p 19999:19999 \</span><br><span class="line">  -v /etc/passwd:/host/etc/passwd:ro \</span><br><span class="line">  -v /etc/group:/host/etc/group:ro \</span><br><span class="line">  -v /proc:/host/proc:ro \</span><br><span class="line">  -v /sys:/host/sys:ro \</span><br><span class="line">  -v /etc/os-release:/host/etc/os-release:ro \</span><br><span class="line">  --cap-add SYS_PTRACE \</span><br><span class="line">  --security-opt apparmor=unconfined \</span><br><span class="line">  netdata/netdata</span><br></pre></td></tr></table></figure>
+<p>then go to your browser, <a href="http://yourip:19999" target="_blank" rel="noopener">http://yourip:19999</a>, you can see netdata works.</p>
+<h2 id="use-docker-compose-yml-file-to-run-netdata-service"><a href="#use-docker-compose-yml-file-to-run-netdata-service" class="headerlink" title="use docker compose yml file to run netdata service"></a>use docker compose yml file to run netdata service</h2><h3 id="write-a-shell-script-to-create-a-docker-yml-file-under-srv"><a href="#write-a-shell-script-to-create-a-docker-yml-file-under-srv" class="headerlink" title="write a shell script to create  a docker yml file under /srv"></a>write a shell script to create  a docker yml file under /srv</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">#create netdata.yml</span><br><span class="line">mkdir -p /srv/netdata/</span><br><span class="line">&#123;</span><br><span class="line">  echo &quot;version: &apos;3&apos;&quot;</span><br><span class="line">  echo &quot;services:&quot;</span><br><span class="line">  echo &quot;  netdata:&quot;</span><br><span class="line">  echo &quot;    image: netdata/netdata&quot;</span><br><span class="line">  echo &quot;    ports:&quot;</span><br><span class="line">  echo &quot;      - 19999:19999&quot;</span><br><span class="line">  echo &quot;    cap_add:&quot;</span><br><span class="line">  echo &quot;      - SYS_PTRACE&quot;</span><br><span class="line">  echo &quot;    security_opt:&quot;</span><br><span class="line">  echo &quot;      - apparmor:unconfined&quot;</span><br><span class="line">  echo &quot;    volumes:&quot;</span><br><span class="line">  echo &quot;      - /etc/passwd:/host/etc/passwd:ro&quot;</span><br><span class="line">  echo &quot;      - /etc/os-release:/host/etc/os-release:ro&quot;</span><br><span class="line">  echo &quot;      - /etc/group:/host/etc/group:ro&quot;</span><br><span class="line">  echo &quot;      - /proc:/host/proc:ro&quot;</span><br><span class="line">  echo &quot;      - /sys:/host/sys:ro&quot;</span><br><span class="line">&#125; &gt; /srv/netdata/netdata.yml</span><br></pre></td></tr></table></figure>
+
+<p>run it, then go to /srv/netdata to check if it exists</p>
+<p>at the same dir to  create an autorun file, named netdata_auto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netdata_autorun=true</span><br><span class="line"></span><br><span class="line">if [ &quot;$netdata_autorun&quot; = true ]; then</span><br><span class="line">  docker-compose -f /srv/netdata/netdata.yml -p netdata up -d</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>let me test</p>
+<p>run shell script first</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# ./netdata_yml.sh</span><br></pre></td></tr></table></figure>
+<p>go to /srv to verify it created the docker compose yml file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# cat /srv/netdata/netdata.yml </span><br><span class="line">version: &apos;3&apos;</span><br><span class="line">services:</span><br><span class="line">  netdata:</span><br><span class="line">    image: netdata/netdata</span><br><span class="line">    ports:</span><br><span class="line">      - 19999:19999</span><br><span class="line">    cap_add:</span><br><span class="line">      - SYS_PTRACE</span><br><span class="line">    security_opt:</span><br><span class="line">      - apparmor:unconfined</span><br><span class="line">    volumes:</span><br><span class="line">      - /etc/passwd:/host/etc/passwd:ro</span><br><span class="line">      - /etc/os-release:/host/etc/os-release:ro</span><br><span class="line">      - /etc/group:/host/etc/group:ro</span><br><span class="line">      - /proc:/host/proc:ro</span><br><span class="line">      - /sys:/host/sys:ro</span><br></pre></td></tr></table></figure>
+<p>then run docker-compose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# docker-compose -f /srv/netdata/netdata.yml -p netdata up -d</span><br><span class="line">Creating network &quot;netdata_default&quot; with the default driver</span><br><span class="line">Pulling netdata (netdata/netdata:)...</span><br><span class="line">latest: Pulling from netdata/netdata</span><br><span class="line">2aa204966f9a: Pull complete</span><br><span class="line">8dde373fbef5: Pull complete</span><br><span class="line">042f66a41d56: Pull complete</span><br><span class="line">3526782612f0: Pull complete</span><br><span class="line">c2b930d703fa: Pull complete</span><br><span class="line">9b859bae4175: Pull complete</span><br><span class="line">f3e46298693e: Pull complete</span><br><span class="line">Digest: sha256:b49e1901fd8aae43d950c171c14449b5080a5550faa97594e2d4ccee7ed3aac8</span><br><span class="line">Status: Downloaded newer image for netdata/netdata:latest</span><br><span class="line">Creating netdata_netdata_1 ... done</span><br></pre></td></tr></table></figure>
+
+<p>check if the docker image is pulled and run</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@rpi-121:/home/pi/git_repo/cli/templates/services/netdata# docker images</span><br><span class="line">REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">netdata/netdata       latest              d170142fbe20        19 hours ago        249MB</span><br></pre></td></tr></table></figure>
+<p>it worked well</p>
+<p>go to browser <a href="http://myip:19999" target="_blank" rel="noopener">http://myip:19999</a></p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/02/12/Using-docker-compose-yml-to-run-netdata/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
         
   
   
@@ -1303,115 +1426,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2019/11/06/npm-analyzer-project-part-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Anna X">
-      <meta itemprop="description" content="Happy coding ...">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anna X">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/06/npm-analyzer-project-part-4/" class="post-title-link" itemprop="url">npm analyzer project: part 4</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-06 10:00:25" itemprop="dateCreated datePublished" datetime="2019-11-06T10:00:25-08:00">2019-11-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-03 15:08:42" itemprop="dateModified" datetime="2020-06-03T15:08:42-07:00">2020-06-03</time>
-              </span>
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/06/npm-analyzer-project-part-4/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/06/npm-analyzer-project-part-4/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Install-elasticsearch"><a href="#Install-elasticsearch" class="headerlink" title="Install elasticsearch"></a>Install elasticsearch</h2><p>elasticsearch is a scalable and speedy search, analytics, and storage.</p>
-<h4 id="import-signing-key-PGP-key"><a href="#import-signing-key-PGP-key" class="headerlink" title="import signing key (PGP key)"></a>import signing key (PGP key)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<h4 id="install-from-apt-repo"><a href="#install-from-apt-repo" class="headerlink" title="install from apt repo"></a>install from apt repo</h4><p>install the apt-transport-https package on Debian before proceeding.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get install apt-transport-https</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">apt-transport-https is already the newest version (1.8.2).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 11 not upgraded.</span><br></pre></td></tr></table></figure>
-<p>Save the repository definition to /etc/apt/sources.list.d/elastic-7.x.list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list</span><br><span class="line">deb https://artifacts.elastic.co/packages/7.x/apt stable main</span><br></pre></td></tr></table></figure>
-<p>check source list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:/etc/apt/sources.list.d$ ls -al</span><br><span class="line">total 24</span><br><span class="line">drwxr-xr-x 2 root root 4096 Nov  6 18:05 .</span><br><span class="line">drwxr-xr-x 7 root root 4096 Nov  6 18:02 ..</span><br><span class="line">-rw-r--r-- 1 root root  419 Nov  2 06:19 bintray.rabbitmq.list</span><br><span class="line">-rw-r--r-- 1 root root   62 Nov  6 18:05 elastic-7.x.list</span><br><span class="line">-rw-r--r-- 1 root root  189 Oct 17 04:04 google-chrome.list</span><br><span class="line">-rw-r--r-- 1 root root   55 Oct 17 04:01 google-chrome.list.save</span><br></pre></td></tr></table></figure>
-<h4 id="install-the-Elasticsearch-Debian-package"><a href="#install-the-Elasticsearch-Debian-package" class="headerlink" title="install the Elasticsearch Debian package"></a>install the Elasticsearch Debian package</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">vagrant@cli:~/npm_analyzer$ sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch</span><br><span class="line">Get:1 http://security.debian.org/debian-security buster/updates InRelease [39.1 kB]</span><br><span class="line">Hit:2 http://deb.debian.org/debian buster InRelease                                                                                          </span><br><span class="line">Get:3 https://download.docker.com/linux/debian buster InRelease [44.4 kB]                                                                    </span><br><span class="line">Get:4 https://artifacts.elastic.co/packages/7.x/apt stable InRelease [7,124 B]                                                               </span><br><span class="line">Ign:5 http://dl.google.com/linux/chrome/deb stable InRelease                                                                                 </span><br><span class="line">Hit:6 https://deb.nodesource.com/node_10.x buster InRelease                                                                                  </span><br><span class="line">Hit:7 http://dl.google.com/linux/chrome/deb stable Release                                                                                   </span><br><span class="line">Ign:8 https://dl.bintray.com/rabbitmq-erlang/debian bionic InRelease                                              </span><br><span class="line">Get:9 http://ftp.de.debian.org/debian buster-backports InRelease [46.7 kB]</span><br><span class="line">Ign:10 https://dl.bintray.com/rabbitmq/debian bionic InRelease</span><br><span class="line">Get:11 https://dl.bintray.com/rabbitmq-erlang/debian bionic Release [12.6 kB]</span><br><span class="line">Get:12 https://dl.bintray.com/rabbitmq/debian bionic Release [74.5 kB]</span><br><span class="line">Get:13 http://security.debian.org/debian-security buster/updates/main Sources [84.1 kB]</span><br><span class="line">Get:14 http://security.debian.org/debian-security buster/updates/main amd64 Packages [112 kB]</span><br><span class="line">Get:15 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 Packages [21.9 kB]</span><br><span class="line">Get:19 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages.diff/Index [27.8 kB]                                             </span><br><span class="line">Get:20 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-02-1415.02.pdiff [178 B]                                 </span><br><span class="line">Get:21 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0215.42.pdiff [276 B]                                 </span><br><span class="line">Get:22 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-0818.43.pdiff [15.7 kB]                               </span><br><span class="line">Get:23 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-03-2017.32.pdiff [501 B]                                 </span><br><span class="line">Get:24 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-05-1414.24.pdiff [5,640 B]                               </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Get:25 http://ftp.de.debian.org/debian buster-backports/main amd64 Packages 2019-11-06-1414.27.pdiff [237 B]                                 </span><br><span class="line">Fetched 493 kB in 7s (72.2 kB/s)                                                                                                             </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  elasticsearch</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 11 not upgraded.</span><br><span class="line">Need to get 289 MB of archives.</span><br><span class="line">After this operation, 488 MB of additional disk space will be used.</span><br><span class="line">Get:1 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 elasticsearch amd64 7.4.2 [289 MB]</span><br><span class="line">Fetched 289 MB in 29s (10.0 MB/s)                                                                                                            </span><br><span class="line">Selecting previously unselected package elasticsearch.</span><br><span class="line">(Reading database ... 57026 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../elasticsearch_7.4.2_amd64.deb ...</span><br><span class="line">Creating elasticsearch group... OK</span><br><span class="line">Creating elasticsearch user... OK</span><br><span class="line">Unpacking elasticsearch (7.4.2) ...</span><br><span class="line">Setting up elasticsearch (7.4.2) ...</span><br><span class="line">Created elasticsearch keystore in /etc/elasticsearch</span><br><span class="line">Processing triggers for systemd (241-7~deb10u1) ...</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/11/06/npm-analyzer-project-part-4/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1464,7 +1478,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
