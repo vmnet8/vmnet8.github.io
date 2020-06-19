@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vmnet8.github.io/"/>
-  <updated>2020-06-17T02:50:38.272Z</updated>
+  <updated>2020-06-19T07:55:46.559Z</updated>
   <id>https://vmnet8.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible part11: cron module to power off remote, Wake-on-LAN module to power on remote</title>
+    <link href="https://vmnet8.github.io/2020/06/19/Ansible-part11-cron-module-to-power-off-remote-wake-on-lab-module-to-power-on-remote/"/>
+    <id>https://vmnet8.github.io/2020/06/19/Ansible-part11-cron-module-to-power-off-remote-wake-on-lab-module-to-power-on-remote/</id>
+    <published>2020-06-19T07:01:43.000Z</published>
+    <updated>2020-06-19T07:55:46.559Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;power-off-using-cron&quot;&gt;&lt;a href=&quot;#power-off-using-cron&quot; class=&quot;headerlink&quot; title=&quot;power off using cron&quot;&gt;&lt;/a&gt;power off using
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ansible" scheme="https://vmnet8.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible-part10: net tool module uri</title>
@@ -519,33 +544,6 @@
       <category term="bettercap" scheme="https://vmnet8.github.io/tags/bettercap/"/>
     
       <category term="Docker" scheme="https://vmnet8.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pwnagotchi project: Using Pwnagotchi image</title>
-    <link href="https://vmnet8.github.io/2019/11/19/Pwnagotchi-project/"/>
-    <id>https://vmnet8.github.io/2019/11/19/Pwnagotchi-project/</id>
-    <published>2019-11-20T05:17:29.000Z</published>
-    <updated>2019-11-23T08:28:30.520Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;what-is-Pwnagotchi&quot;&gt;&lt;a href=&quot;#what-is-Pwnagotchi&quot; class=&quot;headerlink&quot; title=&quot;what is Pwnagotchi&quot;&gt;&lt;/a&gt;what is
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="pwnagotchi -" scheme="https://vmnet8.github.io/tags/pwnagotchi/"/>
-    
-      <category term="wifi" scheme="https://vmnet8.github.io/tags/wifi/"/>
     
   </entry>
   
