@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Anna X" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="BlocksBlocks allow for logical grouping of tasks and in play error handling. 1234567891011- name: test blocks resuce and always  hosts: web2  tasks:    - name: first command      debug:         msg: &amp;">
+<meta name="keywords" content="Ansible">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ansible-part12: block rescue and always">
+<meta property="og:url" content="https:&#x2F;&#x2F;vmnet8.github.io&#x2F;2020&#x2F;06&#x2F;21&#x2F;Ansible-part12-block-rescure-and-always&#x2F;index.html">
+<meta property="og:site_name" content="Anna X">
+<meta property="og:description" content="BlocksBlocks allow for logical grouping of tasks and in play error handling. 1234567891011- name: test blocks resuce and always  hosts: web2  tasks:    - name: first command      debug:         msg: &amp;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-06-22T05:11:42.183Z">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vmnet8.github.io/2020/06/21/Ansible-part12-block-rescure-and-always/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Ansible-part12: block rescue and always | Anna X</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anna X</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Anna's Tech Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">51</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://vmnet8.github.io/2020/06/21/Ansible-part12-block-rescure-and-always/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anna X">
+      <meta itemprop="description" content="Happy coding ...">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/34552097">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anna X">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Ansible-part12: block rescue and always
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-06-21 19:50:29 / Modified: 22:11:42" itemprop="dateCreated datePublished" datetime="2020-06-21T19:50:29-07:00">2020-06-21</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/21/Ansible-part12-block-rescure-and-always/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/21/Ansible-part12-block-rescure-and-always/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="Blocks"><a href="#Blocks" class="headerlink" title="Blocks"></a>Blocks</h4><p>Blocks allow for logical grouping of tasks and in play error handling.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- name: test blocks resuce and always</span><br><span class="line">  hosts: web2</span><br><span class="line">  tasks:</span><br><span class="line">    - name: first command</span><br><span class="line">      debug: </span><br><span class="line">        msg: &quot;first message success&quot;</span><br><span class="line">    - name: second command</span><br><span class="line">      command: /bin/false</span><br><span class="line">    - name: third command</span><br><span class="line">      debug:</span><br><span class="line">        msg: &quot;this is third command&quot;</span><br></pre></td></tr></table></figure>
+<p>There are three tasks in this playbook, but the second one is a wrong command, which will failed to be executed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/block-resuce-always$ ansible-playbook -i hosts site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test blocks resuce and always] ******************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [first command] **********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;first message sucess&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [second command] *********************************************************************************************************************************************************************************************************************************</span><br><span class="line">fatal: [cube4200]: FAILED! =&gt; &#123;&quot;changed&quot;: true, &quot;cmd&quot;: [&quot;/bin/false&quot;], &quot;delta&quot;: &quot;0:00:00.011635&quot;, &quot;end&quot;: &quot;2020-06-21 21:31:18.222247&quot;, &quot;msg&quot;: &quot;non-zero return code&quot;, &quot;rc&quot;: 1, &quot;start&quot;: &quot;2020-06-21 21:31:18.210612&quot;, &quot;stderr&quot;: &quot;&quot;, &quot;stderr_lines&quot;: [], &quot;stdout&quot;: &quot;&quot;, &quot;stdout_lines&quot;: []&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">cube4200                   : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<p>Since the second faild, so the third one will be skipped. I don’t want this happen, So I use block to solove this.</p>
+<h4 id="Blocks-error-handling"><a href="#Blocks-error-handling" class="headerlink" title="Blocks error handling"></a>Blocks error handling</h4><p>Blocks also introduce the ability to handle errors in a way similar to exceptions in most programming languages. Blocks only deal with ‘failed’ status of a task. A bad task definition or an unreachable host are not ‘rescuable’ errors.</p>
+<p>three key words: block rescure always are similar as try exception and final in python.<br>block section: will execute normally<br>rescue section: will execute only when block section has error<br>always section: will run no matter what the task status is.</p>
+<p>I add block into playbook</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- name: test blocks recue and always</span><br><span class="line">  hosts: web2</span><br><span class="line">  tasks:</span><br><span class="line">    - block:</span><br><span class="line">      - name: test block, this is first command</span><br><span class="line">        debug: </span><br><span class="line">          msg: &quot;first message success&quot;</span><br><span class="line">      - name: second command</span><br><span class="line">        command: /bin/false</span><br><span class="line">      rescue:</span><br><span class="line">      - name: third command, this is excuted only when block failed, otherwise will be skipped</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;some command in block failed, so this message be excuted&quot;</span><br></pre></td></tr></table></figure>
+<p>after running</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/block-resuce-always$ ansible-playbook -i hosts site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test blocks resuce and always] ******************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test block, this is first command] **************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;first message success&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [second command] *********************************************************************************************************************************************************************************************************************************</span><br><span class="line">fatal: [cube4200]: FAILED! =&gt; &#123;&quot;changed&quot;: true, &quot;cmd&quot;: [&quot;/bin/false&quot;], &quot;delta&quot;: &quot;0:00:00.010445&quot;, &quot;end&quot;: &quot;2020-06-21 21:42:37.100618&quot;, &quot;msg&quot;: &quot;non-zero return code&quot;, &quot;rc&quot;: 1, &quot;start&quot;: &quot;2020-06-21 21:42:37.090173&quot;, &quot;stderr&quot;: &quot;&quot;, &quot;stderr_lines&quot;: [], &quot;stdout&quot;: &quot;&quot;, &quot;stdout_lines&quot;: []&#125;</span><br><span class="line"></span><br><span class="line">TASK [third command, this is excuted only when block failed, otherwise will be skipped] ***************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;some command in block failed, so this message be excuted&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">cube4200                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0</span><br></pre></td></tr></table></figure>
+
+<p>eventhough the second command failed, the third command still be excuted since it is in the rescue section.</p>
+<p>I am testing another situation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - block:</span><br><span class="line">      - name: test block, this is first command</span><br><span class="line">        debug: </span><br><span class="line">          msg: &quot;first message success&quot;</span><br><span class="line">      - name: second command</span><br><span class="line">        command: /bin/date</span><br><span class="line">      rescue:</span><br><span class="line">      - name: third command, this is excuted only when block failed, otherwise will be skipped</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;some command in block failed, so this message be excuted&quot;</span><br></pre></td></tr></table></figure>
+<p>In this playbook, the second command is correct. what will happed to rescue section?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/block-resuce-always$ ansible-playbook -i hosts site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test blocks resuce and always] ******************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test block, this is first command] **************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;first message success&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [second command] *********************************************************************************************************************************************************************************************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">cube4200                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<p>It shows the rescue section isn’t be excuted any more.</p>
+<p>Let’s look at <code>always</code> scenario</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - block:</span><br><span class="line">      - name: test block, this is first command</span><br><span class="line">        debug: </span><br><span class="line">          msg: &quot;first message success&quot;</span><br><span class="line">      - name: second command</span><br><span class="line">        command: /bin/date</span><br><span class="line">      rescue:</span><br><span class="line">      - name: third command, this is excuted only when block failed, otherwise will be skipped</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;some command in block failed, so this message be excuted&quot;</span><br><span class="line">      always:</span><br><span class="line">      - name: test always. whatever this task have to be executed.</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;this section definitely be executed!!&quot;</span><br></pre></td></tr></table></figure>
+<p>whatever happen, the always section will be executed, but rescue section isn’t excuted since the second command successed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/block-resuce-always$ ansible-playbook -i hosts site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test blocks resuce and always] ******************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test block, this is first command] **************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;first message success&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [second command] *********************************************************************************************************************************************************************************************************************************</span><br><span class="line">changed: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test always. whatever this task have to be executed.] *******************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;this section definitely be executed!!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">cube4200                   : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+
+
+<p>last scenario</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tasks:</span><br><span class="line">    - block:</span><br><span class="line">      - name: test block, this is first command</span><br><span class="line">        debug: </span><br><span class="line">          msg: &quot;first message success&quot;</span><br><span class="line">      - name: second command</span><br><span class="line">        command: /bin/da</span><br><span class="line">      rescue:</span><br><span class="line">      - name: third command, this is excuted only when block failed, otherwise will be skipped</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;some command in block failed, so this message be excuted&quot;</span><br><span class="line">      always:</span><br><span class="line">      - name: test always. whatever this task have to be executed.</span><br><span class="line">        debug:</span><br><span class="line">          msg: &quot;this section definitely be executed!!&quot;</span><br></pre></td></tr></table></figure>
+<p>the second command failed, both rescue and always will be excuted.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">anna@ansible-controller:~/Desktop/ansible-code/inventory/block-resuce-always$ ansible-playbook -i hosts site.yml </span><br><span class="line"></span><br><span class="line">PLAY [test blocks resuce and always] ******************************************************************************************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200]</span><br><span class="line"></span><br><span class="line">TASK [test block, this is first command] **************************************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;first message success&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [second command] *********************************************************************************************************************************************************************************************************************************</span><br><span class="line">fatal: [cube4200]: FAILED! =&gt; &#123;&quot;changed&quot;: false, &quot;cmd&quot;: &quot;/bin/da&quot;, &quot;msg&quot;: &quot;[Errno 2] No such file or directory&quot;, &quot;rc&quot;: 2&#125;</span><br><span class="line"></span><br><span class="line">TASK [third command, this is excuted only when block failed, otherwise will be skipped] ***************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;some command in block failed, so this message be excuted&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TASK [test always. whatever this task have to be executed.] *******************************************************************************************************************************************************************************************</span><br><span class="line">ok: [cube4200] =&gt; &#123;</span><br><span class="line">    &quot;msg&quot;: &quot;this section definitely be executed!!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************************************************************************************************************</span><br><span class="line">cube4200                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Ansible/" rel="tag"># Ansible</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/06/19/Ansible-part11-cron-module-to-power-off-remote-wake-on-lab-module-to-power-on-remote/" rel="next" title="Ansible part11: cron module to power off remote, Wake-on-LAN module to power on remote">
+                  <i class="fa fa-chevron-left"></i> Ansible part11: cron module to power off remote, Wake-on-LAN module to power on remote
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Blocks"><span class="nav-number">1.</span> <span class="nav-text">Blocks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Blocks-error-handling"><span class="nav-number">2.</span> <span class="nav-text">Blocks error handling</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://avatars0.githubusercontent.com/u/34552097"
+      alt="Anna X">
+  <p class="site-author-name" itemprop="name">Anna X</p>
+  <div class="site-description" itemprop="description">Happy coding ...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/vmnet8" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;vmnet8" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.linkedin.com/in/anna-x/" title="Linkedin &amp;rarr; https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;anna-x&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:vmnet8@gmail.com" title="E-Mail &amp;rarr; mailto:vmnet8@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anna X</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://annax.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://vmnet8.github.io/2020/06/21/Ansible-part12-block-rescure-and-always/";
+    this.page.identifier = "2020/06/21/Ansible-part12-block-rescure-and-always/";
+    this.page.title = 'Ansible-part12: block rescue and always';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://annax.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>
